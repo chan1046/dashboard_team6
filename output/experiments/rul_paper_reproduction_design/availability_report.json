@@ -1,0 +1,46 @@
+{
+  "unique_fault_events": 1211,
+  "by_type": {
+    "pressure_low": 741,
+    "pressure_high": 333,
+    "leak": 137
+  },
+  "candidate_counts": {
+    "any_cycle_sensor": 1047,
+    "paper1_2000_shutter1_cycle_upper": 137,
+    "paper3_3000_raw_5h_upper": 219,
+    "paper3_3000_tail_30m_gap_upper": 171,
+    "paper3_3000_tail_and_recent_1h_upper": 168
+  },
+  "candidate_by_type": {
+    "leak": {
+      "any_cycle_sensor": 105,
+      "paper1_2000_shutter1_cycle_upper": 23,
+      "paper3_3000_raw_5h_upper": 30,
+      "paper3_3000_tail_30m_gap_upper": 24,
+      "paper3_3000_tail_and_recent_1h_upper": 24
+    },
+    "pressure_high": {
+      "any_cycle_sensor": 239,
+      "paper1_2000_shutter1_cycle_upper": 18,
+      "paper3_3000_raw_5h_upper": 37,
+      "paper3_3000_tail_30m_gap_upper": 29,
+      "paper3_3000_tail_and_recent_1h_upper": 29
+    },
+    "pressure_low": {
+      "any_cycle_sensor": 703,
+      "paper1_2000_shutter1_cycle_upper": 96,
+      "paper3_3000_raw_5h_upper": 152,
+      "paper3_3000_tail_30m_gap_upper": 118,
+      "paper3_3000_tail_and_recent_1h_upper": 115
+    }
+  },
+  "definitions": {
+    "cycle": "After previous unique fault, before current fault, same tool. Initial cycle begins at first sensor observation.",
+    "paper1_2000_shutter1_cycle_upper": "At least 2000 raw 4-second observations with shutter=1 in the 5h before the event, after previous fault; only an upper bound for 2000-point windows because missing sensor values and source authors' exact screening are not checked.",
+    "paper3_3000_raw_5h_upper": "At least 3000 raw observations within last 5h after previous fault; upper bound for paper Mmin=3000.",
+    "paper3_3000_tail_30m_gap_upper": "As above, but truncate history after the latest internal >30-minute gap. Thirty minutes is our explicit sensitivity rule; paper does not state a numerical large-gap threshold.",
+    "paper3_3000_tail_and_recent_1h_upper": "Tail criterion and latest sensor at most 1h before fault. One-hour recency is our application rule, not a paper rule."
+  },
+  "limitations": "These are event history availability estimates, not actual usable model sequences or performance. Exact paper count requires full sensor missingness, sample screening, onset labeling and fold-specific construction. No synthetic rows or model fits."
+}

@@ -1,0 +1,9 @@
+{
+  "A_macro_mae_evaluable_types_h": 60.820206642150886,
+  "B_macro_mae_evaluable_types_h": 60.72049045562744,
+  "macro_fault_types": [
+    "pressure_low",
+    "pressure_high"
+  ],
+  "warning": "Macro excludes leak because validation has zero eligible leak event; temporal folds cannot be meaningfully assessed with 1-2 events."
+}

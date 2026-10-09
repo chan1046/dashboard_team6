@@ -1,0 +1,9 @@
+{
+  "all_logged_validation_fault_rows": 181,
+  "all_unique_logged_validation_fault_events": 181,
+  "by_fault_type": {
+    "leak": 31,
+    "pressure_high": 64,
+    "pressure_low": 86
+  }
+}

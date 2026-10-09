@@ -1,0 +1,28 @@
+{
+  "low_fault_events": 741,
+  "candidate_horizon_samples": 4446,
+  "usable_history_samples": 1330,
+  "source_ttf_comparison": {
+    "no_sensor_history": 2257,
+    "exact": 2189
+  },
+  "future_sensor_violations": 0,
+  "after_fault_sensor_violations": 0,
+  "prediction_at_or_after_fault_violations": 0,
+  "source_ttf_mismatch_count": 0,
+  "source_ttf_max_absolute_difference_seconds": 0.0,
+  "manual_event_ids": [
+    1,
+    304,
+    775,
+    856,
+    990
+  ],
+  "manual_tools": [
+    "01_M01",
+    "03_M02",
+    "06_M02",
+    "08_M01",
+    "09_M01"
+  ]
+}

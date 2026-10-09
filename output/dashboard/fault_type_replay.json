@@ -1,0 +1,219 @@
+{
+  "metadata": {
+    "model": "full_fault_type_multi_anchor_best.joblib",
+    "source": "output/experiments/full_fault_type_multi_anchor/validation_predictions.csv",
+    "replay_mode": "설비별 최신 저장 검증 결과",
+    "same_timestamp_as_fleet": false,
+    "selected_model": "partial_A_event_class"
+  },
+  "tools": {
+    "01_M01": {
+      "available": true,
+      "prediction_timestamp": 26097148,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_high",
+      "fault_event_id": 12,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 26097118,
+      "timestamp_gap_seconds": 30
+    },
+    "01_M02": {
+      "available": true,
+      "prediction_timestamp": 28124978,
+      "predicted_class": "Leak",
+      "class_key": "leak",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 105,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 28124996,
+      "timestamp_gap_seconds": 18
+    },
+    "02_M01": {
+      "available": true,
+      "prediction_timestamp": 24242686,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 138,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 24242698,
+      "timestamp_gap_seconds": 12
+    },
+    "02_M02": {
+      "available": true,
+      "prediction_timestamp": 25483876,
+      "predicted_class": "High Pressure",
+      "class_key": "pressure_high",
+      "actual_fault_type": "pressure_high",
+      "fault_event_id": 171,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 25483858,
+      "timestamp_gap_seconds": 18
+    },
+    "03_M01": {
+      "available": true,
+      "prediction_timestamp": 30699806,
+      "predicted_class": "High Pressure",
+      "class_key": "pressure_high",
+      "actual_fault_type": "pressure_high",
+      "fault_event_id": 263,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 30699776,
+      "timestamp_gap_seconds": 30
+    },
+    "03_M02": {
+      "available": true,
+      "prediction_timestamp": 36616798,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 614,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 36616796,
+      "timestamp_gap_seconds": 2
+    },
+    "04_M01": {
+      "available": true,
+      "prediction_timestamp": 30679782,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 639,
+      "horizon": "1h",
+      "nearest_model1_timestamp": 30679798,
+      "timestamp_gap_seconds": 16
+    },
+    "04_M02": {
+      "available": true,
+      "prediction_timestamp": 33188000,
+      "predicted_class": "Leak",
+      "class_key": "leak",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 659,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 33187978,
+      "timestamp_gap_seconds": 22
+    },
+    "05_M01": {
+      "available": true,
+      "prediction_timestamp": 27138812,
+      "predicted_class": "Leak",
+      "class_key": "leak",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 701,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 27138838,
+      "timestamp_gap_seconds": 26
+    },
+    "05_M02": {
+      "available": true,
+      "prediction_timestamp": 26069344,
+      "predicted_class": "Leak",
+      "class_key": "leak",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 723,
+      "horizon": "3h",
+      "nearest_model1_timestamp": 26069336,
+      "timestamp_gap_seconds": 8
+    },
+    "06_M01": {
+      "available": true,
+      "prediction_timestamp": 32414708,
+      "predicted_class": "High Pressure",
+      "class_key": "pressure_high",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 740,
+      "horizon": "6h",
+      "nearest_model1_timestamp": 32414696,
+      "timestamp_gap_seconds": 12
+    },
+    "06_M02": {
+      "available": true,
+      "prediction_timestamp": 30862110,
+      "predicted_class": "Leak",
+      "class_key": "leak",
+      "actual_fault_type": "leak",
+      "fault_event_id": 810,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 30862138,
+      "timestamp_gap_seconds": 28
+    },
+    "07_M01": {
+      "available": true,
+      "prediction_timestamp": 29721678,
+      "predicted_class": "High Pressure",
+      "class_key": "pressure_high",
+      "actual_fault_type": "pressure_high",
+      "fault_event_id": 836,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 29721656,
+      "timestamp_gap_seconds": 22
+    },
+    "07_M02": {
+      "available": false,
+      "prediction_timestamp": null,
+      "predicted_class": null,
+      "status": "판단 보류",
+      "reason": "최종 Model 2 검증 결과 없음"
+    },
+    "08_M01": {
+      "available": true,
+      "prediction_timestamp": 31030282,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 939,
+      "horizon": "1h",
+      "nearest_model1_timestamp": 31030436,
+      "timestamp_gap_seconds": 154
+    },
+    "08_M02": {
+      "available": false,
+      "prediction_timestamp": null,
+      "predicted_class": null,
+      "status": "판단 보류",
+      "reason": "최종 Model 2 검증 결과 없음"
+    },
+    "09_M01": {
+      "available": true,
+      "prediction_timestamp": 33514268,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 1090,
+      "horizon": "1h",
+      "nearest_model1_timestamp": 33514204,
+      "timestamp_gap_seconds": 64
+    },
+    "09_M02": {
+      "available": true,
+      "prediction_timestamp": 37179098,
+      "predicted_class": "High Pressure",
+      "class_key": "pressure_high",
+      "actual_fault_type": "pressure_high",
+      "fault_event_id": 1189,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 37179118,
+      "timestamp_gap_seconds": 20
+    },
+    "10_M01": {
+      "available": false,
+      "prediction_timestamp": null,
+      "predicted_class": null,
+      "status": "판단 보류",
+      "reason": "최종 Model 2 검증 결과 없음"
+    },
+    "10_M02": {
+      "available": true,
+      "prediction_timestamp": 27408622,
+      "predicted_class": "Low Pressure",
+      "class_key": "pressure_low",
+      "actual_fault_type": "pressure_low",
+      "fault_event_id": 1236,
+      "horizon": "30m",
+      "nearest_model1_timestamp": 27408596,
+      "timestamp_gap_seconds": 26
+    }
+  }
+}

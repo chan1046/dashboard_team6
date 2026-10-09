@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>반도체 냉각설비 고장예측 시스템</title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Pretendard,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f4f7fa;
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           APP
+        ====================================================== */
+
+        .app-container {
+            width: 100%;
+            max-width: 1440px;
+
+            margin: 0 auto;
+            padding: 26px 32px 36px;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            min-height: 80px;
+
+            padding-bottom: 20px;
+            margin-bottom: 26px;
+
+            border-bottom: 1px solid #dce2e8;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .app-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #172033;
+        }
+
+        .app-subtitle {
+            font-size: 14px;
+            color: #7b8794;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            color: #198754;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #198754;
+        }
+
+
+        /* =====================================================
+           STEPPER
+        ====================================================== */
+
+        .step-container {
+            display: flex;
+            align-items: flex-start;
+
+            width: 100%;
+
+            padding: 10px 10px 30px;
+        }
+
+        .step-item {
+            width: 145px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            flex-shrink: 0;
+
+            color: #99a3ae;
+        }
+
+        .step-circle {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 2px solid #d0d7de;
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            transition: all 0.25s ease;
+        }
+
+        .step-title {
+            margin-top: 10px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            text-align: center;
+
+            white-space: nowrap;
+        }
+
+        .step-line {
+            flex: 1;
+
+            height: 2px;
+
+            margin-top: 20px;
+
+            background: #dde3e8;
+
+            transition: background 0.25s ease;
+        }
+
+
+        /* 현재 단계 */
+
+        .step-item.active {
+            color: #0b76a0;
+        }
+
+        .step-item.active .step-circle {
+            color: #ffffff;
+
+            background: #0b76a0;
+            border-color: #0b76a0;
+        }
+
+
+        /* 완료 단계 */
+
+        .step-item.completed {
+            color: #0b76a0;
+        }
+
+        .step-item.completed .step-circle {
+            color: #0b76a0;
+
+            background: #e1f2f8;
+            border-color: #0b76a0;
+        }
+
+        .step-line.completed {
+            background: #0b76a0;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ====================================================== */
+
+        .main-container {
+            width: 100%;
+
+            min-height: 500px;
+
+            padding: 32px;
+
+            background: #ffffff;
+
+            border: 1px solid #dfe5eb;
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 14px
+                rgba(20, 35, 50, 0.04);
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ====================================================== */
+
+        .page-header {
+            padding-bottom: 24px;
+
+            border-bottom: 1px solid #edf0f3;
+        }
+
+        .page-step {
+            margin-bottom: 7px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #0b76a0;
+        }
+
+        .page-title {
+            margin-bottom: 8px;
+
+            font-size: 26px;
+            font-weight: 700;
+
+            color: #172033;
+        }
+
+        .page-description {
+            font-size: 15px;
+
+            color: #7b8794;
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ====================================================== */
+
+        .content-container {
+            width: 100%;
+
+            min-height: 340px;
+
+            margin-top: 28px;
+        }
+
+        .content-placeholder {
+            width: 100%;
+            min-height: 340px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 2px dashed #d8dee5;
+            border-radius: 10px;
+
+            background: #fafbfc;
+
+            color: #9ca6b1;
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .navigation-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+
+            padding-top: 22px;
+        }
+
+        .navigation-left,
+        .navigation-right {
+            width: 140px;
+        }
+
+        .nav-button {
+            width: 100%;
+
+            padding: 12px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+
+        /* 이전 버튼 */
+
+        .nav-button.secondary {
+            color: #334155;
+
+            background: #ffffff;
+
+            border: 1px solid #ccd4dc;
+        }
+
+        .nav-button.secondary:hover:not(:disabled) {
+            background: #f5f7f9;
+        }
+
+
+        /* 다음 버튼 */
+
+        .nav-button.primary {
+            color: #ffffff;
+
+            background: #0b76a0;
+
+            border: 1px solid #0b76a0;
+        }
+
+        .nav-button.primary:hover {
+            background: #095f82;
+        }
+
+
+        /* Disabled */
+
+        .nav-button:disabled {
+            opacity: 0.35;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =====================================================
+           LOADING OVERLAY
+        ====================================================== */
+
+        .loading-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background:
+                rgba(244, 247, 250, 0.94);
+
+            z-index: 9999;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-box {
+            width: 100%;
+            max-width: 440px;
+
+            padding: 42px;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            border: 1px solid #dfe5eb;
+            border-radius: 16px;
+
+            box-shadow:
+                0 18px 50px
+                rgba(20, 35, 50, 0.14);
+        }
+
+
+        /* Spinner */
+
+        .spinner {
+            width: 54px;
+            height: 54px;
+
+            margin: 0 auto 24px;
+
+            border: 5px solid #e4ebef;
+            border-top-color: #0b76a0;
+
+            border-radius: 50%;
+
+            animation: spin 0.85s linear infinite;
+        }
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* Loading Text */
+
+        .loading-title {
+            margin-bottom: 10px;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            color: #172033;
+        }
+
+        .loading-message {
+            min-height: 20px;
+
+            margin-bottom: 24px;
+
+            font-size: 14px;
+
+            color: #7b8794;
+        }
+
+
+        /* Loading Progress */
+
+        .loading-progress {
+            width: 100%;
+            height: 8px;
+
+            overflow: hidden;
+
+            background: #e8edf1;
+
+            border-radius: 10px;
+        }
+
+        .loading-progress-bar {
+            width: 0%;
+            height: 100%;
+
+            background: #0b76a0;
+
+            border-radius: 10px;
+
+            transition: width 0.45s ease;
+        }
+
+        .loading-percent {
+            margin-top: 10px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            color: #0b76a0;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .app-container {
+                padding: 18px;
+            }
+
+            .app-header {
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .app-title {
+                font-size: 23px;
+            }
+
+            .step-container {
+                overflow-x: auto;
+            }
+
+            .step-item {
+                min-width: 115px;
+            }
+
+            .step-line {
+                min-width: 35px;
+            }
+
+            .main-container {
+                padding: 24px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="app-header">
+
+            <div class="header-left">
+
+                <div class="app-title">
+                    반도체 냉각설비 고장예측 시스템
+                </div>
+
+                <div class="app-subtitle">
+                    Ion Mill Etching FlowCool Predictive Maintenance Dashboard
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="system-status">
+
+                    <div class="status-dot"></div>
+
+                    <span>
+                        System Ready
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STEPPER
+        ================================================== -->
+
+        <div class="step-container">
+
+            <div class="step-item active">
+
+                <div class="step-circle">
+                    1
+                </div>
+
+                <div class="step-title">
+                    조회 조건 설정
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step-item">
+
+                <div class="step-circle">
+                    2
+                </div>
+
+                <div class="step-title">
+                    검사 결과 요약
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step-item">
+
+                <div class="step-circle">
+                    3
+                </div>
+
+                <div class="step-title">
+                    우선 점검 대상
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step-item">
+
+                <div class="step-circle">
+                    4
+                </div>
+
+                <div class="step-title">
+                    상세 분석
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step-item">
+
+                <div class="step-circle">
+                    5
+                </div>
+
+                <div class="step-title">
+                    대응 매뉴얼
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MAIN
+        ================================================== -->
+
+        <div class="main-container">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div class="page-step">
+                    STEP
+                    <span id="current-step-number">
+                        1
+                    </span>
+                    / 5
+                </div>
+
+
+                <div
+                    class="page-title"
+                    id="page-title"
+                >
+                    조회 조건 설정
+                </div>
+
+
+                <div
+                    class="page-description"
+                    id="page-description"
+                >
+                    분석할 장비와 조회 기간을 설정합니다.
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div
+                class="content-container"
+                id="content-container"
+            >
+
+                <div class="content-placeholder">
+                    STEP 1 상세 컴포넌트 영역
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <div class="navigation-container">
+
+
+            <div class="navigation-left">
+
+                <button
+                    id="prev-button"
+                    class="nav-button secondary"
+                    disabled
+                >
+                    ← 이전
+                </button>
+
+            </div>
+
+
+            <div class="navigation-right">
+
+                <button
+                    id="next-button"
+                    class="nav-button primary"
+                >
+                    검사 시작 →
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LOADING OVERLAY
+    ====================================================== -->
+
+    <div
+        class="loading-overlay"
+        id="loading-overlay"
+    >
+
+        <div class="loading-box">
+
+
+            <div class="spinner"></div>
+
+
+            <div class="loading-title">
+                설비 검사를 진행하고 있습니다
+            </div>
+
+
+            <div
+                class="loading-message"
+                id="loading-message"
+            >
+                센서 데이터를 불러오는 중입니다.
+            </div>
+
+
+            <div class="loading-progress">
+
+                <div
+                    class="loading-progress-bar"
+                    id="loading-progress-bar"
+                ></div>
+
+            </div>
+
+
+            <div
+                class="loading-percent"
+                id="loading-percent"
+            >
+                0%
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =================================================
+           STEP 정보
+        ================================================== */
+
+        const steps = [
+
+            {
+                number: 1,
+                title: "조회 조건 설정",
+                description:
+                    "분석할 장비와 조회 기간을 설정합니다."
+            },
+
+            {
+                number: 2,
+                title: "검사 결과 요약",
+                description:
+                    "선택한 조건에 대한 검사 결과를 확인합니다."
+            },
+
+            {
+                number: 3,
+                title: "우선 점검 대상",
+                description:
+                    "점검이 필요한 설비와 우선순위를 확인합니다."
+            },
+
+            {
+                number: 4,
+                title: "상세 분석",
+                description:
+                    "선택한 설비의 센서 변화와 고장 예측 결과를 상세하게 확인합니다."
+            },
+
+            {
+                number: 5,
+                title: "대응 매뉴얼",
+                description:
+                    "예상 고장 유형에 따른 점검 및 대응 방법을 확인합니다."
+            }
+
+        ];
+
+
+        let currentStep = 1;
+
+
+
+        /* =================================================
+           DOM
+        ================================================== */
+
+        const stepItems =
+            document.querySelectorAll(".step-item");
+
+        const stepLines =
+            document.querySelectorAll(".step-line");
+
+        const currentStepNumber =
+            document.getElementById(
+                "current-step-number"
+            );
+
+        const pageTitle =
+            document.getElementById(
+                "page-title"
+            );
+
+        const pageDescription =
+            document.getElementById(
+                "page-description"
+            );
+
+        const contentContainer =
+            document.getElementById(
+                "content-container"
+            );
+
+        const previousButton =
+            document.getElementById(
+                "prev-button"
+            );
+
+        const nextButton =
+            document.getElementById(
+                "next-button"
+            );
+
+
+
+        /* =================================================
+           STEP 화면 렌더링
+        ================================================== */
+
+        function renderStep() {
+
+            const step =
+                steps[currentStep - 1];
+
+
+            /* 페이지 정보 */
+
+            currentStepNumber.textContent =
+                step.number;
+
+            pageTitle.textContent =
+                step.title;
+
+            pageDescription.textContent =
+                step.description;
+
+
+            /* 상세 콘텐츠 */
+
+            contentContainer.innerHTML = `
+                <div class="content-placeholder">
+                    STEP ${currentStep} 상세 컴포넌트 영역
+                </div>
+            `;
+
+
+            /* Stepper */
+
+            stepItems.forEach(
+                (item, index) => {
+
+                    const stepNumber =
+                        index + 1;
+
+
+                    item.classList.remove(
+                        "active",
+                        "completed"
+                    );
+
+
+                    if (
+                        stepNumber < currentStep
+                    ) {
+
+                        item.classList.add(
+                            "completed"
+                        );
+
+                    }
+
+                    else if (
+                        stepNumber === currentStep
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* 연결선 */
+
+            stepLines.forEach(
+                (line, index) => {
+
+                    line.classList.remove(
+                        "completed"
+                    );
+
+
+                    if (
+                        index < currentStep - 1
+                    ) {
+
+                        line.classList.add(
+                            "completed"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* 이전 버튼 */
+
+            previousButton.disabled =
+                currentStep === 1;
+
+
+            /* 다음 버튼 */
+
+            if (
+                currentStep === 1
+            ) {
+
+                nextButton.textContent =
+                    "검사 시작 →";
+
+            }
+
+            else if (
+                currentStep === 5
+            ) {
+
+                nextButton.textContent =
+                    "처음으로";
+
+            }
+
+            else {
+
+                nextButton.textContent =
+                    "다음 →";
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           검사 진행 Loading
+        ================================================== */
+
+        function startInspection() {
+
+            const overlay =
+                document.getElementById(
+                    "loading-overlay"
+                );
+
+            const message =
+                document.getElementById(
+                    "loading-message"
+                );
+
+            const progressBar =
+                document.getElementById(
+                    "loading-progress-bar"
+                );
+
+            const percent =
+                document.getElementById(
+                    "loading-percent"
+                );
+
+
+            /* 초기화 */
+
+            progressBar.style.width =
+                "0%";
+
+            percent.textContent =
+                "0%";
+
+            message.textContent =
+                "센서 데이터를 불러오는 중입니다.";
+
+
+            /* Loading 열기 */
+
+            overlay.classList.add(
+                "active"
+            );
+
+
+            const loadingSteps = [
+
+                {
+                    progress: 25,
+                    message:
+                        "센서 데이터를 불러오는 중입니다."
+                },
+
+                {
+                    progress: 50,
+                    message:
+                        "센서 데이터를 분석하고 있습니다."
+                },
+
+                {
+                    progress: 75,
+                    message:
+                        "고장 유형과 TTF를 예측하고 있습니다."
+                },
+
+                {
+                    progress: 100,
+                    message:
+                        "검사 결과를 생성하고 있습니다."
+                }
+
+            ];
+
+
+            let index = 0;
+
+
+            const interval =
+                setInterval(
+                    function () {
+
+                        const current =
+                            loadingSteps[index];
+
+
+                        progressBar.style.width =
+                            current.progress + "%";
+
+                        percent.textContent =
+                            current.progress + "%";
+
+                        message.textContent =
+                            current.message;
+
+
+                        index++;
+
+
+                        if (
+                            index ===
+                            loadingSteps.length
+                        ) {
+
+                            clearInterval(
+                                interval
+                            );
+
+
+                            setTimeout(
+                                function () {
+
+                                    overlay.classList.remove(
+                                        "active"
+                                    );
+
+
+                                    currentStep = 2;
+
+
+                                    renderStep();
+
+                                },
+                                600
+                            );
+
+                        }
+
+                    },
+                    700
+                );
+
+        }
+
+
+
+        /* =================================================
+           이전 버튼
+        ================================================== */
+
+        previousButton.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    currentStep > 1
+                ) {
+
+                    currentStep--;
+
+
+                    renderStep();
+
+                }
+
+            }
+        );
+
+
+
+        /* =================================================
+           다음 버튼
+        ================================================== */
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+
+                /* STEP 1 */
+
+                if (
+                    currentStep === 1
+                ) {
+
+                    startInspection();
+
+                    return;
+
+                }
+
+
+                /* STEP 2 ~ 4 */
+
+                if (
+                    currentStep < 5
+                ) {
+
+                    currentStep++;
+
+
+                    renderStep();
+
+                    return;
+
+                }
+
+
+                /* STEP 5 */
+
+                currentStep = 1;
+
+
+                renderStep();
+
+            }
+        );
+
+
+
+        /* =================================================
+           최초 화면
+        ================================================== */
+
+        renderStep();
+
+    </script>
+
+
+</body>
+
+</html>

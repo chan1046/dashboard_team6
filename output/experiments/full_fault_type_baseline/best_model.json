@@ -1,0 +1,19 @@
+{
+  "selected": {
+    "model": "random_forest_default",
+    "train_events": 256,
+    "validation_events": 91,
+    "features": 72,
+    "accuracy": 0.8131868131868132,
+    "macro_precision": 0.6228070175438597,
+    "macro_recall": 0.6108936725375081,
+    "macro_f1": 0.602548390234413,
+    "balanced_accuracy": 0.6108936725375081,
+    "pressure_low_recall": 0.9041095890410958,
+    "pressure_high_recall": 0.42857142857142855,
+    "leak_recall": 0.5
+  },
+  "model_path": "output\\models\\full_fault_type_best.joblib",
+  "selection_basis": "validation macro F1, then balanced accuracy, High recall, Leak recall",
+  "validation_not_independent_test": true
+}

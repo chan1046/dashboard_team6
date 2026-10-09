@@ -1,0 +1,530 @@
+{
+  "experiment": "Add only one native categorical Tool x Stage feature to frozen 85-feature baseline",
+  "parameters": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "n_estimators": 120,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 1,
+    "reg_lambda": 1.0,
+    "n_jobs": 8,
+    "random_state": 42,
+    "scale_pos_weight": 11.103398086310447
+  },
+  "training": {
+    "base_features": 85,
+    "new_feature": "tool_stage_category",
+    "feature_type": "native_xgboost_categorical",
+    "category_definition": "(tool_id, integer stage) pairs seen in labeled train rows only; stable sorted IDs; unseen validation pairs become NaN",
+    "train_vocabulary_size": 2040,
+    "categories_by_tool": {
+      "01_M01": 124,
+      "01_M02": 14,
+      "02_M01": 18,
+      "02_M02": 177,
+      "03_M01": 122,
+      "03_M02": 134,
+      "04_M01": 172,
+      "04_M02": 25,
+      "05_M01": 154,
+      "05_M02": 101,
+      "06_M01": 123,
+      "06_M02": 23,
+      "07_M01": 160,
+      "07_M02": 158,
+      "08_M01": 29,
+      "08_M02": 138,
+      "09_M01": 129,
+      "09_M02": 48,
+      "10_M01": 106,
+      "10_M02": 85
+    },
+    "validation_unseen_category_rows_by_tool": {
+      "01_M01": 96,
+      "01_M02": 108,
+      "02_M01": 19,
+      "02_M02": 99,
+      "03_M01": 1556,
+      "03_M02": 346,
+      "04_M01": 217,
+      "04_M02": 0,
+      "05_M01": 101,
+      "05_M02": 38,
+      "06_M01": 129,
+      "06_M02": 16,
+      "07_M01": 181,
+      "07_M02": 377,
+      "08_M01": 123,
+      "08_M02": 185,
+      "09_M01": 1110,
+      "09_M02": 0,
+      "10_M01": 236,
+      "10_M02": 280
+    },
+    "validation_unseen_category_rows_total": 5217,
+    "train_rows": 4606868,
+    "train_positive_rows": 380626,
+    "validation_rows": 1142112,
+    "validation_positive_rows": 67338,
+    "validation_alignment_exact": true,
+    "train_validation_positive_event_overlap": 0,
+    "parameters": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "n_estimators": 120,
+      "max_depth": 5,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 1,
+      "reg_lambda": 1.0,
+      "n_jobs": 8,
+      "random_state": 42,
+      "scale_pos_weight": 11.103398086310447
+    },
+    "model_sha256": "b93d97082fbe530b94e953e3f5700643bb943ecf3bef7d20358c9a44d65c83e1",
+    "score_sha256": "e7f4a33d0bbba5d4b35f8b147dcb5cd7d5b8d80e5266ef09b8f79de0f9c22742",
+    "baseline_model_sha256": "a733a8a2227409a1c8f83a03e8d4aff808f880e606341325a9e124035f1a9402"
+  },
+  "ap_baseline": 0.16681820405182696,
+  "ap_new": 0.15105306364020576,
+  "ap_change": -0.015765140411621192,
+  "threshold_0_5": {
+    "baseline": {
+      "threshold": 0.5,
+      "precision": 0.17444878828005128,
+      "recall": 0.4930202857227717,
+      "f1": 0.2577101915030701,
+      "balanced_accuracy": 0.6734208236184567,
+      "average_precision": 0.16681820405182696,
+      "tn": 917665,
+      "fp": 157109,
+      "fn": 34139,
+      "tp": 33199,
+      "false_alarm_events_10m": 3414,
+      "observed_hour_equivalents": 19035.2,
+      "false_alarm_events_per_observed_hour": 0.17935193746322603,
+      "false_alarm_events_per_observed_day": 4.304446499117424,
+      "total_logged_validation_fault_events": 181,
+      "evaluable_fault_events": 163,
+      "not_evaluable_no_validation_sensor_in_24h": 18,
+      "detected_fault_events": 112,
+      "missed_fault_events_including_no_sensor": 69,
+      "missed_evaluable_fault_events": 51,
+      "fault_event_recall_all_logged": 0.6187845303867403,
+      "fault_event_recall_evaluable": 0.6871165644171779,
+      "lead_time_median_minutes": 1259.8166666666666,
+      "lead_time_min_minutes": 1.3333333333333333,
+      "lead_time_max_minutes": 1439.9666666666667
+    },
+    "new": {
+      "threshold": 0.5,
+      "precision": 0.16252111580626463,
+      "recall": 0.4871989070064451,
+      "f1": 0.2437360931051519,
+      "balanced_accuracy": 0.6649522216200545,
+      "average_precision": 0.15105306364020576,
+      "tn": 905718,
+      "fp": 169056,
+      "fn": 34531,
+      "tp": 32807,
+      "false_alarm_events_10m": 4240,
+      "observed_hour_equivalents": 19035.2,
+      "false_alarm_events_per_observed_hour": 0.2227452298898882,
+      "false_alarm_events_per_observed_day": 5.345885517357317,
+      "total_logged_validation_fault_events": 181,
+      "evaluable_fault_events": 163,
+      "not_evaluable_no_validation_sensor_in_24h": 18,
+      "detected_fault_events": 110,
+      "missed_fault_events_including_no_sensor": 71,
+      "missed_evaluable_fault_events": 53,
+      "fault_event_recall_all_logged": 0.6077348066298343,
+      "fault_event_recall_evaluable": 0.6748466257668712,
+      "lead_time_median_minutes": 1336.6833333333334,
+      "lead_time_min_minutes": 2.3333333333333335,
+      "lead_time_max_minutes": 1439.9666666666667
+    }
+  },
+  "fixed_policy": {
+    "baseline": {
+      "threshold": 0.36,
+      "condition": "2_of_5m",
+      "precision": 0.12242306518664833,
+      "recall": 0.5540853604205649,
+      "f1": 0.20053801439900673,
+      "balanced_accuracy": 0.6526165217806963,
+      "average_precision": 0.16681820405182696,
+      "tn": 807314,
+      "fp": 267460,
+      "fn": 30027,
+      "tp": 37311,
+      "false_alarm_events_10m": 6066,
+      "observed_hour_equivalents": 19035.2,
+      "false_alarm_events_per_observed_hour": 0.3186727746490712,
+      "false_alarm_events_per_observed_day": 7.648146591577708,
+      "total_logged_validation_fault_events": 181,
+      "evaluable_fault_events": 163,
+      "not_evaluable_no_validation_sensor_in_24h": 18,
+      "detected_fault_events": 138,
+      "missed_fault_events_including_no_sensor": 43,
+      "missed_evaluable_fault_events": 25,
+      "fault_event_recall_all_logged": 0.7624309392265194,
+      "fault_event_recall_evaluable": 0.8466257668711656,
+      "lead_time_median_minutes": 1333.8166666666666,
+      "lead_time_min_minutes": 82.23333333333333,
+      "lead_time_max_minutes": 1439.9666666666667,
+      "top_five_tools": [
+        "03_M02",
+        "01_M01",
+        "02_M02",
+        "09_M01",
+        "08_M01"
+      ],
+      "top_five_false_alarm_events": 3575,
+      "top_five_share": 0.5893504780745137,
+      "03_M02_stage1_false_alarm_events": 840
+    },
+    "new": {
+      "threshold": 0.36,
+      "condition": "2_of_5m",
+      "precision": 0.1189997025561188,
+      "recall": 0.5584810953696279,
+      "f1": 0.1961947392034724,
+      "balanced_accuracy": 0.6497161081282188,
+      "average_precision": 0.15105306364020576,
+      "tn": 796355,
+      "fp": 278419,
+      "fn": 29731,
+      "tp": 37607,
+      "false_alarm_events_10m": 6808,
+      "observed_hour_equivalents": 19035.2,
+      "false_alarm_events_per_observed_hour": 0.3576531898798016,
+      "false_alarm_events_per_observed_day": 8.583676557115238,
+      "total_logged_validation_fault_events": 181,
+      "evaluable_fault_events": 163,
+      "not_evaluable_no_validation_sensor_in_24h": 18,
+      "detected_fault_events": 133,
+      "missed_fault_events_including_no_sensor": 48,
+      "missed_evaluable_fault_events": 30,
+      "fault_event_recall_all_logged": 0.7348066298342542,
+      "fault_event_recall_evaluable": 0.8159509202453987,
+      "lead_time_median_minutes": 1340.2333333333333,
+      "lead_time_min_minutes": 72.3,
+      "lead_time_max_minutes": 1439.9666666666667,
+      "top_five_tools": [
+        "03_M02",
+        "03_M01",
+        "07_M01",
+        "01_M01",
+        "09_M01"
+      ],
+      "top_five_false_alarm_events": 3759,
+      "top_five_share": 0.552144535840188,
+      "03_M02_stage1_false_alarm_events": 840
+    }
+  },
+  "grid_eligible_count": 6,
+  "grid_best_at_least_75pct_all_events": {
+    "threshold": 0.34,
+    "condition": "3_of_5m",
+    "window_minutes": 5,
+    "minimum_hits": 3,
+    "precision": 0.11676748171261957,
+    "recall": 0.5423832011642757,
+    "f1": 0.1921646208322591,
+    "balanced_accuracy": 0.6426710930149656,
+    "average_precision": 0.15105306364020576,
+    "tn": 798513,
+    "fp": 276261,
+    "fn": 30815,
+    "tp": 36523,
+    "false_alarm_events_10m": 6690,
+    "observed_hour_equivalents": 19035.2,
+    "false_alarm_events_per_observed_hour": 0.35145414810456416,
+    "false_alarm_events_per_observed_day": 8.43489955450954,
+    "total_logged_validation_fault_events": 181,
+    "evaluable_fault_events": 163,
+    "not_evaluable_no_validation_sensor_in_24h": 18,
+    "detected_fault_events": 141,
+    "missed_fault_events_including_no_sensor": 40,
+    "missed_evaluable_fault_events": 22,
+    "fault_event_recall_all_logged": 0.7790055248618785,
+    "fault_event_recall_evaluable": 0.8650306748466258,
+    "lead_time_median_minutes": 1333.7,
+    "lead_time_min_minutes": 71.3,
+    "lead_time_max_minutes": 1439.9666666666667,
+    "qualifies_75pct_all_events": true
+  },
+  "grid_best_policy_distribution": {
+    "threshold": 0.34,
+    "condition": "3_of_5m",
+    "precision": 0.11676748171261957,
+    "recall": 0.5423832011642757,
+    "f1": 0.1921646208322591,
+    "balanced_accuracy": 0.6426710930149656,
+    "average_precision": 0.15105306364020576,
+    "tn": 798513,
+    "fp": 276261,
+    "fn": 30815,
+    "tp": 36523,
+    "false_alarm_events_10m": 6690,
+    "observed_hour_equivalents": 19035.2,
+    "false_alarm_events_per_observed_hour": 0.35145414810456416,
+    "false_alarm_events_per_observed_day": 8.43489955450954,
+    "total_logged_validation_fault_events": 181,
+    "evaluable_fault_events": 163,
+    "not_evaluable_no_validation_sensor_in_24h": 18,
+    "detected_fault_events": 141,
+    "missed_fault_events_including_no_sensor": 40,
+    "missed_evaluable_fault_events": 22,
+    "fault_event_recall_all_logged": 0.7790055248618785,
+    "fault_event_recall_evaluable": 0.8650306748466258,
+    "lead_time_median_minutes": 1333.7,
+    "lead_time_min_minutes": 71.3,
+    "lead_time_max_minutes": 1439.9666666666667,
+    "top_five_tools": [
+      "03_M02",
+      "01_M01",
+      "03_M01",
+      "09_M01",
+      "02_M01"
+    ],
+    "top_five_false_alarm_events": 3737,
+    "top_five_share": 0.558594917787743,
+    "03_M02_stage1_false_alarm_events": 844
+  },
+  "fixed_tool_false_alarm_increase_sum": 1143,
+  "fixed_tool_false_alarm_decrease_sum": 401,
+  "fixed_new_increased_tools": [
+    {
+      "tool_id": "01_M02",
+      "baseline_false_alarm_events": 396,
+      "new_false_alarm_events": 499,
+      "change": 103
+    },
+    {
+      "tool_id": "02_M01",
+      "baseline_false_alarm_events": 365,
+      "new_false_alarm_events": 499,
+      "change": 134
+    },
+    {
+      "tool_id": "03_M01",
+      "baseline_false_alarm_events": 548,
+      "new_false_alarm_events": 804,
+      "change": 256
+    },
+    {
+      "tool_id": "04_M01",
+      "baseline_false_alarm_events": 0,
+      "new_false_alarm_events": 2,
+      "change": 2
+    },
+    {
+      "tool_id": "04_M02",
+      "baseline_false_alarm_events": 118,
+      "new_false_alarm_events": 174,
+      "change": 56
+    },
+    {
+      "tool_id": "05_M01",
+      "baseline_false_alarm_events": 46,
+      "new_false_alarm_events": 116,
+      "change": 70
+    },
+    {
+      "tool_id": "05_M02",
+      "baseline_false_alarm_events": 45,
+      "new_false_alarm_events": 62,
+      "change": 17
+    },
+    {
+      "tool_id": "07_M01",
+      "baseline_false_alarm_events": 321,
+      "new_false_alarm_events": 755,
+      "change": 434
+    },
+    {
+      "tool_id": "07_M02",
+      "baseline_false_alarm_events": 2,
+      "new_false_alarm_events": 9,
+      "change": 7
+    },
+    {
+      "tool_id": "08_M02",
+      "baseline_false_alarm_events": 0,
+      "new_false_alarm_events": 13,
+      "change": 13
+    },
+    {
+      "tool_id": "09_M01",
+      "baseline_false_alarm_events": 653,
+      "new_false_alarm_events": 656,
+      "change": 3
+    },
+    {
+      "tool_id": "09_M02",
+      "baseline_false_alarm_events": 284,
+      "new_false_alarm_events": 329,
+      "change": 45
+    },
+    {
+      "tool_id": "10_M02",
+      "baseline_false_alarm_events": 0,
+      "new_false_alarm_events": 3,
+      "change": 3
+    }
+  ],
+  "limitation": "The grid is selected on the same reused validation interval, not an independent future test. Tool/Stage episode attribution uses the first false-positive row and may shift with episode merging.",
+  "category_feature_split_count": 839,
+  "grid_best_tool_stage_largest_increases": [
+    {
+      "tool_id": "02_M01",
+      "stage": 1,
+      "baseline_false_alarm_events": 295,
+      "grid_best_false_alarm_events": 495,
+      "change": 200
+    },
+    {
+      "tool_id": "03_M01",
+      "stage": 1,
+      "baseline_false_alarm_events": 292,
+      "grid_best_false_alarm_events": 467,
+      "change": 175
+    },
+    {
+      "tool_id": "01_M02",
+      "stage": 1,
+      "baseline_false_alarm_events": 324,
+      "grid_best_false_alarm_events": 498,
+      "change": 174
+    },
+    {
+      "tool_id": "09_M02",
+      "stage": 1,
+      "baseline_false_alarm_events": 156,
+      "grid_best_false_alarm_events": 235,
+      "change": 79
+    },
+    {
+      "tool_id": "02_M01",
+      "stage": 159,
+      "baseline_false_alarm_events": 54,
+      "grid_best_false_alarm_events": 113,
+      "change": 59
+    },
+    {
+      "tool_id": "07_M01",
+      "stage": 184,
+      "baseline_false_alarm_events": 9,
+      "grid_best_false_alarm_events": 38,
+      "change": 29
+    },
+    {
+      "tool_id": "01_M01",
+      "stage": 22,
+      "baseline_false_alarm_events": 13,
+      "grid_best_false_alarm_events": 41,
+      "change": 28
+    },
+    {
+      "tool_id": "07_M01",
+      "stage": 199,
+      "baseline_false_alarm_events": 3,
+      "grid_best_false_alarm_events": 31,
+      "change": 28
+    },
+    {
+      "tool_id": "07_M01",
+      "stage": 171,
+      "baseline_false_alarm_events": 12,
+      "grid_best_false_alarm_events": 38,
+      "change": 26
+    },
+    {
+      "tool_id": "07_M01",
+      "stage": 186,
+      "baseline_false_alarm_events": 5,
+      "grid_best_false_alarm_events": 31,
+      "change": 26
+    }
+  ],
+  "grid_best_tool_stage_largest_decreases": [
+    {
+      "tool_id": "02_M02",
+      "stage": 1,
+      "baseline_false_alarm_events": 237,
+      "grid_best_false_alarm_events": 123,
+      "change": -114
+    },
+    {
+      "tool_id": "10_M01",
+      "stage": 1,
+      "baseline_false_alarm_events": 42,
+      "grid_best_false_alarm_events": 3,
+      "change": -39
+    },
+    {
+      "tool_id": "01_M01",
+      "stage": 1,
+      "baseline_false_alarm_events": 482,
+      "grid_best_false_alarm_events": 446,
+      "change": -36
+    },
+    {
+      "tool_id": "08_M01",
+      "stage": 1,
+      "baseline_false_alarm_events": 443,
+      "grid_best_false_alarm_events": 412,
+      "change": -31
+    },
+    {
+      "tool_id": "08_M01",
+      "stage": 366,
+      "baseline_false_alarm_events": 30,
+      "grid_best_false_alarm_events": 3,
+      "change": -27
+    },
+    {
+      "tool_id": "02_M02",
+      "stage": 165,
+      "baseline_false_alarm_events": 50,
+      "grid_best_false_alarm_events": 23,
+      "change": -27
+    },
+    {
+      "tool_id": "09_M02",
+      "stage": 159,
+      "baseline_false_alarm_events": 66,
+      "grid_best_false_alarm_events": 42,
+      "change": -24
+    },
+    {
+      "tool_id": "07_M01",
+      "stage": 167,
+      "baseline_false_alarm_events": 22,
+      "grid_best_false_alarm_events": 0,
+      "change": -22
+    },
+    {
+      "tool_id": "06_M02",
+      "stage": 1,
+      "baseline_false_alarm_events": 252,
+      "grid_best_false_alarm_events": 232,
+      "change": -20
+    },
+    {
+      "tool_id": "01_M02",
+      "stage": 88,
+      "baseline_false_alarm_events": 50,
+      "grid_best_false_alarm_events": 30,
+      "change": -20
+    }
+  ],
+  "retain_interaction_feature": false
+}

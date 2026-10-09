@@ -1,0 +1,48 @@
+{
+  "design": "same 20 tools, 85 features, full eligible fault-specific train rows, fixed time split and validation as prior LSTM",
+  "target": "log1p(TTF seconds), inverse expm1 clipped at zero",
+  "regression_train_not_filtered_by_classifier": true,
+  "parameters": {
+    "max_iter": 120,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "rows": [
+    {
+      "model": "HGB-log",
+      "fault_type": "pressure_low",
+      "train_rows": 3567949,
+      "validation_rows": 362570,
+      "rows": 362570,
+      "mae_seconds": 2010658.5612382884,
+      "mae_hours": 558.5162670106357,
+      "rmse_seconds": 2955977.044464402,
+      "r2": -5.476644836949456
+    },
+    {
+      "model": "HGB-log",
+      "fault_type": "pressure_high",
+      "train_rows": 2497574,
+      "validation_rows": 518743,
+      "rows": 518743,
+      "mae_seconds": 1625771.8087149023,
+      "mae_hours": 451.60328019858395,
+      "rmse_seconds": 2190652.9825035236,
+      "r2": -0.351269106531366
+    },
+    {
+      "model": "HGB-log",
+      "fault_type": "leak",
+      "train_rows": 1967649,
+      "validation_rows": 206668,
+      "rows": 206668,
+      "mae_seconds": 1795775.234036292,
+      "mae_hours": 498.82645389897,
+      "rmse_seconds": 2525840.5017729606,
+      "r2": -1.7885230792029874
+    }
+  ]
+}

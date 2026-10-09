@@ -1,0 +1,34 @@
+{
+  "model_training": false,
+  "low_fault_name": "FlowCool Pressure Dropped Below Limit",
+  "total_unique_low_events": 741,
+  "train_events": 461,
+  "validation_events": 186,
+  "reserved_or_purge_events": 94,
+  "train_tools": 16,
+  "validation_tools": 14,
+  "common_train_validation_tools": 11,
+  "event_overlap_train_validation": 0,
+  "top_tool": "03_M02",
+  "top_tool_events": 298,
+  "top_two_tool_share_pct": 57.62483130904184,
+  "high_between_low_events": 98,
+  "leak_between_low_events": 51,
+  "any_other_between_low_events": 138,
+  "any_other_between_low_pct": 18.62348178137652,
+  "any_other_between_low_train_validation_events": 123,
+  "train_validation_raw_rows_with_other_fault_before_next_low_pct": 32.54934202527701,
+  "A_1h_history_all_events": 552,
+  "B_1h_history_all_events": 534,
+  "A_to_B_1h_30m_anchor_usable_events_train_validation": [
+    574,
+    554
+  ],
+  "A_1h_anchor_samples_by_cadence_10_30_60m": {
+    "10": 242425,
+    "30": 91641,
+    "60": 50056
+  },
+  "recommended_history_minutes": 30,
+  "recommendation": "Pilot only: 30m gives most events and smaller gaps; evaluate event-equal Dummy before any model claim. Keep other-fault interruption flag and cap/equal-weight events."
+}

@@ -1,0 +1,27 @@
+{
+  "source": "Existing actual 1-minute prepared sensor observations; fault log defines TTF only as fault_time minus earlier observation time",
+  "input_fault_events": 264,
+  "paired_events_with_both_0_6h_and_48_72h": 205,
+  "sensor_count_raw": 17,
+  "derived_sensor_count": 5,
+  "ttf_bins_hours": [
+    "0-6h",
+    "6-12h",
+    "12-24h",
+    "24-48h",
+    "48-72h",
+    ">72h_to_7d"
+  ],
+  "far_bin_cap_hours": 168,
+  "feature_causality": "All differences, 10/30-minute moments and slopes use current or prior observations within the same existing operating session; no gap filling. Windows use elapsed seconds.",
+  "analysis_population": "Forward Model A validation only; no reserved test rows or outcomes inspected",
+  "normal_reference": "Per-tool label=0 rows from earlier first-stage Train only; validation never estimates medians/IQR",
+  "caveats": [
+    "Descriptive association does not prove regressability or future generalization.",
+    "1-minute aggregation can hide 4-second transients.",
+    "The >72h group is 72h to 7 days, not unlimited time.",
+    "Event windows may overlap when faults are close; paired event patterns are not statistically independent.",
+    "TTF and fault times are targets only, never model or sensor features."
+  ],
+  "plan_sha256": "c601f1aa9925c4c1506f102506093afdabcc2eff98d6fa9a06b9453846e58d31"
+}

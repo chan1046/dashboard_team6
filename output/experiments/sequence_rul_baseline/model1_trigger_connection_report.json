@@ -1,0 +1,19 @@
+{
+  "model1_trigger_rows": 332303,
+  "sequence_available_rows": 79695,
+  "sequence_available_fraction": 0.23982630310289105,
+  "sequence_unavailable_fraction": 0.7601736968971089,
+  "complete_6h_lookahead_rows": 331568,
+  "actual_fault_within_6h_scored_rows": 6095,
+  "mae_h_at_fault_bound_triggers_0_6h": 1.8444036455405637,
+  "absolute_residual_p50_p80_p90_h": [
+    1.5811780399746365,
+    2.9283990720113118,
+    3.6087229567633736
+  ],
+  "model1_detected_fault_events": 200,
+  "events_with_at_least_one_rul_estimate": 168,
+  "conditional_scope": "RUL MAE is measured only for Model 1 triggers with an available sequence and an actual fault <=6h. No-fault triggers have no finite RUL target; model outputs there are extrapolation and should not be displayed as exact fault times.",
+  "model1_unchanged": true,
+  "test_used": false
+}

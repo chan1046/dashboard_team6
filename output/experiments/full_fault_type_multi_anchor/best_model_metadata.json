@@ -1,0 +1,26 @@
+{
+  "selected": {
+    "model": "partial_A_event_class",
+    "condition": "partial_A",
+    "method": "average_score",
+    "unique_fault_events": 182,
+    "accuracy": 0.8296703296703297,
+    "macro_precision": 0.6508145638580421,
+    "macro_recall": 0.851071071071071,
+    "macro_f1": 0.704882959979864,
+    "balanced_accuracy": 0.8510710710710709,
+    "pressure_low_recall": 0.8243243243243243,
+    "pressure_high_recall": 0.84,
+    "leak_recall": 0.8888888888888888,
+    "pressure_low_support": 148,
+    "pressure_high_support": 25,
+    "leak_support": 9
+  },
+  "model_file": "output\\models\\full_fault_type_multi_anchor_best.joblib",
+  "local_copy": "output\\experiments\\full_fault_type_multi_anchor\\best_model.joblib",
+  "selection_basis": "same Validation event-level average-score macro F1 then balanced accuracy, High and Leak recall",
+  "baseline_single_anchor_macro_f1": 0.602548390234413,
+  "baseline_single_anchor_balanced_accuracy": 0.6108936725375081,
+  "validation_is_development_not_independent_test": true,
+  "score_calibrated": false
+}

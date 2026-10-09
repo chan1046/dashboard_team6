@@ -1,0 +1,188 @@
+{
+  "cooldown": [
+    {
+      "cooldown_minutes": 10,
+      "false_label_only_merged_episodes": 6437,
+      "all_alarm_operational_episode_starts": 7317,
+      "operational_false_label_episode_starts": 6407,
+      "detected_fault_events_using_only_episode_start": 199,
+      "fault_event_recall_using_only_episode_start": 0.7537878787878788,
+      "original_row_alarm_detected_events": 202,
+      "additional_missed_events_vs_row_alarm": 3
+    },
+    {
+      "cooldown_minutes": 30,
+      "false_label_only_merged_episodes": 3470,
+      "all_alarm_operational_episode_starts": 3974,
+      "operational_false_label_episode_starts": 3438,
+      "detected_fault_events_using_only_episode_start": 198,
+      "fault_event_recall_using_only_episode_start": 0.75,
+      "original_row_alarm_detected_events": 202,
+      "additional_missed_events_vs_row_alarm": 4
+    },
+    {
+      "cooldown_minutes": 60,
+      "false_label_only_merged_episodes": 2435,
+      "all_alarm_operational_episode_starts": 2755,
+      "operational_false_label_episode_starts": 2389,
+      "detected_fault_events_using_only_episode_start": 194,
+      "fault_event_recall_using_only_episode_start": 0.7348484848484849,
+      "original_row_alarm_detected_events": 202,
+      "additional_missed_events_vs_row_alarm": 8
+    },
+    {
+      "cooldown_minutes": 120,
+      "false_label_only_merged_episodes": 1625,
+      "all_alarm_operational_episode_starts": 1774,
+      "operational_false_label_episode_starts": 1571,
+      "detected_fault_events_using_only_episode_start": 183,
+      "fault_event_recall_using_only_episode_start": 0.6931818181818182,
+      "original_row_alarm_detected_events": 202,
+      "additional_missed_events_vs_row_alarm": 19
+    }
+  ],
+  "label_counts": [
+    {
+      "split": "purge",
+      "label_group": "ambiguous_24_to_72h",
+      "alarm_events": 27
+    },
+    {
+      "split": "purge",
+      "label_group": "hard_negative",
+      "alarm_events": 226
+    },
+    {
+      "split": "purge",
+      "label_group": "positive",
+      "alarm_events": 31
+    },
+    {
+      "split": "second_train",
+      "label_group": "ambiguous_24_to_72h",
+      "alarm_events": 356
+    },
+    {
+      "split": "second_train",
+      "label_group": "hard_negative",
+      "alarm_events": 3038
+    },
+    {
+      "split": "second_train",
+      "label_group": "positive",
+      "alarm_events": 406
+    },
+    {
+      "split": "second_validation",
+      "label_group": "ambiguous_24_to_72h",
+      "alarm_events": 397
+    },
+    {
+      "split": "second_validation",
+      "label_group": "censored_before_72h",
+      "alarm_events": 97
+    },
+    {
+      "split": "second_validation",
+      "label_group": "hard_negative",
+      "alarm_events": 2266
+    },
+    {
+      "split": "second_validation",
+      "label_group": "positive",
+      "alarm_events": 473
+    }
+  ],
+  "model_summary": [
+    {
+      "model": "logistic_regression",
+      "threshold_found": true,
+      "selected_threshold": 0.011367459455987,
+      "baseline_fault_events_detected": 112,
+      "detected_fault_events_after": 105,
+      "total_later_fault_events": 139,
+      "event_recall_after": 0.7553956834532374,
+      "baseline_false_alarm_events": 2760,
+      "false_alarm_events_after": 2064,
+      "false_alarm_reduction_events": 696,
+      "false_alarm_reduction_fraction": 0.2521739130434782,
+      "net_additional_missed_faults": 7,
+      "second_stage_train_alarm_events": 3444,
+      "second_stage_train_positive": 406,
+      "second_stage_train_hard_negative": 3038,
+      "second_stage_validation_alarm_events": 3233
+    },
+    {
+      "model": "xgboost",
+      "threshold_found": true,
+      "selected_threshold": 0.027690315619111,
+      "baseline_fault_events_detected": 112,
+      "detected_fault_events_after": 107,
+      "total_later_fault_events": 139,
+      "event_recall_after": 0.7697841726618705,
+      "baseline_false_alarm_events": 2760,
+      "false_alarm_events_after": 1645,
+      "false_alarm_reduction_events": 1115,
+      "false_alarm_reduction_fraction": 0.4039855072463768,
+      "net_additional_missed_faults": 5,
+      "second_stage_train_alarm_events": 3444,
+      "second_stage_train_positive": 406,
+      "second_stage_train_hard_negative": 3038,
+      "second_stage_validation_alarm_events": 3233
+    }
+  ],
+  "tool_concentration": {
+    "logistic_regression": {
+      "top_five_after_share": 0.5954457364341085,
+      "worst_after_tool": "01_M01",
+      "worst_after_events": 290
+    },
+    "xgboost": {
+      "top_five_after_share": 0.60790273556231,
+      "worst_after_tool": "08_M01",
+      "worst_after_events": 271
+    }
+  },
+  "primary_model_unchanged": true,
+  "secondary_later_event_count": 139,
+  "secondary_later_baseline_detected": 112,
+  "secondary_later_baseline_event_recall": 0.8057553956834532,
+  "primary_full_validation_baseline": {
+    "detected_fault_events": 202,
+    "total_fault_events": 264,
+    "false_only_10m_episodes": 6437
+  },
+  "selection_caveat": "Second-stage thresholds were selected and measured on the same later secondary validation; exploratory, not independent. Primary threshold .34 was previously chosen on the full primary validation. Operational all-alarm episodes and false-only merged episodes have different denominators.",
+  "test_caveat": "No reserved test score or metric was calculated; the previous forward audit documents that the reserved period was historically used and is not truly untouched.",
+  "cooldown_on_same_later_validation": [
+    {
+      "cooldown_minutes": 10,
+      "later_fault_events_total": 139,
+      "later_fault_events_detected": 112,
+      "later_fault_event_recall": 0.8057553956834532,
+      "later_false_alarm_episode_starts": 2760
+    },
+    {
+      "cooldown_minutes": 30,
+      "later_fault_events_total": 139,
+      "later_fault_events_detected": 112,
+      "later_fault_event_recall": 0.8057553956834532,
+      "later_false_alarm_episode_starts": 1567
+    },
+    {
+      "cooldown_minutes": 60,
+      "later_fault_events_total": 139,
+      "later_fault_events_detected": 108,
+      "later_fault_event_recall": 0.7769784172661871,
+      "later_false_alarm_episode_starts": 1149
+    },
+    {
+      "cooldown_minutes": 120,
+      "later_fault_events_total": 139,
+      "later_fault_events_detected": 102,
+      "later_fault_event_recall": 0.7338129496402878,
+      "later_false_alarm_episode_starts": 770
+    }
+  ],
+  "conclusion": "On the same later validation, 30-minute cooldown detects 112/139 events and reduces false starts 2760 to 1567, dominating either second-stage model here. Results are exploratory and need independent forward evaluation."
+}

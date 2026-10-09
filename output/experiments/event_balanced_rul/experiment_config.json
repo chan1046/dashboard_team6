@@ -1,0 +1,29 @@
+{
+  "split": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "validation_rows": 22518,
+  "validation_events": 201,
+  "ttf_unit": "unbounded hours; next any-type fault",
+  "sensor_input": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "history_minutes": 60,
+  "prediction_interval_minutes": 30,
+  "sequence_points": 60,
+  "A": "exact stored legacy baseline: random maximum64 samples/event plus 1/N weights; existing tree and GRU predictions reused, no retraining A",
+  "B": "all eligible 30-minute Train anchors; sample weight=1/N per event",
+  "C": "up to 32 equally spaced chronological Train anchors per event, which equally represent monotone TTF extent; 1/N weights retained so short events have equal total mass",
+  "weight_normalization": "1/N multiplied by common sample-count/event-count factor; every event has same total weight",
+  "architecture": "legacy HGB parameters and one-layer GRU32 Adam 0.001 5 epochs batch256 smooth L1",
+  "gru_scaler": "legacy A Train sensor scaler and target scale fixed for B/C, avoiding a separate preprocessing change",
+  "test_access": "none for model fitting/evaluation",
+  "random_state": 42,
+  "selection": "C uses only Train event chronology, no Validation TTF selection"
+}

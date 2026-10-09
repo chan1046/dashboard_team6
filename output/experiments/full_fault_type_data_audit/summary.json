@@ -1,0 +1,45 @@
+{
+  "unique_events": 1211,
+  "type_counts": {
+    "pressure_low": 741,
+    "pressure_high": 333,
+    "leak": 137
+  },
+  "train_30m": {
+    "pressure_low": 373,
+    "pressure_high": 102,
+    "leak": 52
+  },
+  "validation_30m": {
+    "pressure_low": 151,
+    "pressure_high": 34,
+    "leak": 10
+  },
+  "train_60m": {
+    "pressure_low": 328,
+    "pressure_high": 86,
+    "leak": 45
+  },
+  "validation_60m": {
+    "pressure_low": 130,
+    "pressure_high": 26,
+    "leak": 9
+  },
+  "total_30m_history_events": 871,
+  "train_validation_30m_history_events": 722,
+  "horizon_30m_history_events_train_validation": {
+    "30": 347,
+    "60": 352,
+    "180": 254,
+    "360": 229,
+    "720": 183,
+    "1440": 152
+  },
+  "multi_anchor_interval_events_train_validation": {
+    "0-3h": 571,
+    "12-24h": 445,
+    "3-6h": 478,
+    "6-12h": 501
+  },
+  "note": "Intervals and fixed horizons overlap across events; counts must not be summed as distinct events. No model trained."
+}

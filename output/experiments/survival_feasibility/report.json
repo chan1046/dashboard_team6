@@ -1,0 +1,63 @@
+{
+  "scope": "All 20 real train sensor partitions and full train fault log; no model fitted",
+  "raw_fault_rows": 1236,
+  "unique_fault_events": 1211,
+  "duplicates_same_tool_type_time": 25,
+  "unique_faults_by_type": {
+    "leak": 137,
+    "pressure_high": 333,
+    "pressure_low": 741
+  },
+  "faults_before_first_sensor": 4,
+  "faults_after_last_sensor": 0,
+  "cycle_count": 1227,
+  "event_cycles": 1207,
+  "censored_cycles": 20,
+  "event_cycles_with_sensor_history": 1047,
+  "event_cycles_without_sensor_history": 160,
+  "censored_cycles_with_sensor_history": 20,
+  "recurrent_fault_tools": 20,
+  "repeated_faults_beyond_first": 1191,
+  "fault_gap_pairs_le_1m": 3,
+  "fault_gap_pairs_le_10m": 27,
+  "fault_gap_pairs_le_30m": 118,
+  "fault_gap_pairs_le_6h": 381,
+  "fault_gap_pairs_le_24h": 642,
+  "fault_gap_pairs_le_30m_without_sensor_between": 69,
+  "event_cycles_last_sensor_more_than_1h_before_fault": 330,
+  "event_cycles_last_sensor_more_than_24h_before_fault": 58,
+  "event_cycle_duration_hours": {
+    "0.0": 0.0016666666666666668,
+    "0.1": 0.5184444444444446,
+    "0.25": 3.9655555555555555,
+    "0.5": 20.370555555555555,
+    "0.75": 79.04583333333333,
+    "0.9": 353.47155555555565,
+    "1.0": 7399.463333333333
+  },
+  "censored_cycle_duration_hours": {
+    "0.0": 10.364444444444445,
+    "0.1": 107.49000000000001,
+    "0.25": 141.40416666666667,
+    "0.5": 536.1286111111111,
+    "0.75": 1101.4094444444445,
+    "0.9": 2346.7817777777796,
+    "1.0": 3803.653888888889
+  },
+  "cycle_definition": "Per tool, first sensor time to first in-range fault; then successive fault timestamps; last in-range fault to last sensor timestamp is right-censored. Event-time sensor rows are excluded; post-fault rows belong only to the following cycle.",
+  "interpretation_caveat": "These are observed inter-fault intervals, not proven repaired/restarted operational cycles. Initial cycle is left-truncated/unknown age. Closely spaced faults may represent one unresolved episode. Gaps in sensor observations are stops, not filled exposure.",
+  "target_only": "Future fault time, TTF, event status and fault type are labels only; no feature matrix was produced.",
+  "candidate": "Discrete-time, time-varying, recurrent competing-risks survival dataset, after defining episode merging and off-state treatment; do not infer calibrated time predictions from structure alone.",
+  "event_cycles_with_sensor_history_by_type": {
+    "leak": 105,
+    "pressure_high": 239,
+    "pressure_low": 703
+  },
+  "event_cycles_with_recent_sensor_le_1h_by_type": {
+    "leak": 93,
+    "pressure_high": 120,
+    "pressure_low": 504
+  },
+  "event_cycles_with_recent_sensor_le_1h": 717,
+  "illustrative_30m_fault_clusters_all_unique_records": 1093
+}

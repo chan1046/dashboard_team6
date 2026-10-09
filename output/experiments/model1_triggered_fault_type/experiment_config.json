@@ -1,0 +1,40 @@
+{
+  "model1_fitting": false,
+  "model1_model_sha256": "66c5a0a8d1ead59869127e99d7015346005f7a92dd50f907b0666adb3dd76c38",
+  "validation_model1_score_sha256": "4dea95a799c32ad9e7caa9c8e42b2fcfa17764beff441c3170399dd0a8e4e143",
+  "train_model1_score_source": "frozen Model 1 applied in-sample to original Train minute rows; selection may be optimistic relative to out-of-sample Validation",
+  "threshold": 0.34,
+  "raw_alarm_gap_seconds": 600,
+  "manager_cooldown_seconds": 1800,
+  "train_alerts": 19309,
+  "validation_alerts": 6454,
+  "train_evaluable_alerts": 11743,
+  "validation_evaluable_alerts": 3114,
+  "train_events": 456,
+  "validation_events": 144,
+  "train_fault_type_events": {
+    "pressure_low": 343,
+    "pressure_high": 82,
+    "leak": 31
+  },
+  "validation_fault_type_events": {
+    "pressure_low": 113,
+    "pressure_high": 28,
+    "leak": 3
+  },
+  "history": "actual 1h raw observations before alert, >=60 observations covering >=48m; 60 evenly spaced observed indices; no fill; no fault boundary crossing",
+  "features": "9 raw sensors; Tree current/mean/std/min/max/slope of same 60 points; GRU raw sequence",
+  "event_weight": "each alert weight 1/alerts for its next fault event, common global scaling; no class weighting",
+  "dummy": "Train unique event majority class",
+  "tree": "HistGradientBoostingClassifier max_iter120 max_leaf_nodes31 lr0.05 l2=1 seed42",
+  "gru": "one layer GRU32, linear3, weighted cross entropy, Adam lr0.001, 5 epochs batch256, legacy Train sensor scaler",
+  "gru_loss_by_epoch": [
+    0.8063053236059521,
+    0.6932223542876865,
+    0.674173429608345,
+    0.6572129681058552,
+    0.6297512695841168
+  ],
+  "test_access": "none",
+  "target": "immediate next logged fault type within same phase; fault time/TTF never input"
+}

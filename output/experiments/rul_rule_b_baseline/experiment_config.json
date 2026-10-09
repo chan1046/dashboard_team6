@@ -1,0 +1,151 @@
+{
+  "source": "real pre-Test raw sensor parquet and frozen RUL rule audit",
+  "sensors": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "length_observations": 2000,
+  "overlap_observations": 500,
+  "stride_observations": 1500,
+  "gru_sample_every_nth_observation": 20,
+  "rules": {
+    "B": "FSP=1, split at Tool, any fault, frozen phase, time reversal",
+    "C": "B plus operating gap >1800 seconds"
+  },
+  "target": "three separate next-same-type-fault hours, masked if absent in same split",
+  "mask_loss": "log1p hours, masked MSE normalized by valid count per type",
+  "split_plan": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "seed": 42,
+  "architecture": "1-layer GRU 32 hidden, linear 3 head, Adam .001, 5 epochs",
+  "reserved_test": "not read",
+  "model1": "unchanged",
+  "B_raw9": {
+    "rule": "B_operating_axis",
+    "model_file": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\rul_rule_b_raw9_gru.pt",
+    "scaler": {
+      "sensor_center": [
+        0.46544522047042847,
+        0.7105578184127808,
+        0.7624768018722534,
+        0.4139218330383301,
+        0.6617773175239563,
+        0.536162793636322,
+        0.33928653597831726,
+        0.6268580555915833,
+        0.585863471031189
+      ],
+      "sensor_iqr": [
+        0.5795199871063232,
+        1.2136352062225342,
+        0.9353677034378052,
+        0.7514533400535583,
+        0.7731901407241821,
+        0.030832231044769287,
+        0.2510170340538025,
+        0.6485521793365479,
+        0.24712562561035156
+      ],
+      "sensor_sample_step": 20,
+      "time_features": []
+    },
+    "train_sequences": 15076,
+    "validation_sequences": 3977,
+    "train_target_median_hours": {
+      "pressure_low": 438.1166687011719,
+      "pressure_high": 861.219970703125,
+      "leak": 1226.977783203125
+    }
+  },
+  "B_raw9_time": {
+    "rule": "B_operating_axis",
+    "model_file": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\rul_rule_b_raw9_time_gru.pt",
+    "scaler": {
+      "sensor_center": [
+        0.46544522047042847,
+        0.7105578184127808,
+        0.7624768018722534,
+        0.4139218330383301,
+        0.6617773175239563,
+        0.536162793636322,
+        0.33928653597831726,
+        0.6268580555915833,
+        0.585863471031189
+      ],
+      "sensor_iqr": [
+        0.5795199871063232,
+        1.2136352062225342,
+        0.9353677034378052,
+        0.7514533400535583,
+        0.7731901407241821,
+        0.030832231044769287,
+        0.2510170340538025,
+        0.6485521793365479,
+        0.24712562561035156
+      ],
+      "sensor_sample_step": 20,
+      "time_features": [
+        "log1p_elapsed_seconds",
+        "log1p_max_internal_gap_s"
+      ],
+      "time_center": [
+        9.96571159362793,
+        8.14583969116211
+      ],
+      "time_iqr": [
+        0.68707275390625,
+        1.639688491821289
+      ]
+    },
+    "train_sequences": 15076,
+    "validation_sequences": 3977,
+    "train_target_median_hours": {
+      "pressure_low": 438.1166687011719,
+      "pressure_high": 861.219970703125,
+      "leak": 1226.977783203125
+    }
+  },
+  "C1800_raw9": {
+    "rule": "C_gap_1800s",
+    "model_file": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\rul_rule_c1800_raw9_gru.pt",
+    "scaler": {
+      "sensor_center": [
+        0.3580321669578552,
+        0.7005200386047363,
+        0.7528991103172302,
+        0.4139218330383301,
+        0.6388828158378601,
+        0.5296477675437927,
+        0.33264270424842834,
+        0.5990750193595886,
+        0.5625044107437134
+      ],
+      "sensor_iqr": [
+        0.6334874629974365,
+        1.3074679374694824,
+        1.019444227218628,
+        0.816207230091095,
+        1.1165509223937988,
+        0.03535294532775879,
+        0.2694224715232849,
+        0.83461993932724,
+        0.2514992952346802
+      ],
+      "sensor_sample_step": 20,
+      "time_features": []
+    },
+    "train_sequences": 6182,
+    "validation_sequences": 1580,
+    "train_target_median_hours": {
+      "pressure_low": 471.2608337402344,
+      "pressure_high": 1007.39501953125,
+      "leak": 1099.15478515625
+    }
+  }
+}

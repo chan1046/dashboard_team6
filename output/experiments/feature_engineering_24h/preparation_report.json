@@ -1,0 +1,42 @@
+{
+  "base_features": 85,
+  "added_features": [
+    "FLOWCOOLPRESSURE_diff_1m_clock",
+    "FLOWCOOLPRESSURE_diff_5m_clock",
+    "FLOWCOOLPRESSURE_diff_10m_clock",
+    "FLOWCOOLPRESSURE_mean_10m_clock",
+    "FLOWCOOLPRESSURE_std_10m_clock",
+    "FLOWCOOLPRESSURE_min_5m_clock",
+    "FLOWCOOLPRESSURE_max_5m_clock",
+    "FLOWCOOLPRESSURE_min_10m_clock",
+    "FLOWCOOLPRESSURE_max_10m_clock",
+    "FLOWCOOLPRESSURE_min_30m_clock",
+    "FLOWCOOLPRESSURE_max_30m_clock",
+    "FLOWCOOLPRESSURE_slope_10m_clock",
+    "FLOWCOOLPRESSURE_slope_30m_clock",
+    "FLOWCOOLFLOWRATE_diff_1m_clock",
+    "FLOWCOOLFLOWRATE_diff_5m_clock",
+    "FLOWCOOLFLOWRATE_diff_10m_clock",
+    "FLOWCOOLFLOWRATE_mean_10m_clock",
+    "FLOWCOOLFLOWRATE_std_10m_clock",
+    "FLOWCOOLFLOWRATE_min_5m_clock",
+    "FLOWCOOLFLOWRATE_max_5m_clock",
+    "FLOWCOOLFLOWRATE_min_10m_clock",
+    "FLOWCOOLFLOWRATE_max_10m_clock",
+    "FLOWCOOLFLOWRATE_min_30m_clock",
+    "FLOWCOOLFLOWRATE_max_30m_clock",
+    "FLOWCOOLFLOWRATE_slope_10m_clock",
+    "FLOWCOOLFLOWRATE_slope_30m_clock"
+  ],
+  "all_features": 111,
+  "focus_sensors": [
+    "FLOWCOOLPRESSURE",
+    "FLOWCOOLFLOWRATE"
+  ],
+  "window_definition": "Integer dataset time//60 buckets. W-minute window includes buckets current-(W-1)..current; no gap filling. Exact lag changes require an observation in that earlier bucket.",
+  "stop_rule": ">120 second gap resets every feature history, same as baseline",
+  "causality": "Every feature uses only indices <= current within its session; train labels/split unchanged; validation may use earlier train history, never the reverse.",
+  "tools": 20,
+  "train_rows": 4606868,
+  "validation_rows": 1142112
+}

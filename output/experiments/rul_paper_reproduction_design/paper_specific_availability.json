@@ -1,0 +1,41 @@
+{
+  "total_unique_fault_events": 1211,
+  "counts": {
+    "any_type_cycle_sensor": 1085,
+    "paper1_any_2000_shutter1_type_cycle_upper": 783,
+    "paper1_2000_shutter1_last5h_upper": 152,
+    "paper3_3000_last5h_upper": 242,
+    "paper3_3000_last5h_tail_30m_gap_upper": 189,
+    "paper3_3000_tail_recent_1h_upper": 185
+  },
+  "by_fault_type": {
+    "leak": {
+      "any_type_cycle_sensor": 110,
+      "paper1_any_2000_shutter1_type_cycle_upper": 77,
+      "paper1_2000_shutter1_last5h_upper": 33,
+      "paper3_3000_last5h_upper": 42,
+      "paper3_3000_last5h_tail_30m_gap_upper": 33,
+      "paper3_3000_tail_recent_1h_upper": 33
+    },
+    "pressure_high": {
+      "any_type_cycle_sensor": 264,
+      "paper1_any_2000_shutter1_type_cycle_upper": 197,
+      "paper1_2000_shutter1_last5h_upper": 21,
+      "paper3_3000_last5h_upper": 44,
+      "paper3_3000_last5h_tail_30m_gap_upper": 34,
+      "paper3_3000_tail_recent_1h_upper": 33
+    },
+    "pressure_low": {
+      "any_type_cycle_sensor": 711,
+      "paper1_any_2000_shutter1_type_cycle_upper": 509,
+      "paper1_2000_shutter1_last5h_upper": 98,
+      "paper3_3000_last5h_upper": 156,
+      "paper3_3000_last5h_tail_30m_gap_upper": 122,
+      "paper3_3000_tail_recent_1h_upper": 119
+    }
+  },
+  "method": "Per tool and fault type, history begins after previous fault of that same type; intervening other-type faults are retained only as prior history and must be explicitly flagged in any eventual training set. All counts are potential upper bounds, before sensor-missingness screening and train/validation boundaries.",
+  "gap_sensitivity": "30-minute last-gap threshold is an explicit local sensitivity assumption, not a number reported by the paper.",
+  "paper1_note": "The 2000-point paper windows can occur anywhere in a type-specific history, so full-cycle shutter=1 count is the broad upper bound; last-5h count is a narrower optional design.",
+  "paper3_note": "Paper reports maxL=300, SampleR=15, N=15, Mmin=3000 (about 5h history) after a large-gap truncation. Raw row counts alone do not guarantee valid 21-dimensional feature sequences."
+}

@@ -1,0 +1,18 @@
+{
+  "status": "blocked_missing_frozen_model2_artifact_and_full_timeline_scores",
+  "model1_threshold": 0.34,
+  "model2_threshold": 0.5,
+  "model1_triggers": 332303,
+  "model2_scores_at_trigger": 14276,
+  "model2_scores_missing_at_trigger": 318027,
+  "model2_trigger_coverage_fraction": 0.04296079180747691,
+  "stored_model2_positive_fraction_at_covered_triggers": 0.3414121602689829,
+  "stored_model2_imminent_signal_fraction_at_covered_triggers": 0.17518912860745306,
+  "coverage_caveat": "Stored Model 2 scores exist only for 5-minute sampled rows selected with actual next-fault TTF<=24h. Covered triggers are label-selected and cannot represent the full validation timeline or false-urgent rate.",
+  "missing_artifact": "The fitted B_event_balanced HistGradientBoostingClassifier was not persisted in output/models or this experiment. Its saved validation scores cannot generate predictions for missing trigger rows.",
+  "next_action_if_authorized": "Recreate exactly the prior deterministic fit, save the fitted model, then score every Model 1 trigger without TTF filtering. This would be model training and is intentionally not done in this audit.",
+  "model1_model_sha256": "66c5a0a8d1ead59869127e99d7015346005f7a92dd50f907b0666adb3dd76c38",
+  "model1_validation_scores_sha256": "4dea95a799c32ad9e7caa9c8e42b2fcfa17764beff441c3170399dd0a8e4e143",
+  "model2_partial_predictions_sha256": "cc573fd5427c91e67e267779cffd8d9cf7f7bd99785d04f1ebe9fa94c360c5cd",
+  "test_used": false
+}

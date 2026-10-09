@@ -1,0 +1,12 @@
+{
+  "model_training": false,
+  "source_paper": "https://papers.phmsociety.org/index.php/phmconf/article/download/589/phmc_18_589",
+  "public_implementation_search": "publisher article page and targeted GitHub/web queries for title, LSTM-MR, named authors/TCS; no verified author implementation",
+  "third_party_repos": "https://github.com/ninja1mmm/2018-phm-data-challenge is an unrelated third-party challenge solution, not evidence of TV et al. implementation",
+  "four_rule_comparison": "same pre-Test Train/Validation and same next strictly future same-type target; raw target <500",
+  "A": "no logged fault strictly inside input window",
+  "B": "target event at/before input end; impossible under strictly-future target, verified zero",
+  "C": "at least two logged faults inside input window",
+  "D": "at least one fault inside input window and observed sensor after it; overlaps C",
+  "cue_audit": "descriptive observations, not proof of target leakage or causal fault signature"
+}

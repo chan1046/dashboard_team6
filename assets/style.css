@@ -1,0 +1,1085 @@
+/* ========================================================================== */
+/* 01. 웹폰트 불러오기                                                        */
+/* ========================================================================== */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
+/* ========================================================================== */
+/* 02. 전역 디자인 변수                                                      */
+/* 색상, 배경, 테두리, 그림자 등 화면 전반에서 재사용하는 기본 토큰입니다.   */
+/* ========================================================================== */
+:root {
+  --navy: #0b1f35;
+  --blue: #176fe8;
+  --blue-soft: #e8f1ff;
+  --ink: #142033;
+  --muted: #637188;
+  --line: #d7e0eb;
+  --surface: #ffffff;
+  --canvas: #eef3f8;
+  --green: #18845b;
+  --green-soft: #e6f5ee;
+  --amber: #b77906;
+  --amber-soft: #fff3d6;
+  --red: #c43d4b;
+  --red-soft: #fdebec;
+  --shadow: 0 10px 30px rgba(13, 35, 61, .08);
+}
+
+/* ========================================================================== */
+/* 03. 전역 리셋 및 기본 요소                                                */
+/* 박스 크기 계산, 문서 배경, 기본 글꼴과 폼 요소의 공통 동작을 정의합니다. */
+/* ========================================================================== */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--canvas); color: var(--ink); }
+body { font-family: Inter, Pretendard, "Noto Sans KR", system-ui, sans-serif; line-height: 1.5; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+
+/* ========================================================================== */
+/* 04. 상단 헤더 및 브랜드                                                   */
+/* ========================================================================== */
+
+header {
+  height: 68px; padding: 0 max(24px, calc((100vw - 1440px) / 2));
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--navy); color: white;
+}
+.brand, .header-right { display: flex; align-items: center; gap: 14px; }
+.brand { font-size: 19px; font-weight: 800; letter-spacing: -.02em; }
+.brand small { display: block; margin-top: 1px; color: #aebbd0; font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+.logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 8px; background: var(--blue); font-size: 21px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
+.demo, .eyebrow { color: #7fb0ff; font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+
+/* ========================================================================== */
+/* 05. 단계 네비게이션                                                       */
+/* ========================================================================== */
+
+#steps { padding: 0 max(24px, calc((100vw - 1440px) / 2)); display: grid; grid-template-columns: repeat(5, 1fr); background: white; border-bottom: 1px solid var(--line); }
+#steps button { position: relative; min-height: 58px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: #7b8799; font-weight: 750; }
+#steps button b { display: inline-grid; place-items: center; width: 27px; height: 27px; margin-right: 8px; border-radius: 50%; background: #eef1f5; font-size: 11px; }
+#steps button.active { color: var(--blue); border-color: var(--blue); }
+#steps button.active b { background: var(--blue); color: white; }
+
+/* ========================================================================== */
+/* 06. 공통 페이지 레이아웃 및 제목                                          */
+/* ========================================================================== */
+
+#app { width: min(1440px, calc(100% - 48px)); margin: 0 auto; padding: 30px 0 56px; }
+.pagehead { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.pagehead h1 { margin: 5px 0 4px; font-size: clamp(28px, 3vw, 38px); letter-spacing: -.04em; }
+.pagehead p { margin: 0; }
+.muted { color: var(--muted); font-size: 13px; }
+.compact { margin: 16px 0 0; }
+
+/* ========================================================================== */
+/* 07. 공통 패널 및 초기 설정 화면                                           */
+/* ========================================================================== */
+
+.panel, .kpi, .detailstatus { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.panel { padding: 24px; }
+.panel h2, .panel h3 { margin: 0 0 18px; }
+.setup { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: 20px; }
+.blueprint { padding: 30px; border-radius: 12px; background: linear-gradient(145deg, #0b2037, #102b48); color: white; box-shadow: var(--shadow); }
+.panel-intro { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.panel-intro h2 { margin: 7px 0 4px; }
+.panel-intro p { margin: 0; }
+.blueprint h2 { margin: 12px 0 24px !important; }
+.path { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.path b { color: #7fb0ff; }
+.setupnote { margin-top: 24px; color: #c3cede; }
+.setupnote .muted { color: #93a4bc; }
+
+/* ========================================================================== */
+/* 08. 입력 폼, 드롭다운 및 버튼                                             */
+/* ========================================================================== */
+
+.field { display: grid; gap: 9px; margin-bottom: 20px; }
+.field label { color:#253247; font-size:14px; font-weight:800; }
+.field input, .field textarea, .field .Select-control, .field .dash-dropdown { min-height:42px; }
+.field .Select-control { height:42px; border:1px solid #c8d3e1; border-radius:9px; box-shadow:none; }
+.field .Select-value, .field .Select-input { height:40px !important; }
+.field .Select-placeholder, .field .Select-value-label { color:#172033 !important; font-size:16px; font-weight:750; line-height:40px !important; }
+.field .Select-arrow-zone { padding-right:12px; }
+.field .Select-control:hover { border-color:#8eacd0; }
+.field .is-focused:not(.is-open) > .Select-control { border-color:var(--blue); box-shadow:0 0 0 3px rgba(23,111,232,.12); }
+input, textarea { width: 100%; padding: 11px 12px; border: 1px solid #cfd7e3; border-radius: 9px; background: white; color: var(--ink); }
+textarea { min-height: 112px; resize: vertical; }
+.primary, .quiet, .small, .pagehead > button { min-height: 42px; padding: 0 16px; border-radius: 7px; border: 1px solid var(--line); background: white; color: var(--ink); font-weight: 750; }
+.primary { border-color: var(--blue); background: var(--blue); color: white; }
+.primary:hover { background: #0f5fc9; }
+.primary:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid rgba(23,111,232,.25); outline-offset: 2px; }
+.quiet { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: white; }
+.small { min-height: 34px; padding: 0 12px; font-size: 12px; }
+.small.active { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+
+/* ========================================================================== */
+/* 09. 조회 조건, 안내 문구 및 공통 그리드                                   */
+/* ========================================================================== */
+
+.context { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-bottom: 24px; padding: 12px 16px; border: 1px solid #d7e5f8; border-radius: 10px; background: #eef5ff; color: #43526a; font-size: 13px; }
+.context b { color: var(--navy); }
+.replay-badge { padding: 5px 10px; border-radius: 999px; background: #dbeafe; color: #1557a6; font-size: 12px; font-weight: 800; }
+.section-title { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 30px 0 14px; }
+.section-title h2 { margin: 0; font-size: 19px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.equal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* ========================================================================== */
+/* 10. 상태 요약 및 KPI 카드                                                 */
+/* ========================================================================== */
+
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.kpi { position: relative; overflow: hidden; padding: 19px 20px; box-shadow: none; }
+.kpi::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); }
+.kpi.green::before { background: var(--green); }
+.kpi.amber::before { background: var(--amber); }
+.kpi.red::before { background: var(--red); }
+.kpi .label { color: var(--muted); font-size: 12px; font-weight: 750; }
+.metric-placeholder { margin-top: 8px; color: var(--navy); font-size: 28px; font-weight: 850; }
+.note { color: var(--muted); font-size: 12px; }
+
+/* 설비 상태 분포 막대 */
+.status-overview { margin-top: 18px; }
+.deferred-note { padding: 6px 10px; border-radius: 999px; background: #eef1f5; color: #5e697c; font-size: 12px; font-weight: 700; }
+.distribution { display: grid; gap: 17px; }
+.distribution-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+.distribution-track { height: 9px; overflow: hidden; border-radius: 99px; background: #edf0f4; }
+.distribution-track span { display: block; height: 100%; min-width: 0; border-radius: inherit; background: var(--green); }
+.distribution-track.warning span { background: var(--amber); }
+.distribution-track.danger span { background: var(--red); }
+
+/* ========================================================================== */
+/* 11. 우선 점검 테이블, 상태 배지 및 위험도 표시                            */
+/* ========================================================================== */
+
+.tablewrap { width: 100%; overflow-x: auto; }
+table { width: 100%; min-width: 880px; border-collapse: collapse; background: white; }
+th { padding: 15px 16px; border-bottom: 1px solid var(--line); background: #f3f6fa; color: #45536a; font-size: 14px; font-weight: 800; text-align: left; white-space: nowrap; }
+td { padding: 16px; border-bottom: 1px solid #e8edf3; color: #202c40; font-size: 15px; font-weight: 550; vertical-align: middle; }
+tbody tr:hover { background: #f8fbff; }
+tbody tr:focus-within { background: #eef5ff; }
+.priority-row td:first-child { box-shadow: inset 4px 0 0 #aeb8c6; font-weight: 850; }
+.priority-row.status-normal td:first-child { box-shadow: inset 4px 0 0 var(--green); }
+.priority-row.status-warning td:first-child { box-shadow: inset 4px 0 0 #ffb000; }
+.priority-row.status-danger td:first-child { box-shadow: inset 4px 0 0 #ff4d6d; }
+.fault-type-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid #d7e0eb; border-radius: 8px; background: #f6f8fb; color: #56647a; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.fault-type-badge::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: #aeb8c6; }
+.fault-type-badge.pressure-low { border-color: #b8e4f9; background: #eaf8ff; color: #0878ad; }
+.fault-type-badge.pressure-low::before { background: #00a6fb; }
+.fault-type-badge.pressure-high { border-color: #f4d68a; background: #fff7dc; color: #956300; }
+.fault-type-badge.pressure-high::before { background: #ffb000; }
+.fault-type-badge.leak { border-color: #f6b8c4; background: #fff0f3; color: #b83250; }
+.fault-type-badge.leak::before { background: #ff4d6d; }
+.badge { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; font-size: 14px; font-weight: 800; }
+.badge.normal { background: var(--green-soft); color: var(--green); }
+.badge.warning { background: var(--amber-soft); color: var(--amber); }
+.badge.danger { background: var(--red-soft); color: var(--red); }
+.badge.unknown { background: #eef1f5; color: #6f7988; }
+.risk-cell { min-width: 170px; display: flex; align-items: center; gap: 10px; }
+.risk-number { width: 50px; font-size: 15px; font-variant-numeric: tabular-nums; font-weight: 800; }
+.risk-bar { width: 92px; height: 6px; overflow: hidden; border-radius: 99px; background: #edf0f4; }
+.risk-bar span { display: block; height: 100%; border-radius: inherit; background: var(--blue); }
+.risk-bar.normal span { background:var(--green); }
+.risk-bar.warning span { background:#e6a514; }
+.risk-bar.danger span { background:var(--red); }
+
+/* ========================================================================== */
+/* 12. 상세 진단: 상태, 위험도 및 운전 요약                                  */
+/* ========================================================================== */
+
+.detailstatus { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); gap: 18px; padding: 26px; }
+.detailstatus { display: flex; flex-direction: column; gap: 28px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); background: #fff; }
+.detailstatus > .risk-meter-card { order: 1; }
+.detailstatus > .operation-summary { order: 2; }
+.risk-meter-card { min-width: 0; padding: 4px; }
+.risk-meter-card > .detail-core-grid { margin-top: 28px; }
+.detail-core-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
+.operation-summary { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; }.operation-summary h3 { margin:0 0 22px; }.operation-bar { display:flex; height:32px; overflow:hidden; border-radius:6px; background:#edf0f4; }.operation-segment { display:flex; min-width:0; flex-shrink:0; align-items:center; justify-content:center; overflow:hidden; color:#fff; font-size:11px; font-weight:800; white-space:nowrap; }.operation-segment.running { background:#198754 !important; }.operation-segment.stopped { color:#354052; background:#aeb8c6 !important; }.operation-legend { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }.operation-label { display:flex; justify-content:space-between; padding-left:10px; border-left:4px solid #198754; color:var(--muted); font-size:14px; }.operation-label.stopped { border-color:#aeb8c6; }.operation-label b { color:var(--ink); }
+.timeline-bar { height:28px; border:1px solid #d7e0eb; }.timeline-bar .operation-segment + .operation-segment { border-left:2px solid rgba(255,255,255,.75); }
+.operation-sequence { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.operation-sequence-item { padding:5px 9px; border-radius:6px; font-size:13px; font-weight:700; }
+.operation-sequence-item.running { color:#11643f; background:#e3f5ec; }
+.operation-sequence-item.stopped { color:#5e6878; background:#eef1f5; }
+#page-3 .kpi::before { display:none; }
+#page-3 .operation-label { padding-left:0; border-left:0; }
+.detail-core-card { min-height: 102px; display: grid; align-content: center; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #f8fafc; }
+.detail-core-card.status-state-card { border-width: 2px; }
+.detail-core-card.status-state-card.normal { border-color: #8ed0ad; background: #e8f7ef; }
+.detail-core-card.status-state-card.warning { border-color: #e8c866; background: #fff5d8; }
+.detail-core-card.status-state-card.danger { border-color: #ed9dad; background: #ffedf0; }
+.detail-core-card.primary-score { background: #eef5ff; border-color: #cbdffc; }
+.detail-core-value { color: var(--navy); font-size: 20px; }
+.badge.large { width: max-content; padding: 8px 13px; font-size: 15px; }
+.risk-meter-summary { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-bottom: 22px; }
+.risk-meter-summary p, .detail-facts p { margin: 0 0 4px; }
+.risk-score-large { color: var(--navy); font-size: 36px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.risk-zone-labels { display: grid; grid-template-columns: 34fr 35fr 31fr; margin-bottom: 7px; text-align: center; color: var(--muted); font-size: 11px; font-weight: 750; }
+.risk-meter { position: relative; display: flex; height: 12px; border-radius: 99px; background: #eef1f5; }
+.risk-zone { display: block; height: 100%; }
+.normal-zone { width: 34%; border-radius: 99px 0 0 99px; background: #6fc7a5; }
+.warning-zone { width: 35%; background: #efbd56; }
+.danger-zone { width: 31%; border-radius: 0 99px 99px 0; background: #e6767f; }
+.risk-meter i { position: absolute; top: 50%; width: 18px; height: 18px; transform: translate(-50%, -50%); border: 4px solid white; border-radius: 50%; background: var(--navy); box-shadow: 0 1px 5px rgba(0,0,0,.3); }
+.detail-facts { display: grid; align-content: center; gap: 16px; padding: 16px 18px; border-radius: 12px; background: #f7f9fc; }
+#detail-errors { margin-top: 12px; }
+#detail-errors p { margin: 5px 0; }
+
+/* ========================================================================== */
+/* 13. 센서 선택 및 센서 차트                                                */
+/* ========================================================================== */
+
+.sensor-head { margin-top: 0; }
+.sensor-count { color: var(--muted); font-size: 12px; }
+.sensor-overview { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 16px; }
+/* .sensor-mini-card { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: white; }
+.sensor-mini-card .small { width: 100%; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; } */
+.all-sensors { margin-bottom: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #f8fafc; }
+.all-sensors summary { cursor: pointer; color: var(--blue); font-size: 13px; font-weight: 800; }
+.all-sensors .dash-dropdown { margin-top: 10px; }
+.sensor-chart { min-height: 280px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fbfcfe; }
+.sensor-chart-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sensor-chart-title { font-size: 17px; font-weight: 800; }
+.sensor-chart code { color: #657187; font-size: 11px; }
+.sensor-chart .dash-graph { margin-top: 8px; }
+.fault-list { max-height: 290px; overflow: auto; margin-top: 14px; }
+.fault-list table { min-width: 540px; }
+.fault-list th, .fault-list td { font-size: 14px; }
+.js-plotly-plot .xtick text, .js-plotly-plot .ytick text { font-size: 13px !important; }
+
+/* ========================================================================== */
+/* 14. 분석 로딩 화면 및 애니메이션                                          */
+/* ========================================================================== */
+
+.analysis-loading { position:fixed; z-index:200; inset:0; place-items:center; padding:24px; background:rgba(243,246,249,.92); backdrop-filter:blur(4px); }
+.loading-card { width:min(640px,100%); overflow:hidden; padding:0; border:1px solid #d7e0eb; border-radius:18px; background:white; box-shadow:0 28px 80px rgba(16,36,59,.18); text-align:left; }
+.loading-card-head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 28px; border-bottom:1px solid #dfe6ee; background:#f7f9fc; }
+.loading-kicker { color:#10243b; font-size:15px; font-weight:900; }
+.loading-meta { color:#748197; font-size:12px; }
+.loading-focus { display:grid; grid-template-columns:180px 1fr; align-items:center; gap:30px; min-height:180px; padding:28px; }
+.loading-current { position:relative; height:88px; overflow:hidden; }
+.loading-current-number { position:absolute; inset:0; display:flex; align-items:center; color:#10243b; font-size:54px; font-weight:900; letter-spacing:-.06em; opacity:0; transform:translateY(12px); animation:loading-current 13s linear forwards; }
+.loading-current-copy { display:grid; gap:5px; padding-left:28px; border-left:1px solid #dfe6ee; }
+.loading-current-copy strong { color:#1d2b3f; font-size:23px; }
+.loading-current-copy span { color:#748197; font-size:13px; }
+.loading-segments { display:grid; grid-template-columns:repeat(20,1fr); gap:5px; padding:0 28px; }
+.loading-segment { height:8px; border-radius:3px; background:#e2e8f0; animation:loading-segment 13s ease forwards; }
+.loading-range { display:flex; justify-content:space-between; padding:10px 28px 24px; color:#8a96a8; font-size:11px; font-weight:800; }
+@keyframes loading-current { 0% { opacity:0; transform:translateY(12px); } 1%,4.8% { opacity:1; transform:translateY(0); } 5%,100% { opacity:0; transform:translateY(-10px); } }
+@keyframes loading-segment { 0% { background:#e2e8f0; } 1%,100% { background:#2563eb; box-shadow:0 3px 8px rgba(37,99,235,.18); } }
+
+/* ========================================================================== */
+/* 15. 빈 상태, 플레이스홀더 및 예측 영역                                    */
+/* ========================================================================== */
+
+.chart-empty, .placeholder { min-height: 150px; display: grid; place-items: center; margin: 14px 0; border: 1px dashed #cfd7e3; border-radius: 10px; background: #f8fafc; color: #7b8799; font-size: 13px; text-align: center; }
+.table-placeholder { min-height: 80px; }
+.forecast { margin-top: 20px; }
+
+/* ========================================================================== */
+/* 16. 고장 유형 구성 및 진단 이력 요약                                      */
+/* ========================================================================== */
+.overview-summary-stack { padding:30px; border:1px solid #1f4467; border-radius:16px; background:linear-gradient(145deg,#071a2d,#102f4b 72%,#143b58); color:white; box-shadow:0 18px 42px rgba(8,31,53,.20); }
+.fault-composition-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: 30px; align-items: stretch; }
+.fault-donut-panel { position: relative; min-width: 0; overflow: hidden; padding:0 30px 0 0; border:0; border-right:1px solid rgba(255,255,255,.14); background:transparent; box-shadow:none; }
+.fault-donut-panel h2 { margin: 7px 0 2px; font-size: 23px; }
+.fault-donut-panel p { margin:0; color:#aebbd0; }
+.actual-fault-summary { position: relative; display: grid; align-content: center; overflow: hidden; padding:0; border:0; border-radius:0; background:transparent; color:white; box-shadow:none; }
+.actual-fault-summary h2 { margin: 0 0 24px; font-size: 23px; }
+.fault-total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.fault-total strong { font-size: 32px; letter-spacing: -.04em; }
+.fault-total span { color: #aebbd0; font-size: 13px; }
+.fault-legend { position: relative; z-index: 1; display: grid; gap: 8px; margin-top: 16px; }
+.fault-legend-row { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto 48px; align-items: center; gap: 11px; min-height: 48px; padding: 0 12px; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; background: rgba(255,255,255,.045); }
+.fault-legend-row:hover { background: rgba(255,255,255,.075); }
+.fault-dot { width: 11px; height: 11px; border-radius: 3px; background: #00a6fb; box-shadow: 0 0 14px rgba(0,166,251,.55); }
+.fault-dot.amber { background: #ffb000; box-shadow: 0 0 14px rgba(255,176,0,.45); }
+.fault-dot.red { background: #ff4d6d; box-shadow: 0 0 14px rgba(255,77,109,.45); }
+.fault-legend-label { color: #e6edf7; font-size: 15px; }
+.fault-percent { padding: 4px 7px; border-radius: 999px; background: rgba(255,255,255,.08); color: #c8d5e4; font-size: 13px; font-weight: 800; text-align: center; }
+.diagnosis-history-stack { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.actions { display: flex; justify-content: flex-end; margin-top: 22px; }
+
+.report { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.reporttop { display: flex; align-items: center; justify-content: space-between; }
+.report small { color: var(--muted); }
+.error { color: var(--red); font-size: 13px; }
+.empty { padding: 34px 12px; color: var(--muted); text-align: center; }
+
+/* ========================================================================== */
+/* 17. 모달 및 푸터                                                          */
+/* ========================================================================== */
+
+.modal-overlay { position: fixed; z-index: 100; inset: 0; align-items: center; justify-content: center; padding: 24px; background: rgba(7, 19, 36, .62); }
+.modal-box { position: relative; width: min(720px, 100%); max-height: 85vh; overflow: auto; padding: 30px; border-radius: 18px; background: white; box-shadow: 0 24px 80px rgba(0,0,0,.25); }
+.close { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border: 0; border-radius: 50%; background: #eef1f5; font-size: 22px; }
+.flowline { margin: 18px 0; padding: 12px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); font-weight: 750; text-align: center; }
+.unitname { color: var(--blue); }
+footer { padding: 24px; display: flex; justify-content: center; gap: 18px; color: #8792a5; font-size: 10px; letter-spacing: .08em; }
+
+/* ========================================================================== */
+/* 18. 기본 반응형 레이아웃                                                  */
+/* 태블릿 이하와 모바일 화면에서 열 수, 여백, 배치를 조정합니다.             */
+/* ========================================================================== */
+@media (max-width: 900px) {
+  #app { width: min(100% - 28px, 1440px); padding-top: 24px; }
+  .setup, .two, .equal, .detailstatus, .fault-composition-grid { grid-template-columns: 1fr; }
+  .detail-core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sensor-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #steps button { font-size: 0; }
+  #steps button b { margin: 0; font-size: 11px; }
+  .pagehead { align-items: flex-start; }
+}
+
+@media (max-width: 560px) {
+  header { height: 64px; padding: 0 14px; }
+  .brand small, .demo { display: none; }
+  #steps { padding: 0 8px; }
+  .kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pagehead { display: grid; }
+  .pagehead h1 { font-size: 28px; }
+  .panel, .blueprint, .detailstatus { padding: 18px; border-radius: 13px; }
+  .risk-meter-summary { align-items: flex-start; gap: 15px; }
+  .context { display: grid; gap: 6px; }
+  .sensorbuttons .small { flex: 1 1 45%; }
+  .detail-core-grid, .sensor-overview { grid-template-columns: 1fr; }
+}
+
+/* ========================================================================== */
+/* 19. 설비별 상태 카드 및 강조 배지                                         */
+/* ========================================================================== */
+
+.unit-status-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+.unit-status-box { min-height:78px; display:grid; align-content:center; gap:7px; padding:12px; border:1px solid #d7e0eb; border-radius:10px; background:#fff; color:#172033; text-align:left; }
+.unit-status-box:hover { border-color:#176fe8; background:#f5f9ff; }
+.unit-status-box.normal { border-color:#b9dfcd; background:#f1faf5; }.unit-status-box.warning { border-color:#f1d99a; background:#fff9e9; }.unit-status-box.danger { border-color:#f2bbc6; background:#fff3f5; }
+.unit-status-name { font-size:15px; font-weight:800; }.unit-status-badge { width:max-content; padding:6px 11px; border-radius:999px; background:#eef1f5; color:#637188; font-size:15px; font-weight:900; }.unit-status-badge.normal { background:#dff3e9; color:#0f7448; }.unit-status-badge.warning { background:#ffedbd; color:#825400; }.unit-status-badge.danger { background:#ffe0e7; color:#a91f42; }
+.priority-row .badge { padding:7px 12px; font-size:15px; font-weight:900; }
+#page-3 .badge.large { padding:9px 15px; font-size:19px; font-weight:900; }
+
+/* ========================================================================== */
+/* 20. 공통 시각 리듬 보정                                                   */
+/* 간격, 글자 크기, 카드 높이 등 화면 전반의 밀도를 후속 보정합니다.         */
+/* ========================================================================== */
+
+body { font-size:15px; line-height:1.55; }
+#app { padding-top:34px; }
+.pagehead { align-items:center; margin-bottom:26px; }
+.pagehead h1 { margin:4px 0 6px; line-height:1.18; }
+.pagehead p { max-width:720px; line-height:1.6; }
+.section-title { margin:34px 0 16px; }
+.section-title h2 { font-size:21px; line-height:1.3; }
+.panel { padding:26px; }
+.panel h2 { font-size:22px; line-height:1.35; }
+.panel h3 { font-size:18px; line-height:1.4; }
+.muted { line-height:1.55; }
+.context { align-items:center; min-height:48px; margin-bottom:26px; padding:13px 18px; }
+.kpis { gap:18px; }
+.kpi { min-height:104px; display:grid; align-content:center; padding:20px 22px; }
+.kpi .label { margin-bottom:6px; font-size:13px; }
+.metric-placeholder { margin-top:0; line-height:1.15; }
+.status-overview { margin-top:20px; }
+.unit-status-grid { gap:12px; }
+.unit-status-box { min-height:84px; padding:14px; }
+th { padding:16px 18px; line-height:1.4; }
+td { padding:17px 18px; line-height:1.45; }
+.detailstatus { gap:30px; padding:26px; }
+.detail-core-grid { gap:14px; margin-bottom:0; }
+.detail-core-card { min-height:112px; padding:18px; }
+.operation-summary { padding:24px; }
+.diagnosis-history-stack { gap:22px; }
+.sensor-overview { gap:12px; margin-bottom:18px; }
+.sensor-mini-card .small { min-height:38px; font-size:13px; }
+.forecast { margin-top:22px; }
+.fault-total strong { line-height:1; }
+.actions { margin-top:24px; }
+@media (max-width:900px) { .unit-status-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:600px) { .unit-status-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* ========================================================================== */
+/* 21. 2026 대시보드 시각 시스템 오버라이드                                 */
+/* 아래 선언은 앞선 기본 스타일을 유지한 채 최종 색상과 밀도를 덮어씁니다. */
+/* ========================================================================== */
+
+:root {
+  --navy:#10243b; --blue:#2563eb; --blue-soft:#edf4ff; --ink:#172033;
+  --muted:#64748b; --line:#dfe6ee; --surface:#fff; --canvas:#f3f6f9;
+  --green:#12805c; --green-soft:#e7f6ef; --amber:#a96f00;
+  --amber-soft:#fff4d6; --red:#bd334b; --red-soft:#ffebef;
+  --shadow:0 8px 24px rgba(25,45,72,.06);
+}
+html,body { background:var(--canvas); color:var(--ink); }
+body { font-size:15px; line-height:1.55; letter-spacing:-.01em; }
+header { height:64px; border-bottom:1px solid rgba(255,255,255,.08); background:#10243b; }
+.brand { gap:12px; font-size:18px; }
+.brand small { color:#afbdd0; font-size:11px; letter-spacing:0; }
+.logo { width:36px; height:36px; border-radius:9px; background:#2c73df; box-shadow:none; }
+.quiet { min-height:38px; border-color:rgba(255,255,255,.18); border-radius:9px; background:rgba(255,255,255,.07); }
+#steps { box-shadow:0 1px 0 rgba(16,36,59,.04); }
+#steps button { min-height:56px; border-bottom-width:2px; font-size:14px; }
+#steps button b { width:25px; height:25px; margin-right:7px; }
+#app { width:min(1320px,calc(100% - 48px)); padding:36px 0 64px; }
+.pagehead { min-height:76px; align-items:center; margin-bottom:24px; }
+.pagehead h1 { margin:3px 0 5px; font-size:34px; font-weight:850; letter-spacing:-.045em; }
+.pagehead p { color:#718096; font-size:14px; }
+.eyebrow { letter-spacing:.1em; }
+.panel,.kpi,.detailstatus { border-color:var(--line); border-radius:14px; box-shadow:var(--shadow); }
+.panel { padding:26px; }
+.setup { grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr); gap:22px; }
+.setup > .panel,.blueprint { min-height:445px; }
+.blueprint { padding:32px; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:#102a46; box-shadow:var(--shadow); }
+.blueprint h2 { margin:4px 0 20px !important; font-size:24px; }
+.path { gap:16px; padding:13px 0; }
+.path b { width:24px; color:#70a9ff; font-variant-numeric:tabular-nums; }
+.panel-intro { margin-bottom:22px; padding-bottom:18px; }
+.panel-intro h2 { font-size:24px; }
+.field { gap:8px; margin-bottom:18px; }
+.field label { color:#334155; font-size:13px; }
+.field .Select-control { height:42px; border-color:#ccd6e2; border-radius:8px; background:#fff; }
+.field .Select-placeholder,.field .Select-value-label { font-size:15px; line-height:40px !important; }
+.primary,.small,.pagehead>button { border-radius:8px; }
+.primary { border-color:#2563eb; background:#2563eb; box-shadow:0 5px 14px rgba(37,99,235,.18); }
+.primary:hover { background:#1e55cb; }
+.context { min-height:46px; margin-bottom:24px; padding:12px 16px; border-color:#dbe6f3; border-radius:10px; background:#f0f6ff; }
+.section-title { margin:32px 0 14px; }
+.section-title h2 { font-size:20px; font-weight:850; }
+.kpis { gap:14px; }
+.kpi { min-height:102px; padding:20px; }
+.metric-placeholder { font-size:27px; letter-spacing:-.04em; }
+.status-overview { margin-top:16px; }
+.unit-status-grid { gap:10px; }
+.unit-status-box { min-height:80px; padding:13px 14px; border-radius:10px; box-shadow:none; }
+.unit-status-box:hover { transform:translateY(-1px); border-color:#8eb6eb; box-shadow:0 7px 18px rgba(37,99,235,.08); }
+.unit-status-name { font-size:15px; }
+.unit-status-badge { padding:5px 10px; font-size:14px; }
+table { border:1px solid var(--line); border-radius:12px; border-collapse:separate; border-spacing:0; overflow:hidden; }
+th { padding:14px 16px; background:#f6f8fb; color:#536174; font-size:13px; }
+td { padding:15px 16px; font-size:14px; }
+tbody tr:last-child td { border-bottom:0; }
+.priority-row .badge { font-size:14px; }
+.fault-type-badge { font-size:13px; }
+.overview-summary-stack { padding:28px; border-radius:14px; background:#102a46; }
+.fault-composition-grid { gap:28px; }
+.fault-donut-panel h2,.actual-fault-summary h2 { font-size:21px; }
+.fault-legend-row { min-height:45px; }
+.detailstatus { gap:28px; padding:24px; }
+.risk-meter-card { padding:2px; }
+.risk-meter-card>.detail-core-grid { margin-top:24px; }
+.detail-core-grid { gap:12px; }
+.detail-core-card { min-height:106px; padding:17px; border-radius:10px; }
+.detail-core-value { font-size:19px; }
+#page-3 .badge.large { font-size:18px; }
+.operation-summary { padding:22px; border-radius:10px; }
+.operation-bar { height:30px; }
+.diagnosis-history-stack { gap:18px; }
+.sensor-overview { gap:10px; }
+.sensor-mini-card { border-radius:9px; }
+.all-sensors { border-radius:9px; }
+.chart-empty { background:#fafbfd; }
+footer { padding:18px 24px 28px; color:#98a4b4; font-size:10px; letter-spacing:.02em; }
+
+@media (max-width:900px) {
+  #app { width:min(100% - 32px,1320px); padding-top:28px; }
+  .setup { grid-template-columns:1fr; }
+  .setup>.panel,.blueprint { min-height:0; }
+  .fault-donut-panel { padding:0 0 24px; border-right:0; border-bottom:1px solid rgba(255,255,255,.14); }
+  .fault-composition-grid { gap:24px; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 21-1. 이전·다음 단계 이동 버튼                                            */
+/* -------------------------------------------------------------------------- */
+
+.nav-action { min-height:42px; padding:0 17px; border:1px solid #ccd6e2; border-radius:8px; font-size:14px; font-weight:850; white-space:nowrap; transition:background .16s,border-color .16s,transform .16s; }
+.nav-action.prev { background:#fff; color:#334155; }
+.nav-action.prev:hover { border-color:#94a8bf; background:#f7f9fc; transform:translateX(-1px); }
+.nav-action.next { border-color:#2563eb; background:#2563eb; color:#fff; box-shadow:0 5px 14px rgba(37,99,235,.16); }
+.nav-action.next:hover { background:#1f57cf; transform:translateX(1px); }
+.actions .nav-action { min-width:132px; }
+@media (max-width:560px) {
+  #app { width:min(100% - 24px,1320px); padding-top:22px; }
+  .pagehead h1 { font-size:29px; }
+  .panel,.detailstatus { padding:20px; }
+  #steps button { min-height:52px; font-size:12px; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 21-2. 상태 및 고장 유형 가독성 보정                                       */
+/* -------------------------------------------------------------------------- */
+
+#page-1 .status-overview { padding-top:18px; }
+#page-1 .status-overview > .section-title { margin-top:0; margin-bottom:12px; }
+.unit-status-box { display:flex; align-items:center; justify-content:center; text-align:center; }
+.unit-status-name { min-width:0; }
+#page-1 .unit-status-box { display:grid; justify-items:center; align-content:center; gap:5px; text-align:center; }
+#page-1 .unit-status-risk-track { display:block; width:min(100%,160px); height:7px; overflow:hidden; border-radius:99px; background:rgba(25,31,40,.14); }
+#page-1 .unit-status-risk-fill { display:block; height:100%; border-radius:inherit; }
+#page-1 .unit-status-risk-fill.normal { background:#168456; }
+#page-1 .unit-status-risk-fill.warning { background:#bd7900; }
+#page-1 .unit-status-risk-fill.danger { background:#d52c45; }
+#page-1 .unit-status-risk-fill.unknown { background:#8491a1; }
+#page-1 .unit-status-title-group { display:flex; align-items:center; gap:12px; min-width:0; }
+#page-1 .unit-status-header-legend { display:flex; align-items:center; gap:8px; }
+#page-1 .unit-status-risk-label { color:#53647a; font-size:13px; font-weight:750; white-space:nowrap; }
+#page-1 .unit-status-risk-empty-bar { display:inline-block; width:64px; height:8px; border-radius:99px; background:#c6cdd6; }
+.unit-status-badge,.unit-status-badge.normal,.unit-status-badge.warning,.unit-status-badge.danger {
+  padding:0; border-radius:0; background:transparent; box-shadow:none; font-size:15px; font-weight:900;
+}
+.fault-type-badge,.fault-type-badge.pressure-low,.fault-type-badge.pressure-high,.fault-type-badge.leak {
+  gap:7px; padding:4px 0; border:0; background:transparent; color:#253247; font-weight:850;
+}
+.fault-type-badge::before { width:auto; height:auto; border-radius:0; background:transparent !important; color:#475569; font-size:17px; line-height:1; }
+.fault-type-badge.pressure-low::before { content:"↓"; }
+.fault-type-badge.pressure-high::before { content:"↑"; }
+.fault-type-badge.leak::before { content:"◇"; }
+#page-3 .detail-core-card { min-height:122px; padding:20px; }
+#page-3 .detail-core-card .muted { margin-bottom:4px; color:#526176; font-size:14px; font-weight:800; }
+#page-3 .detail-core-value { font-size:24px; font-weight:900; letter-spacing:-.035em; }
+#page-3 .badge.large { font-size:22px; }
+#page-3 .predicted-fault-card { border-width:1px; border-color:var(--line); background:#f8fafc; }
+#page-3 .predicted-fault-card .detail-core-value { display:flex; align-items:center; gap:9px; color:var(--navy); }
+.fault-symbol { color:#475569; font-size:25px; font-weight:900; line-height:1; }
+
+/* -------------------------------------------------------------------------- */
+/* 21-3. 고장 유형 요약 영역의 밝은 표면 스타일                             */
+/* -------------------------------------------------------------------------- */
+
+#page-1 .overview-summary-stack { border-color:var(--line); background:#fff; color:var(--ink); box-shadow:var(--shadow); }
+#page-1 .fault-donut-panel { border-right-color:var(--line); }
+#page-1 .fault-donut-panel p { color:var(--muted); }
+#page-1 .actual-fault-summary { color:var(--ink); }
+#page-1 .fault-total { border-bottom-color:var(--line); }
+#page-1 .fault-total span { color:var(--muted); }
+#page-1 .fault-legend-row { border-color:#e4e9f0; background:#f8fafc; }
+#page-1 .fault-legend-row:hover { background:#f2f6fb; }
+#page-1 .fault-legend-label { color:#334155; }
+#page-1 .fault-percent { background:#edf1f5; color:#526176; }
+#page-1 .fault-dot { box-shadow:none; }
+
+/* -------------------------------------------------------------------------- */
+/* 21-4. 분석 로딩 화면의 고급형 시각 보정                                  */
+/* -------------------------------------------------------------------------- */
+.analysis-loading { background:rgba(16,36,59,.48); backdrop-filter:blur(8px); }
+.loading-card { position:relative; width:min(580px,100%); padding:32px; border:1px solid rgba(255,255,255,.12); border-radius:16px; background:#10243b; color:white; box-shadow:0 30px 90px rgba(7,20,35,.34); }
+.loading-card::after { content:""; position:absolute; top:0; left:32px; width:74px; height:3px; border-radius:0 0 4px 4px; background:#4c8dff; }
+.loading-card-head { padding:0 0 22px; border-bottom:1px solid rgba(255,255,255,.1); background:transparent; }
+.loading-kicker { color:#fff; font-size:14px; letter-spacing:.04em; }
+.loading-meta { color:#8fa2b9; font-size:11px; }
+.loading-focus { grid-template-columns:210px 1fr; min-height:150px; gap:22px; padding:26px 0 24px; }
+.loading-current { height:76px; }
+.loading-current-number { color:white; font-size:0; }
+.loading-current-number strong { color:#70a9ff; font-size:64px; font-weight:900; letter-spacing:-.065em; }
+.loading-current-number em { margin:16px 0 0 12px; color:#7f91a8; font-size:22px; font-style:normal; font-weight:800; letter-spacing:-.03em; }
+.loading-current-copy { padding-left:24px; border-left-color:rgba(255,255,255,.12); }
+.loading-current-copy strong { color:#fff; font-size:20px; }
+.loading-current-copy span { color:#91a2b7; }
+.loading-segments { gap:4px; padding:0; }
+.loading-segment { height:5px; border-radius:2px; background:#263d56; }
+.loading-range { padding:9px 0 0; color:#708399; }
+@keyframes loading-segment { 0% { background:#263d56; } 1%,100% { background:#4c8dff; box-shadow:0 0 10px rgba(76,141,255,.38); } }
+
+/* -------------------------------------------------------------------------- */
+/* 21-5. 분석 로딩 화면의 최종 단순형 오버라이드                            */
+/* -------------------------------------------------------------------------- */
+
+.analysis-loading { background:rgba(255,255,255,.88); backdrop-filter:blur(3px); }
+.loading-card { width:min(520px,100%); padding:34px; border:1px solid #dce4ed; border-radius:14px; background:#fff; color:var(--ink); box-shadow:0 20px 60px rgba(25,45,72,.14); text-align:center; }
+.loading-card::after { display:none; }
+.loading-card h2 { margin:0 0 8px; color:var(--ink); font-size:23px; }
+.loading-card p { margin:0; color:var(--muted); font-size:13px; }
+.loading-simple-bar { position:relative; height:7px; overflow:hidden; margin-top:26px; border-radius:99px; background:#e5ebf2; }
+.loading-simple-bar span { position:absolute; top:0; bottom:0; left:-35%; width:35%; border-radius:inherit; background:#2563eb; animation:loading-simple 1.2s ease-in-out infinite; }
+@keyframes loading-simple { 0% { left:-35%; } 55% { width:48%; } 100% { left:100%; width:35%; } }
+
+/* -------------------------------------------------------------------------- */
+/* 21-6. 페이지 제목 우측 조회 조건 배치                                     */
+/* -------------------------------------------------------------------------- */
+
+.pagehead-actions { display:flex; align-items:center; justify-content:flex-end; gap:18px; }
+.pagehead-actions .context { min-height:0; margin:0; padding:0; border:0; background:transparent; gap:6px 18px; font-size:13px; white-space:nowrap; }
+.pagehead-actions .context span { color:#64748b; }
+.pagehead-actions .context b { margin-left:3px; color:#1f2d40; font-weight:850; }
+.pagehead-actions .context-period-field { display:flex; align-items:center; gap:8px; }
+.pagehead-actions .context-period-label { color:#64748b; font-size:13px; }
+.pagehead-actions .context-period-dropdown { width:148px; color:#27364a; }
+.pagehead-actions .context-period-dropdown .Select-control { min-height:34px; border:1px solid #d6deea; border-radius:7px; background:#fff; box-shadow:none; }
+.pagehead-actions .context-period-dropdown .Select-placeholder,
+.pagehead-actions .context-period-dropdown .Select-value-label { line-height:32px !important; }
+#page-1 .pagehead,#page-2 .pagehead,#page-3 .pagehead { margin-bottom:16px; }
+#page-1 .pagehead + .section-title,#page-2 .pagehead + .section-title { margin-top:10px; }
+@media (max-width:900px) {
+  .pagehead-actions { width:100%; justify-content:space-between; }
+  .pagehead-actions .context { white-space:normal; }
+}
+
+/* ========================================================================== */
+/* 22. 밝은 톤 기반 최종 시각 오버라이드                                    */
+/* 전역 변수부터 카드·표·버튼까지 최종 화면 톤을 다시 정의합니다.           */
+:root {
+  --navy:#191f28; --blue:#3182f6; --blue-soft:#e8f3ff; --ink:#191f28;
+  --muted:#6b7684; --line:#e5e8eb; --surface:#fff; --canvas:#f2f4f6;
+  --shadow:0 2px 8px rgba(0,0,0,.035);
+}
+html,body { background:var(--canvas); }
+body { color:#191f28; font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.025em; }
+button,input,select,textarea,.dash-dropdown,.js-plotly-plot,.plotly,.plot-container {
+  font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif !important;
+}
+.js-plotly-plot .plotly text { font-family:Pretendard,"Noto Sans KR",sans-serif !important; }
+header { height:64px; border-bottom:1px solid #eef0f2; background:rgba(255,255,255,.96); color:#191f28; }
+.brand { color:#191f28; font-weight:800; }
+.brand small { color:#8b95a1; }
+.logo { border-radius:12px; background:#3182f6; box-shadow:0 5px 14px rgba(49,130,246,.22); }
+.quiet { border:0; background:#f2f4f6; color:#4e5968; }
+.quiet:hover { background:#e5e8eb; color:#333d4b; }
+#steps { border-bottom:0; background:#fff; box-shadow:none; }
+#steps button { border:0; color:#8b95a1; font-weight:700; }
+#steps button:hover { background:#f9fafb; color:#4e5968; }
+#steps button.active { color:#3182f6; background:#fff; box-shadow:inset 0 -3px #3182f6; }
+#steps button b { border:0; background:#f2f4f6; color:#6b7684; }
+#steps button.active b { background:#e8f3ff; color:#3182f6; }
+#app { padding-top:40px; }
+.pagehead { margin-bottom:28px; }
+.pagehead h1 { color:#191f28; font-size:36px; font-weight:800; letter-spacing:-.05em; }
+.pagehead p { color:#8b95a1; font-size:15px; }
+.eyebrow { color:#3182f6; font-weight:800; letter-spacing:.06em; }
+.panel,.kpi,.detailstatus,.status-overview,.overview-summary-stack {
+  border:0 !important; border-radius:20px; background:#fff; box-shadow:var(--shadow);
+}
+.panel { padding:30px; }
+.blueprint { border:0; border-radius:20px; background:#191f28; box-shadow:var(--shadow); }
+.context { border:0; border-radius:14px; background:#e8f3ff; color:#4e5968; }
+.section-title { margin-top:38px; }
+.section-title h2 { color:#191f28; font-size:22px; font-weight:800; }
+.kpis { gap:16px; }
+.kpi { min-height:112px; padding:23px; }
+.kpi .muted,.muted { color:#8b95a1; }
+.metric-placeholder { color:#191f28; font-weight:800; }
+.field label { color:#4e5968; font-size:14px; font-weight:700; }
+.field .Select-control { height:46px; border:0; border-radius:12px; background:#f2f4f6; box-shadow:none; }
+.field .Select-control:hover { background:#eef1f4; }
+.field .Select-placeholder,.field .Select-value-label { color:#333d4b !important; font-size:15px; line-height:44px !important; }
+.primary,.small,.pagehead>button,.nav-action { min-height:44px; border:0; border-radius:12px; font-weight:800; }
+.primary,.nav-action.next { background:#3182f6; box-shadow:none; }
+.primary:hover,.nav-action.next:hover { background:#1b64da; }
+.nav-action.prev { background:#e8f3ff; color:#1b64da; }
+.nav-action.prev:hover { border:0; background:#dbeeff; }
+.unit-status-grid { gap:12px; }
+.unit-status-box { min-height:82px; border:0; border-radius:14px; box-shadow:none; }
+.unit-status-box:hover { transform:translateY(-2px); border-color:transparent; box-shadow:0 8px 24px rgba(0,0,0,.07); }
+.unit-status-name { color:#333d4b; font-weight:800; }
+table { border:0; border-radius:16px; background:#fff; box-shadow:var(--shadow); }
+th { border-bottom:1px solid #eef0f2; background:#fff; color:#8b95a1; font-weight:700; }
+td { border-bottom-color:#f2f4f6; color:#333d4b; }
+tbody tr:hover td { background:#f9fafb; }
+#page-1 .fault-legend-row { border:0; border-radius:12px; background:#f7f8fa; }
+#page-1 .fault-legend-row:hover { background:#f2f4f6; }
+.detail-core-grid { gap:16px; }
+.detail-core-card { border:0 !important; border-radius:16px; background:#f7f8fa; }
+#page-3 .predicted-fault-card { background:#f7f8fa; }
+.operation-summary { border:0; border-radius:16px; background:#f7f8fa; }
+.sensor-mini-card,.all-sensors { border:0; border-radius:16px; background:#f7f8fa; }
+.loading-card { border:0; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,.12); }
+.loading-simple-bar { background:#e5e8eb; }
+.loading-simple-bar span { background:#3182f6; }
+footer { color:#b0b8c1; }
+
+@media (max-width:560px) {
+  .pagehead h1 { font-size:30px; }
+  .panel,.detailstatus { padding:22px; border-radius:18px; }
+  .pagehead-actions { flex-wrap:wrap; }
+  .pagehead-actions .context { width:100%; flex-wrap:wrap; justify-content:space-between; }
+  .pagehead-actions .context-period-field { justify-content:space-between; }
+  #page-1 .status-overview > .section-title { flex-wrap:wrap; }
+  #page-1 .unit-status-title-group { flex-wrap:wrap; }
+  #page-1 .unit-status-header-legend { flex-wrap:wrap; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-1. 설비 상태 경보 강조                                                 */
+/* -------------------------------------------------------------------------- */
+.unit-status-box.normal {
+  border:1px solid #58c999 !important;
+  background:#d9f6e9;
+  color:#075f43;
+}
+.unit-status-box.warning {
+  border:1px solid #f0ad24 !important;
+  background:#ffe8a3;
+  color:#704600;
+  box-shadow:0 4px 12px rgba(240,173,36,.15);
+}
+.unit-status-box.danger {
+  border:1px solid #e7465f !important;
+  background:#ffb8c3;
+  color:#86162b;
+  box-shadow:0 4px 14px rgba(231,70,95,.2);
+}
+.unit-status-box.normal .unit-status-name,
+.unit-status-box.warning .unit-status-name,
+.unit-status-box.danger .unit-status-name { color:inherit; }
+.unit-status-box.warning:hover { background:#ffdf7a; border-color:#de9200 !important; }
+.unit-status-box.danger:hover { background:#ff9faf; border-color:#cf2945 !important; }
+#page-1 .unit-status-box,
+#page-1 .unit-status-box.normal,
+#page-1 .unit-status-box.warning,
+#page-1 .unit-status-box.danger {
+  border:0 !important;
+  background:rgba(255,255,255,.68) !important;
+  box-shadow:none !important;
+  color:#27364a;
+}
+#page-1 .unit-status-box:hover,
+#page-1 .unit-status-box.normal:hover,
+#page-1 .unit-status-box.warning:hover,
+#page-1 .unit-status-box.danger:hover {
+  background:rgba(255,255,255,.92) !important;
+  box-shadow:0 4px 12px rgba(31,54,85,.08) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-2. 운영 화면에 맞춘 모서리 반경 축소                                  */
+/* -------------------------------------------------------------------------- */
+.panel,.kpi,.detailstatus,.status-overview,.overview-summary-stack,.blueprint { border-radius:5px; }
+.unit-status-box,.detail-core-card,.operation-summary,.sensor-mini-card,.all-sensors { border-radius:8px; }
+.context,.field .Select-control,table,#page-1 .fault-legend-row { border-radius:8px; }
+.primary,.small,.pagehead>button,.nav-action,.quiet,.logo { border-radius:7px; }
+.logout-link { display:inline-flex; align-items:center; justify-content:center; min-width:90px; border:1px solid #f1c7cd !important; background:#fff0f2 !important; color:#a62335 !important; text-align:center; }
+.logout-link:hover { border-color:#e9aab4 !important; background:#ffe1e6 !important; color:#821d2c !important; }
+.loading-card { border-radius:10px; }
+
+/* -------------------------------------------------------------------------- */
+/* 22-3. 장식 색상 막대를 제거한 개요 KPI 카드                              */
+/* -------------------------------------------------------------------------- */
+#page-1 .kpi::before { display:none; }
+
+/* -------------------------------------------------------------------------- */
+/* 22-4. 높이와 세로 정렬을 맞춘 압축형 드롭다운                            */
+/* -------------------------------------------------------------------------- */
+.field { gap:6px; margin-bottom:14px; }
+.field label { margin:0; line-height:20px; }
+.field .Select-control,
+.field .dash-dropdown { min-height:40px; height:40px; }
+.field .Select-value,
+.field .Select-input { height:38px !important; padding-left:12px; }
+.field .Select-placeholder,
+.field .Select-value-label { line-height:38px !important; font-size:15px; }
+.field .Select-arrow-zone { width:38px; padding:0 12px 0 8px; vertical-align:middle; }
+.field .Select-clear-zone { width:30px; vertical-align:middle; }
+.field .Select-menu-outer { border-color:#e5e8eb; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+.field .VirtualizedSelectOption { display:flex; align-items:center; min-height:38px; padding:8px 12px; font-size:14px; }
+
+.field .Select-control { display:table; padding:0; }
+.field .Select-value {
+  top:0; right:42px; bottom:0; left:0;
+  height:40px !important; padding:0 14px;
+}
+.field .Select-placeholder {
+  height:40px; padding:0 14px; line-height:40px !important;
+}
+.field .Select-value-label { display:block; line-height:40px !important; }
+.field .Select-input { height:40px !important; padding:0 14px; vertical-align:top; }
+.field .Select-input > input { height:40px; padding:0 !important; line-height:40px; }
+
+/* -------------------------------------------------------------------------- */
+/* 22-5. Dash 3 드롭다운 구조 대응                                           */
+/* -------------------------------------------------------------------------- */
+.field .dash-dropdown-trigger {
+  grid-template-columns:1fr auto !important;
+  height:40px; padding:0 14px; align-items:center;
+}
+.field .dash-dropdown-value,
+.field .dash-dropdown-value-item {
+  display:flex; height:40px; align-items:center; line-height:1;
+}
+.field .dash-dropdown-trigger-icon { margin:0; align-self:center; }
+.dash-dropdown-option {
+  min-height:38px !important; height:38px !important;
+  padding:0 14px !important; align-items:center !important;
+}
+.dash-dropdown-option .dash-options-list-option-wrapper,
+.dash-dropdown-option .dash-options-list-option-checkbox { display:none !important; }
+.dash-dropdown-option .dash-options-list-option-text {
+  display:flex; height:38px; align-items:center; line-height:1.2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-6. 상세 제목과 2개 항목 진단 요약                                     */
+/* -------------------------------------------------------------------------- */
+
+.detail-title-row { display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.detail-rank {
+  display:inline-flex; align-items:center; min-height:30px; padding:0 10px;
+  border-radius:6px; background:#e8f3ff; color:#1b64da;
+  font-size:14px; font-weight:800; letter-spacing:-.02em;
+}
+.detail-rank:empty { display:none; }
+#page-3 .detail-core-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:560px) {
+  #page-3 .detail-core-grid { grid-template-columns:1fr; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-7. 페이지 2 고장 개요: 2:3 열 구성 및 제목 정렬                       */
+/* -------------------------------------------------------------------------- */
+#page-1 .fault-composition-grid {
+  grid-template-columns:minmax(0,2fr) minmax(0,3fr);
+  align-items:start;
+}
+#page-1 .fault-donut-panel,
+#page-1 .actual-fault-summary { align-self:start; align-content:start; }
+#page-1 .fault-donut-panel h2,
+#page-1 .actual-fault-summary h2 { margin-top:0; }
+@media (max-width:900px) {
+  #page-1 .fault-composition-grid { grid-template-columns:1fr; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-8. 고정 헤더와 단계 탭                                                 */
+/* -------------------------------------------------------------------------- */
+header {
+  position:sticky;
+  top:0;
+  z-index:1100;
+}
+#steps {
+  position:sticky;
+  top:64px;
+  z-index:1090;
+  background:#fff;
+  box-shadow:0 1px 0 #e5e8eb;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 22-9. 데스크톱 개요 화면 밀도 보정                                       */
+/* 주요 영역이 한 화면에 들어오도록 큰 화면에서 간격과 높이를 조정합니다.  */
+/* -------------------------------------------------------------------------- */
+@media (min-width:1000px) {
+  #app { padding-top:37px; padding-bottom:12px; }
+  #page-1 .pagehead { min-height:73px; margin-bottom:25px; }
+  #page-1 .pagehead h1 { font-size:34px; }
+  #page-1 .pagehead + .section-title { margin:21px 0 13px; }
+  #page-1 .kpis { gap:19px; }
+  #page-1 .kpi { min-height:101px; padding:23px 20px; }
+  #page-1 .status-overview { margin-top:25px; padding:25px 28px; }
+  #page-1 .status-overview > .section-title { margin:0 0 15px; }
+  #page-1 .unit-status-grid { gap:13px 10px; }
+  #page-1 .unit-status-box { min-height:71px; padding:11px 12px; }
+  #page-1 .status-overview > .compact { margin:17px 0 0; }
+  #page-1 #overview-results + .section-title { margin:90px 0 16px; }
+  #page-1 .panel:not(.status-overview):not(.overview-summary-stack) { padding:20px; }
+  #page-1 .panel:not(.status-overview):not(.overview-summary-stack) h3 { margin:0 0 8px; }
+  #page-1 .overview-summary-stack { margin-top:14px; padding:20px 24px; }
+  #page-1 .fault-composition-grid { gap:24px; }
+  #page-1 .fault-donut-panel { padding-right:24px; }
+  #page-1 .actual-fault-summary h2 { margin-bottom:18px; }
+  footer { padding:8px 24px 10px; }
+}
+
+/* Current operation state: color labels only */
+#page-1 .kpi.green .label { color:#12805c; }
+#page-1 .kpi.amber .label { color:#a96f00; }
+#page-1 .kpi.red .label { color:#bd334b; }
+
+#page-1 .unit-click-hint {
+  margin:0 0 14px;
+  color:#6b7684;
+  font-size:13px;
+  font-weight:650;
+}
+
+/* Priority table sorting */
+.priority-sortbar {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  margin:0 0 12px;
+}
+.priority-sort-label { color:#6b7684; font-size:13px; font-weight:700; }
+.priority-sort-dropdown { width:190px; }
+.priority-sort-dropdown .dash-dropdown-trigger {
+  grid-template-columns:1fr auto !important;
+  min-height:38px;
+  padding:0 12px;
+  border:1px solid #d8dee6;
+  border-radius:7px;
+  background:#fff;
+}
+.priority-sort-dropdown .dash-dropdown-value,
+.priority-sort-dropdown .dash-dropdown-value-item {
+  display:flex;
+  align-items:center;
+  min-height:36px;
+}
+
+/* Priority heading spacing */
+#page-2 .pagehead h1 { margin-bottom:14px; }
+
+/* Detail diagnosis summary */
+#context-3-target { display:none; }
+#page-3 .risk-meter-card > .detail-core-grid { margin-top:24px; }
+#page-3 .status-state-card,
+#page-3 .status-state-card.normal,
+#page-3 .status-state-card.warning,
+#page-3 .status-state-card.danger,
+#page-3 .predicted-fault-card {
+  border:0 !important;
+  border-radius:0;
+  background:transparent !important;
+}
+#page-3 .detail-core-grid { gap:0; }
+#page-3 .predicted-fault-card {
+  border-left:1px solid #e5e8eb !important;
+  padding-left:28px;
+}
+#page-3 .status-text {
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+#page-3 .status-text.normal { color:#12805c; }
+#page-3 .status-text.warning { color:#a96f00; }
+#page-3 .status-text.danger { color:#bd334b; }
+#page-3 .operation-legend {
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+#page-3 .operation-label {
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+}
+#page-3 .operation-label .operation-name { font-weight:850; }
+#page-3 .operation-label.running .operation-name { color:#198754; }
+#page-3 .operation-label.stopped .operation-name { color:#7b8491; }
+#page-3 .operation-separator { color:#a3abb6; }
+#page-3 .operation-summary {
+  border:0;
+  border-top:1px solid #e5e8eb;
+  border-radius:0;
+  padding:24px 0 0;
+  background:transparent;
+}
+
+/* 상세진단 센서 추이: 선택 버튼과 개별 그래프만 표시 */
+#page-3 .sensor-head { margin:0 0 16px; }
+#page-3 .sensor-head h2 { margin:0; }
+#page-3 .sensorbuttons { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+#page-3 .sensorbuttons .small { min-width:132px; min-height:38px; padding:0 14px; font-size:13px; }
+#page-3 .sensor-chart-meta { justify-content:flex-start; }
+/* 이전에 열린 화면에도 동일하게 적용: 미리보기 없이 선택 버튼만 표시 */
+#page-3 .sensor-head .eyebrow,
+#page-3 .sensor-count { display:none; }
+#page-3 .sensor-overview { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+#page-3 .sensor-overview .sensor-mini-card { flex:0 0 auto; overflow:visible; border:0; background:transparent; }
+#page-3 .sensor-overview .sensor-mini-card .small { min-width:132px; min-height:38px; padding:0 14px; font-size:13px; }
+#page-3 .sensor-overview .sensor-mini-card .dash-graph { display:none !important; }
+
+/* Overview: unified operation status with subtle dividers */
+#page-1 .kpis {
+  gap:0;
+  overflow:hidden;
+  border:1px solid #e5e8eb;
+  background:#fff;
+}
+#page-1 .kpi {
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent;
+  box-shadow:none !important;
+}
+#page-1 .kpi:not(:last-child) { border-right:1px solid #e5e8eb !important; }
+
+/* Detail diagnosis: display-only recommended inspection guide */
+#page-3 .recommended-actions {
+  margin-top:24px;
+  padding:24px;
+  border:1px solid #e5e8eb !important;
+  background:#fff;
+  box-shadow:none;
+}
+#page-3 .recommended-actions h2 { margin:0 0 4px; }
+#page-3 .recommended-actions > .muted { margin:0; }
+#page-3 .recommended-actions-grid {
+  display:grid;
+  grid-template-columns:minmax(190px,.58fr) minmax(0,1.42fr);
+  gap:28px;
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid #e5e8eb;
+}
+#page-3 .recommended-actions-type { padding-right:28px; border-right:1px solid #e5e8eb; }
+#page-3 .recommended-actions-label {
+  display:block;
+  margin-bottom:7px;
+  color:#6b7684;
+  font-size:13px;
+  font-weight:800;
+}
+#page-3 .recommended-actions-fault { color:#253247; font-size:20px; }
+#page-3 .recommended-actions-checks ul { margin:0; padding-left:18px; }
+#page-3 .recommended-actions-checks li + li { margin-top:8px; }
+#page-3 .recommended-actions-sensor-group { margin-top:20px; }
+#page-3 .recommended-actions-sensors { display:flex; flex-wrap:wrap; gap:8px; }
+#page-3 .recommended-actions-sensors code {
+  padding:5px 9px;
+  border:1px solid #d9e0e8;
+  border-radius:5px;
+  background:#f7f9fb;
+  color:#354052;
+  font-family:"Pretendard Variable","Pretendard","Malgun Gothic",sans-serif;
+  font-size:13px;
+  font-weight:750;
+  letter-spacing:.01em;
+}
+#page-3 .recommended-actions-note { margin:20px 0 0; color:#8b95a1; font-size:12px; }
+#page-3 .recommended-actions-footer {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid #e5e8eb;
+}
+#page-3 .recommended-actions-footer .nav-action { min-width:132px; }
+#page-3 .recommended-actions-empty {
+  display:grid;
+  gap:5px;
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid #e5e8eb;
+  color:#637188;
+}
+
+@media (max-width:700px) {
+  #page-3 .recommended-actions-grid { grid-template-columns:1fr; gap:20px; }
+  #page-3 .recommended-actions-type { padding:0 0 18px; border-right:0; border-bottom:1px solid #e5e8eb; }
+}
+
+@media (max-width:900px) {
+  #page-1 .kpi:nth-child(odd) { border-right:1px solid #e5e8eb !important; }
+  #page-1 .kpi:nth-child(even) { border-right:0 !important; }
+  #page-1 .kpi:nth-child(-n+2) { border-bottom:1px solid #e5e8eb !important; }
+}
+
+@media (max-width:560px) {
+  #page-3 .predicted-fault-card {
+    border-left:0 !important;
+    border-top:1px solid #e5e8eb !important;
+    padding-left:20px;
+  }
+}
+
+/* Page bottom whitespace */
+#app { padding-bottom:8px; }
+footer { padding:6px 24px 8px; }
+#page-0 > :last-child,
+#page-1 > :last-child,
+#page-2 > :last-child,
+#page-3 > :last-child,
+#page-4 > :last-child { margin-bottom:0; }

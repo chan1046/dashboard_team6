@@ -1,0 +1,19 @@
+{
+  "model_training": false,
+  "real_data_only": true,
+  "window_observations": 2000,
+  "overlap_observations": 500,
+  "stride_observations": 1500,
+  "input_selection": "FSP=1 raw observations; no interpolation or synthetic rows",
+  "A": "reused frozen strict 12s segments and within-segment windows",
+  "B": "operating-index axis split at Tool, frozen Train/Validation phase, and any fault; gaps retained as metadata",
+  "C": "same as B plus gap threshold sensitivity; thresholds in seconds",
+  "C_thresholds": [
+    120,
+    300,
+    1800
+  ],
+  "target": "next same-type fault within same split and after window start; no event crosses a split",
+  "reserved_test": "no sensor rows at or after validation_end read",
+  "denominator_1211": "all deduplicated fault log; numerator uses pre-reserved-Test Train/Validation only"
+}

@@ -1,0 +1,130 @@
+{
+  "model1_triggers": 332303,
+  "fully_observable_6h_triggers": 331568,
+  "excluded_at_validation_end": 735,
+  "actual_fault_within_6h": 24304,
+  "imminent_fraction": 0.07330019784780197,
+  "rule": "The next unique logged fault for the same tool must occur within 6h of the trigger, inside the frozen validation interval. Triggers without a full 6h validation lookahead are excluded, not labeled negative.",
+  "by_tool": [
+    {
+      "tool_id": "01_M01",
+      "triggers": 15861,
+      "fully_observable_6h_triggers": 15819,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "01_M02",
+      "triggers": 33137,
+      "fully_observable_6h_triggers": 33038,
+      "actual_fault_within_6h": 136
+    },
+    {
+      "tool_id": "02_M01",
+      "triggers": 5869,
+      "fully_observable_6h_triggers": 5869,
+      "actual_fault_within_6h": 5
+    },
+    {
+      "tool_id": "02_M02",
+      "triggers": 2930,
+      "fully_observable_6h_triggers": 2930,
+      "actual_fault_within_6h": 146
+    },
+    {
+      "tool_id": "03_M01",
+      "triggers": 42635,
+      "fully_observable_6h_triggers": 42554,
+      "actual_fault_within_6h": 746
+    },
+    {
+      "tool_id": "03_M02",
+      "triggers": 72542,
+      "fully_observable_6h_triggers": 72312,
+      "actual_fault_within_6h": 15658
+    },
+    {
+      "tool_id": "04_M01",
+      "triggers": 0,
+      "fully_observable_6h_triggers": 0,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "04_M02",
+      "triggers": 0,
+      "fully_observable_6h_triggers": 0,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "05_M01",
+      "triggers": 9625,
+      "fully_observable_6h_triggers": 9625,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "05_M02",
+      "triggers": 328,
+      "fully_observable_6h_triggers": 328,
+      "actual_fault_within_6h": 19
+    },
+    {
+      "tool_id": "06_M01",
+      "triggers": 2,
+      "fully_observable_6h_triggers": 2,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "06_M02",
+      "triggers": 34623,
+      "fully_observable_6h_triggers": 34623,
+      "actual_fault_within_6h": 883
+    },
+    {
+      "tool_id": "07_M01",
+      "triggers": 2440,
+      "fully_observable_6h_triggers": 2440,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "07_M02",
+      "triggers": 93,
+      "fully_observable_6h_triggers": 93,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "08_M01",
+      "triggers": 43232,
+      "fully_observable_6h_triggers": 42969,
+      "actual_fault_within_6h": 1246
+    },
+    {
+      "tool_id": "08_M02",
+      "triggers": 115,
+      "fully_observable_6h_triggers": 115,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "09_M01",
+      "triggers": 64744,
+      "fully_observable_6h_triggers": 64744,
+      "actual_fault_within_6h": 5455
+    },
+    {
+      "tool_id": "09_M02",
+      "triggers": 3579,
+      "fully_observable_6h_triggers": 3559,
+      "actual_fault_within_6h": 10
+    },
+    {
+      "tool_id": "10_M01",
+      "triggers": 548,
+      "fully_observable_6h_triggers": 548,
+      "actual_fault_within_6h": 0
+    },
+    {
+      "tool_id": "10_M02",
+      "triggers": 0,
+      "fully_observable_6h_triggers": 0,
+      "actual_fault_within_6h": 0
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "mode": "저장된 실제 검증 결과 재생",
+    "reference_time": 27317822,
+    "model": "Model 1",
+    "source": "output/experiments/forward_validation_ab_24h/validation_probabilities_a.npz",
+    "same_exact_timestamp": false
+  },
+  "tools": {
+    "01_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317712,
+        "timestamp_gap_seconds": 110,
+        "risk_score": 0.24556651711463928,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 10
+    },
+    "01_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.3898806571960449,
+        "status": "주의",
+        "actual_label": 0
+      },
+      "priority": 6
+    },
+    "02_M01": {
+      "model1": {
+        "available": false,
+        "prediction_timestamp": null,
+        "timestamp_gap_seconds": null,
+        "risk_score": null,
+        "status": "판단 보류",
+        "actual_label": null,
+        "reason": "비가동/점검으로 해당 시점 데이터 없음"
+      },
+      "priority": null
+    },
+    "02_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27318716,
+        "timestamp_gap_seconds": 894,
+        "risk_score": 0.1886039823293686,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 12
+    },
+    "03_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317782,
+        "timestamp_gap_seconds": 40,
+        "risk_score": 0.7060362100601196,
+        "status": "위험",
+        "actual_label": 0
+      },
+      "priority": 2
+    },
+    "03_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.8949754238128662,
+        "status": "위험",
+        "actual_label": 0
+      },
+      "priority": 1
+    },
+    "04_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317998,
+        "timestamp_gap_seconds": 176,
+        "risk_score": 0.08283935487270355,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 15
+    },
+    "04_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.03712524473667145,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 17
+    },
+    "05_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27316146,
+        "timestamp_gap_seconds": 1676,
+        "risk_score": 0.3372298777103424,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 8
+    },
+    "05_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.1508181393146515,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 13
+    },
+    "06_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.08763200044631958,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 14
+    },
+    "06_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.3923776149749756,
+        "status": "주의",
+        "actual_label": 0
+      },
+      "priority": 5
+    },
+    "07_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.19895003736019135,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 11
+    },
+    "07_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.07496723532676697,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 16
+    },
+    "08_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27319498,
+        "timestamp_gap_seconds": 1676,
+        "risk_score": 0.652402400970459,
+        "status": "주의",
+        "actual_label": 0
+      },
+      "priority": 3
+    },
+    "08_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317818,
+        "timestamp_gap_seconds": 4,
+        "risk_score": 0.03452593833208084,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 18
+    },
+    "09_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.6007674932479858,
+        "status": "주의",
+        "actual_label": 1
+      },
+      "priority": 4
+    },
+    "09_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.3872711658477783,
+        "status": "주의",
+        "actual_label": 0
+      },
+      "priority": 7
+    },
+    "10_M01": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27319076,
+        "timestamp_gap_seconds": 1254,
+        "risk_score": 0.26503869891166687,
+        "status": "정상",
+        "actual_label": 0
+      },
+      "priority": 9
+    },
+    "10_M02": {
+      "model1": {
+        "available": true,
+        "prediction_timestamp": 27317816,
+        "timestamp_gap_seconds": 6,
+        "risk_score": 0.0066965483129024506,
+        "status": "정상",
+        "actual_label": 1
+      },
+      "priority": 19
+    }
+  }
+}

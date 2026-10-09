@@ -1,0 +1,6 @@
+{
+  "threshold": 0.5,
+  "models": "Frozen full-data 12/24h XGBoost gates + independently trained full-data LSTM TTF models",
+  "type_rule": "argmin of three predicted wall-clock TTF values at first alarm before each fault",
+  "limitation": "Validation only; this selection rule was not tuned on an independent test. Large TTF regression error may bias argmin."
+}

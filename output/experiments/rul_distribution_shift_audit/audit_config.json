@@ -1,0 +1,11 @@
+{
+  "no_model_training": true,
+  "source_experiment": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\simple_full_fault_rul",
+  "data": "real existing Train/Validation samples; raw sensor 9 at saved anchors; time-only 20-Tool scan for uncapped anchors and observation span",
+  "event_equal_definition": "each event contributes total weight 1 over its saved prediction timestamps",
+  "fault_interval_definition": "current fault timestamp minus previous same-Tool fault timestamp; first fault interval unavailable",
+  "time_quartile_definition": "each Tool original sensor observation start/end wall-clock span divided into four equal-duration intervals",
+  "sensor_normalization": "Train per-Tool median/IQR only; same affine transform applied to Train and Validation, so KS is mathematically invariant",
+  "reserved_test": "no reserved Test sensor values used for sensor distributions, models or validation; time column across full raw training file used only for observation span and fault chronology audit",
+  "no_split_change": true
+}

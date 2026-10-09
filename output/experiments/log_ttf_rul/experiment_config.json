@@ -1,0 +1,41 @@
+{
+  "train_samples": 18580,
+  "train_events": 553,
+  "validation_samples": 22518,
+  "validation_events": 201,
+  "split_plan": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "history_minutes": 60,
+  "prediction_interval_minutes": 30,
+  "raw_sensors": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "sequence_points": 60,
+  "random_state": 42,
+  "sample_selection": "exact A legacy indices, max64 randomly selected per event using seed42",
+  "event_weight": "1/N within each event, multiplied by common factor to mean1; all event masses equal",
+  "architecture": "one-layer GRU32, linear head, Adam lr0.001, batch256, 5 epochs, weighted smooth L1",
+  "sensor_scaler": "unchanged Train-only A median/IQR scaler; saved duplicate in output/models/log_ttf_rul_scaler.pkl",
+  "baseline_target": "TTF_hours / Train median, existing stored GRU model and probabilities used unchanged",
+  "log_target": "log1p(TTF_hours), no further target scaling",
+  "inverse_transform": "expm1(predicted_log1p_TTF); negative inverse results clipped to 0 hours",
+  "negative_inverse_prediction_count": 0,
+  "training_loss_by_epoch": [
+    1.4867855171634727,
+    0.9289433662205526,
+    0.9038410407223113,
+    0.8847136603642817,
+    0.8673884452205814
+  ],
+  "test_access": "none",
+  "feature_change": false,
+  "split_change": false,
+  "sampling_change": false
+}

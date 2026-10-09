@@ -1,0 +1,1363 @@
+{
+  "resolution": "1-minute rows from 100% of original 4-second measurements",
+  "horizons_seconds": [
+    10800,
+    21600,
+    43200,
+    86400
+  ],
+  "stop_gap_seconds": 120,
+  "train_ratio": 0.8,
+  "tools": {
+    "01_M01": {
+      "tool": "01_M01",
+      "raw_rows": 3124704,
+      "minute_rows": 218970,
+      "duplicate_raw_time_rows": 5273,
+      "sessions": 4353,
+      "split_cutoff_time": 33742558,
+      "split_rows": {
+        "train": 174567,
+        "purge": 609,
+        "validation": 43794
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 18564,
+            "fault": 305,
+            "censored": 155698
+          },
+          "validation": {
+            "normal": 3927,
+            "fault": 18,
+            "censored": 39849
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 9531,
+            "fault": 485,
+            "censored": 164551
+          },
+          "validation": {
+            "normal": 2083,
+            "fault": 18,
+            "censored": 41693
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 4793,
+            "fault": 845,
+            "censored": 168929
+          },
+          "validation": {
+            "normal": 670,
+            "fault": 18,
+            "censored": 43106
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 2177,
+            "fault": 1565,
+            "censored": 170825
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 18,
+            "censored": 43776
+          }
+        }
+      }
+    },
+    "01_M02": {
+      "tool": "01_M02",
+      "raw_rows": 5110542,
+      "minute_rows": 345344,
+      "duplicate_raw_time_rows": 7455,
+      "sessions": 2114,
+      "split_cutoff_time": 32961176,
+      "split_rows": {
+        "train": 274957,
+        "purge": 1318,
+        "validation": 69069
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 32619,
+            "fault": 2915,
+            "censored": 239423
+          },
+          "validation": {
+            "normal": 8975,
+            "fault": 882,
+            "censored": 59212
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 5311,
+            "fault": 3162,
+            "censored": 266484
+          },
+          "validation": {
+            "normal": 2875,
+            "fault": 882,
+            "censored": 65312
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 2329,
+            "fault": 3162,
+            "censored": 269466
+          },
+          "validation": {
+            "normal": 2485,
+            "fault": 882,
+            "censored": 65702
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 845,
+            "fault": 3162,
+            "censored": 270950
+          },
+          "validation": {
+            "normal": 1765,
+            "fault": 882,
+            "censored": 66422
+          }
+        }
+      }
+    },
+    "02_M01": {
+      "tool": "02_M01",
+      "raw_rows": 2865625,
+      "minute_rows": 200758,
+      "duplicate_raw_time_rows": 1570,
+      "sessions": 10365,
+      "split_cutoff_time": 25640878,
+      "split_rows": {
+        "train": 159948,
+        "purge": 658,
+        "validation": 40152
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 25717,
+            "fault": 119,
+            "censored": 134112
+          },
+          "validation": {
+            "normal": 135,
+            "fault": 60,
+            "censored": 39957
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 23337,
+            "fault": 119,
+            "censored": 136492
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 60,
+            "censored": 40092
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 21063,
+            "fault": 119,
+            "censored": 138766
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 60,
+            "censored": 40092
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 17432,
+            "fault": 119,
+            "censored": 142397
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 60,
+            "censored": 40092
+          }
+        }
+      }
+    },
+    "02_M02": {
+      "tool": "02_M02",
+      "raw_rows": 4143973,
+      "minute_rows": 294710,
+      "duplicate_raw_time_rows": 2258,
+      "sessions": 19869,
+      "split_cutoff_time": 29379958,
+      "split_rows": {
+        "train": 234646,
+        "purge": 1122,
+        "validation": 58942
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 1047,
+            "fault": 195,
+            "censored": 233404
+          },
+          "validation": {
+            "normal": 531,
+            "fault": 0,
+            "censored": 58411
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 372,
+            "fault": 195,
+            "censored": 234079
+          },
+          "validation": {
+            "normal": 351,
+            "fault": 0,
+            "censored": 58591
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 12,
+            "fault": 195,
+            "censored": 234439
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 58942
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 195,
+            "censored": 234451
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 58942
+          }
+        }
+      }
+    },
+    "03_M01": {
+      "tool": "03_M01",
+      "raw_rows": 3432217,
+      "minute_rows": 243115,
+      "duplicate_raw_time_rows": 1026,
+      "sessions": 4301,
+      "split_cutoff_time": 33946198,
+      "split_rows": {
+        "train": 193891,
+        "purge": 601,
+        "validation": 48623
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 4633,
+            "fault": 953,
+            "censored": 188305
+          },
+          "validation": {
+            "normal": 4621,
+            "fault": 100,
+            "censored": 43902
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 401,
+            "fault": 1071,
+            "censored": 192419
+          },
+          "validation": {
+            "normal": 2963,
+            "fault": 100,
+            "censored": 45560
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 1071,
+            "censored": 192820
+          },
+          "validation": {
+            "normal": 1356,
+            "fault": 100,
+            "censored": 47167
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 1071,
+            "censored": 192820
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 100,
+            "censored": 48523
+          }
+        }
+      }
+    },
+    "03_M02": {
+      "tool": "03_M02",
+      "raw_rows": 5060498,
+      "minute_rows": 359327,
+      "duplicate_raw_time_rows": 1168,
+      "sessions": 6251,
+      "split_cutoff_time": 36884938,
+      "split_rows": {
+        "train": 286667,
+        "purge": 794,
+        "validation": 71866
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 10322,
+            "fault": 4614,
+            "censored": 271731
+          },
+          "validation": {
+            "normal": 956,
+            "fault": 0,
+            "censored": 70910
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 4489,
+            "fault": 5562,
+            "censored": 276616
+          },
+          "validation": {
+            "normal": 141,
+            "fault": 0,
+            "censored": 71725
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 3453,
+            "fault": 6563,
+            "censored": 276651
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 71866
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 2013,
+            "fault": 8003,
+            "censored": 276651
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 71866
+          }
+        }
+      }
+    },
+    "04_M01": {
+      "tool": "04_M01",
+      "raw_rows": 5097901,
+      "minute_rows": 362839,
+      "duplicate_raw_time_rows": 1638,
+      "sessions": 24165,
+      "split_cutoff_time": 35594638,
+      "split_rows": {
+        "train": 289680,
+        "purge": 591,
+        "validation": 72568
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 6576,
+            "fault": 234,
+            "censored": 282870
+          },
+          "validation": {
+            "normal": 172,
+            "fault": 0,
+            "censored": 72396
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 5152,
+            "fault": 288,
+            "censored": 284240
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 72568
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 3947,
+            "fault": 288,
+            "censored": 285445
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 72568
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 2463,
+            "fault": 288,
+            "censored": 286929
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 72568
+          }
+        }
+      }
+    },
+    "04_M02": {
+      "tool": "04_M02",
+      "raw_rows": 4450348,
+      "minute_rows": 301192,
+      "duplicate_raw_time_rows": 1208,
+      "sessions": 2111,
+      "split_cutoff_time": 34552376,
+      "split_rows": {
+        "train": 239808,
+        "purge": 1145,
+        "validation": 60239
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 22836,
+            "fault": 1076,
+            "censored": 215896
+          },
+          "validation": {
+            "normal": 3837,
+            "fault": 1081,
+            "censored": 55321
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 2109,
+            "fault": 1184,
+            "censored": 236515
+          },
+          "validation": {
+            "normal": 74,
+            "fault": 1099,
+            "censored": 59066
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 6,
+            "fault": 1184,
+            "censored": 238618
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1099,
+            "censored": 59140
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 1184,
+            "censored": 238624
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1099,
+            "censored": 59140
+          }
+        }
+      }
+    },
+    "05_M01": {
+      "tool": "05_M01",
+      "raw_rows": 4779554,
+      "minute_rows": 339279,
+      "duplicate_raw_time_rows": 20236,
+      "sessions": 22980,
+      "split_cutoff_time": 34169096,
+      "split_rows": {
+        "train": 270842,
+        "purge": 581,
+        "validation": 67856
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 1627,
+            "fault": 66,
+            "censored": 269149
+          },
+          "validation": {
+            "normal": 651,
+            "fault": 102,
+            "censored": 67103
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 623,
+            "fault": 66,
+            "censored": 270153
+          },
+          "validation": {
+            "normal": 1,
+            "fault": 102,
+            "censored": 67753
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 66,
+            "censored": 270776
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 102,
+            "censored": 67754
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 66,
+            "censored": 270776
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 102,
+            "censored": 67754
+          }
+        }
+      }
+    },
+    "05_M02": {
+      "tool": "05_M02",
+      "raw_rows": 1907102,
+      "minute_rows": 136511,
+      "duplicate_raw_time_rows": 9473,
+      "sessions": 9400,
+      "split_cutoff_time": 31836118,
+      "split_rows": {
+        "train": 109036,
+        "purge": 172,
+        "validation": 27303
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 93,
+            "fault": 189,
+            "censored": 108754
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 27302
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 0,
+            "fault": 202,
+            "censored": 108834
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 27302
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 202,
+            "censored": 108834
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 27302
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 202,
+            "censored": 108834
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 27302
+          }
+        }
+      }
+    },
+    "06_M01": {
+      "tool": "06_M01",
+      "raw_rows": 3812209,
+      "minute_rows": 270865,
+      "duplicate_raw_time_rows": 2634,
+      "sessions": 15663,
+      "split_cutoff_time": 33275878,
+      "split_rows": {
+        "train": 215993,
+        "purge": 699,
+        "validation": 54173
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 3991,
+            "fault": 64,
+            "censored": 211938
+          },
+          "validation": {
+            "normal": 249,
+            "fault": 21,
+            "censored": 53903
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 1720,
+            "fault": 64,
+            "censored": 214209
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 21,
+            "censored": 54152
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 395,
+            "fault": 64,
+            "censored": 215534
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 21,
+            "censored": 54152
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 64,
+            "censored": 215929
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 21,
+            "censored": 54152
+          }
+        }
+      }
+    },
+    "06_M02": {
+      "tool": "06_M02",
+      "raw_rows": 5102932,
+      "minute_rows": 344902,
+      "duplicate_raw_time_rows": 2240,
+      "sessions": 5278,
+      "split_cutoff_time": 32700238,
+      "split_rows": {
+        "train": 275676,
+        "purge": 245,
+        "validation": 68981
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 5438,
+            "fault": 1981,
+            "censored": 268257
+          },
+          "validation": {
+            "normal": 4268,
+            "fault": 53,
+            "censored": 64660
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 2748,
+            "fault": 1981,
+            "censored": 270947
+          },
+          "validation": {
+            "normal": 2441,
+            "fault": 53,
+            "censored": 66487
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 1171,
+            "fault": 1981,
+            "censored": 272524
+          },
+          "validation": {
+            "normal": 1081,
+            "fault": 53,
+            "censored": 67847
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 1981,
+            "censored": 273695
+          },
+          "validation": {
+            "normal": 361,
+            "fault": 53,
+            "censored": 68567
+          }
+        }
+      }
+    },
+    "07_M01": {
+      "tool": "07_M01",
+      "raw_rows": 5301166,
+      "minute_rows": 376897,
+      "duplicate_raw_time_rows": 10884,
+      "sessions": 26422,
+      "split_cutoff_time": 34374776,
+      "split_rows": {
+        "train": 300552,
+        "purge": 965,
+        "validation": 75380
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 3212,
+            "fault": 161,
+            "censored": 297179
+          },
+          "validation": {
+            "normal": 752,
+            "fault": 0,
+            "censored": 74628
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 1361,
+            "fault": 161,
+            "censored": 299030
+          },
+          "validation": {
+            "normal": 264,
+            "fault": 0,
+            "censored": 75116
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 2,
+            "fault": 161,
+            "censored": 300389
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 75380
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 161,
+            "censored": 300391
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 75380
+          }
+        }
+      }
+    },
+    "07_M02": {
+      "tool": "07_M02",
+      "raw_rows": 5029138,
+      "minute_rows": 357638,
+      "duplicate_raw_time_rows": 9981,
+      "sessions": 25019,
+      "split_cutoff_time": 32875798,
+      "split_rows": {
+        "train": 285138,
+        "purge": 972,
+        "validation": 71528
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 6239,
+            "fault": 1,
+            "censored": 278898
+          },
+          "validation": {
+            "normal": 282,
+            "fault": 0,
+            "censored": 71246
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 5105,
+            "fault": 1,
+            "censored": 280032
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 71528
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 3695,
+            "fault": 1,
+            "censored": 281442
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 71528
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 1902,
+            "fault": 1,
+            "censored": 283235
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 71528
+          }
+        }
+      }
+    },
+    "08_M01": {
+      "tool": "08_M01",
+      "raw_rows": 3716092,
+      "minute_rows": 259648,
+      "duplicate_raw_time_rows": 9260,
+      "sessions": 13757,
+      "split_cutoff_time": 31859638,
+      "split_rows": {
+        "train": 206775,
+        "purge": 943,
+        "validation": 51930
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 2387,
+            "fault": 1157,
+            "censored": 203231
+          },
+          "validation": {
+            "normal": 425,
+            "fault": 390,
+            "censored": 51115
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 1173,
+            "fault": 1157,
+            "censored": 204445
+          },
+          "validation": {
+            "normal": 83,
+            "fault": 390,
+            "censored": 51457
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 479,
+            "fault": 1157,
+            "censored": 205139
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 390,
+            "censored": 51540
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 1157,
+            "censored": 205618
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 390,
+            "censored": 51540
+          }
+        }
+      }
+    },
+    "08_M02": {
+      "tool": "08_M02",
+      "raw_rows": 5014057,
+      "minute_rows": 357728,
+      "duplicate_raw_time_rows": 11773,
+      "sessions": 22289,
+      "split_cutoff_time": 34882318,
+      "split_rows": {
+        "train": 285215,
+        "purge": 967,
+        "validation": 71546
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 2008,
+            "fault": 123,
+            "censored": 283084
+          },
+          "validation": {
+            "normal": 1048,
+            "fault": 25,
+            "censored": 70473
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 353,
+            "fault": 123,
+            "censored": 284739
+          },
+          "validation": {
+            "normal": 365,
+            "fault": 25,
+            "censored": 71156
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 123,
+            "censored": 285092
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 25,
+            "censored": 71521
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 123,
+            "censored": 285092
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 25,
+            "censored": 71521
+          }
+        }
+      }
+    },
+    "09_M01": {
+      "tool": "09_M01",
+      "raw_rows": 4565604,
+      "minute_rows": 324220,
+      "duplicate_raw_time_rows": 7991,
+      "sessions": 21682,
+      "split_cutoff_time": 35040476,
+      "split_rows": {
+        "train": 258491,
+        "purge": 885,
+        "validation": 64844
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 9159,
+            "fault": 1470,
+            "censored": 247862
+          },
+          "validation": {
+            "normal": 2339,
+            "fault": 649,
+            "censored": 61856
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 6353,
+            "fault": 2060,
+            "censored": 250078
+          },
+          "validation": {
+            "normal": 1701,
+            "fault": 649,
+            "censored": 62494
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 3992,
+            "fault": 2615,
+            "censored": 251884
+          },
+          "validation": {
+            "normal": 896,
+            "fault": 649,
+            "censored": 63299
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 1291,
+            "fault": 3335,
+            "censored": 253865
+          },
+          "validation": {
+            "normal": 176,
+            "fault": 649,
+            "censored": 64019
+          }
+        }
+      }
+    },
+    "09_M02": {
+      "tool": "09_M02",
+      "raw_rows": 2754216,
+      "minute_rows": 192691,
+      "duplicate_raw_time_rows": 5936,
+      "sessions": 9051,
+      "split_cutoff_time": 39743696,
+      "split_rows": {
+        "train": 153593,
+        "purge": 559,
+        "validation": 38539
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 3339,
+            "fault": 149,
+            "censored": 150105
+          },
+          "validation": {
+            "normal": 1029,
+            "fault": 236,
+            "censored": 37274
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 1011,
+            "fault": 149,
+            "censored": 152433
+          },
+          "validation": {
+            "normal": 588,
+            "fault": 236,
+            "censored": 37715
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 149,
+            "censored": 153444
+          },
+          "validation": {
+            "normal": 228,
+            "fault": 236,
+            "censored": 38075
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 149,
+            "censored": 153444
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 236,
+            "censored": 38303
+          }
+        }
+      }
+    },
+    "10_M01": {
+      "tool": "10_M01",
+      "raw_rows": 3166038,
+      "minute_rows": 224250,
+      "duplicate_raw_time_rows": 2605,
+      "sessions": 14515,
+      "split_cutoff_time": 33998578,
+      "split_rows": {
+        "train": 178814,
+        "purge": 586,
+        "validation": 44850
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 1739,
+            "fault": 391,
+            "censored": 176684
+          },
+          "validation": {
+            "normal": 71,
+            "fault": 43,
+            "censored": 44736
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 386,
+            "fault": 391,
+            "censored": 178037
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 43,
+            "censored": 44807
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 391,
+            "censored": 178423
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 43,
+            "censored": 44807
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 391,
+            "censored": 178423
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 43,
+            "censored": 44807
+          }
+        }
+      }
+    },
+    "10_M02": {
+      "tool": "10_M02",
+      "raw_rows": 3755524,
+      "minute_rows": 266158,
+      "duplicate_raw_time_rows": 2924,
+      "sessions": 17241,
+      "split_cutoff_time": 32504396,
+      "split_rows": {
+        "train": 212579,
+        "purge": 347,
+        "validation": 53232
+      },
+      "horizons": {
+        "10800": {
+          "train": {
+            "normal": 2643,
+            "fault": 1,
+            "censored": 209935
+          },
+          "validation": {
+            "normal": 506,
+            "fault": 0,
+            "censored": 52726
+          }
+        },
+        "21600": {
+          "train": {
+            "normal": 736,
+            "fault": 1,
+            "censored": 211842
+          },
+          "validation": {
+            "normal": 203,
+            "fault": 0,
+            "censored": 53029
+          }
+        },
+        "43200": {
+          "train": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 212578
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 53232
+          }
+        },
+        "86400": {
+          "train": {
+            "normal": 0,
+            "fault": 1,
+            "censored": 212578
+          },
+          "validation": {
+            "normal": 0,
+            "fault": 0,
+            "censored": 53232
+          }
+        }
+      }
+    }
+  },
+  "features": [
+    "stage",
+    "recipe",
+    "recipe_step",
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK",
+    "FIXTURETILTANGLE",
+    "ROTATIONSPEED",
+    "ACTUALROTATIONANGLE",
+    "FIXTURESHUTTERPOSITION",
+    "ETCHSOURCEUSAGE",
+    "ETCHAUXSOURCETIMER",
+    "ETCHAUX2SOURCETIMER",
+    "ACTUALSTEPDURATION",
+    "FLOWCOOLPRESSURE_std_1m",
+    "FLOWCOOLPRESSURE_min_1m",
+    "FLOWCOOLPRESSURE_max_1m",
+    "FLOWCOOLFLOWRATE_std_1m",
+    "FLOWCOOLFLOWRATE_min_1m",
+    "FLOWCOOLFLOWRATE_max_1m",
+    "IONGAUGEPRESSURE_std_1m",
+    "IONGAUGEPRESSURE_min_1m",
+    "IONGAUGEPRESSURE_max_1m",
+    "ETCHGASCHANNEL1READBACK_std_1m",
+    "ETCHGASCHANNEL1READBACK_min_1m",
+    "ETCHGASCHANNEL1READBACK_max_1m",
+    "ETCHPBNGASREADBACK_std_1m",
+    "ETCHPBNGASREADBACK_min_1m",
+    "ETCHPBNGASREADBACK_max_1m",
+    "tool_number",
+    "time_diff_seconds",
+    "session_age_minutes",
+    "history_minutes",
+    "restart_after_stop",
+    "stage_changed",
+    "recipe_changed",
+    "recipe_step_changed",
+    "FLOWCOOLPRESSURE_diff",
+    "FLOWCOOLPRESSURE_per_hour",
+    "FLOWCOOLPRESSURE_mean_5m",
+    "FLOWCOOLPRESSURE_std_5m",
+    "FLOWCOOLPRESSURE_mean_30m",
+    "FLOWCOOLPRESSURE_std_30m",
+    "FLOWCOOLPRESSURE_slope_5m",
+    "FLOWCOOLPRESSURE_ewma_10m",
+    "FLOWCOOLFLOWRATE_diff",
+    "FLOWCOOLFLOWRATE_per_hour",
+    "FLOWCOOLFLOWRATE_mean_5m",
+    "FLOWCOOLFLOWRATE_std_5m",
+    "FLOWCOOLFLOWRATE_mean_30m",
+    "FLOWCOOLFLOWRATE_std_30m",
+    "FLOWCOOLFLOWRATE_slope_5m",
+    "FLOWCOOLFLOWRATE_ewma_10m",
+    "IONGAUGEPRESSURE_diff",
+    "IONGAUGEPRESSURE_per_hour",
+    "IONGAUGEPRESSURE_mean_5m",
+    "IONGAUGEPRESSURE_std_5m",
+    "IONGAUGEPRESSURE_mean_30m",
+    "IONGAUGEPRESSURE_std_30m",
+    "IONGAUGEPRESSURE_slope_5m",
+    "IONGAUGEPRESSURE_ewma_10m",
+    "ETCHGASCHANNEL1READBACK_diff",
+    "ETCHGASCHANNEL1READBACK_per_hour",
+    "ETCHGASCHANNEL1READBACK_mean_5m",
+    "ETCHGASCHANNEL1READBACK_std_5m",
+    "ETCHGASCHANNEL1READBACK_mean_30m",
+    "ETCHGASCHANNEL1READBACK_std_30m",
+    "ETCHGASCHANNEL1READBACK_slope_5m",
+    "ETCHGASCHANNEL1READBACK_ewma_10m",
+    "ETCHPBNGASREADBACK_diff",
+    "ETCHPBNGASREADBACK_per_hour",
+    "ETCHPBNGASREADBACK_mean_5m",
+    "ETCHPBNGASREADBACK_std_5m",
+    "ETCHPBNGASREADBACK_mean_30m",
+    "ETCHPBNGASREADBACK_std_30m",
+    "ETCHPBNGASREADBACK_slope_5m",
+    "ETCHPBNGASREADBACK_ewma_10m",
+    "pressure_minus_flow",
+    "pressure_div_flow"
+  ],
+  "feature_count": 85,
+  "raw_rows_total": 82189440,
+  "minute_rows_total": 5777042
+}

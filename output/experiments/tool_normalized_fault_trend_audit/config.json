@@ -1,0 +1,12 @@
+{
+  "fault_events": 741,
+  "candidate_anchors": 4446,
+  "usable_with_reference": 1324,
+  "missing_causal_reference_anchors": 18,
+  "reference_rule": "Train only; FSP=1; first real observation per wall-clock minute; all nine finite; >24h after previous Train fault and >24h before next Train fault; source rows at least 24h older than each Train anchor; Validation/reserved use frozen Train prefix ending at train_end-24h",
+  "reference_min_rows": 60,
+  "ratio_denominator_floor": 1e-09,
+  "baseline_next_fault_outcome_known_by_anchor": true,
+  "models_trained": false,
+  "split_changed": false
+}

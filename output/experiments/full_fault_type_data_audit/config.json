@@ -1,0 +1,14 @@
+{
+  "model_training": false,
+  "unique_fault_events": 1211,
+  "raw_fault_rows": 1236,
+  "duplicates_removed": 25,
+  "split_definition": "output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "history_rule": ">=60 real observations spanning >=80% of requested wall-clock history since previous any-type fault and within phase; no interpolation",
+  "horizon_rule": "latest real sensor observation no more than 60s before exact pre-fault horizon; preceding 30m history meets history rule",
+  "multi_anchor_rule": "30m wall-clock grid; latest real observation <=60s old; usable preceding 30m history; TTF bin only for audit, never feature",
+  "gap90_sensitivity": "max 90s internal observation gap recorded separately; not primary availability",
+  "reserved_access": "time column only for descriptive history availability; no reserved sensor values or model evaluation",
+  "future_information": "fault time and type used only for event eligibility, phase assignment, and audit labels; no model trained",
+  "random_state": 42
+}

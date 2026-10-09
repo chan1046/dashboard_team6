@@ -1,0 +1,14 @@
+{
+  "model_training": false,
+  "fault_name": "FlowCool Pressure Dropped Below Limit",
+  "target": "next Low Pressure fault timestamp minus current observed sensor timestamp; high/leak do not change target",
+  "split": "output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "test_use": "no model; time column and full fault log used for descriptive all-event availability only; TTF/anchor distributions limited to Train/Validation",
+  "history_rule": "at last pre-fault sensor observation, >=60 real timestamps spanning >=80% of requested wall-clock history; no imputation",
+  "rule_A": "low-to-low cycle; intermediate other faults do not reset target or candidate history",
+  "rule_B": "same target, candidate history begins strictly after most recent fault of any type",
+  "anchor_rule": "latest actual observed timestamp at/before each regular wall-clock grid time, unique; no future observations",
+  "ttf_distribution": "all observed raw sensor timestamps in train/validation low-to-low cycles; event equal weighting gives each Low event total weight 1; quantiles resolved to 1 minute",
+  "units": "fault and sensor time in seconds, TTF reported in hours",
+  "seed": 42
+}

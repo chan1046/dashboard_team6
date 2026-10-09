@@ -1,0 +1,54 @@
+Model 1 HGB vs XGBoost — frozen forward validation comparison
+
+Data equality
+- Same 1,114,137 validation rows and 91,664 positives: verified
+- Same frozen 85 features and feature order: verified
+- Same 24-hour label and split boundary purge: verified
+- HGB positive sample weight: 10.923485188 (current Train negative/positive ratio)
+- XGBoost scale_pos_weight: 11.103398086 (value frozen in final artifact)
+
+Existing HGB audit
+- output/models/hgb_24h_matched_full.joblib exists.
+- It used 4,606,868 Train rows and 1,142,112 Validation rows from the older 80/20 design.
+- It is not directly comparable to the final forward Model A split.
+- Its stored 24h result: AP 15.386%, precision 16.494%, recall 51.163%, F1 24.946%, BA 67.467%.
+- The presentation values precision 17.44%, recall 49.30%, F1 25.77%, BA 67.34%, AP 16.68% are the recovered XGBoost result, not a verified HGB result.
+
+Fair comparison at threshold 0.5
+Metric                       HGB                 XGBoost
+Validation rows              1,114,137           1,114,137
+Positive ratio               8.2274%             8.2274%
+Feature count                85                  85
+AP                           39.3670%            40.3197%
+ROC-AUC                      83.0353%            82.9964%
+Accuracy                     85.3559%            83.2632%
+Precision                    32.4608%            29.5383%
+Recall                       72.1723%            74.6542%
+F1                           44.7806%            42.3285%
+Balanced Accuracy            79.3551%            79.3446%
+Specificity                  86.5378%            84.0350%
+TN / FP / FN / TP            884826/137647/      859235/163238/
+                             25508/66156         23233/68431
+Event Detection Rate         69.6970%            68.5606%
+Detected Events              184 / 264           181 / 264
+Raw False Alarm Events       2,898               3,366
+Threshold                    0.5                 0.5
+
+XGBoost development operating candidate
+- Threshold 0.34, persistence 1/1 minute
+- AP 40.3197% (threshold-independent)
+- Precision 21.5454%, Recall 78.1070%, F1 33.7743%, BA 76.3047%
+- Event Detection Rate 76.5152% = 202/264
+- Raw False Alarm Events 6,437
+
+Class distribution
+- Train: 3,376,576 total; 3,093,389 normal; 283,187 positive; 8.3868%
+- Validation: 1,114,137 total; 1,022,473 normal; 91,664 positive; 8.2274%
+- Test: 1,241,755 total; 1,170,039 normal; 71,716 positive; 5.7754%
+
+Interpretation
+1. XGBoost AP is 0.953 percentage points higher.
+2. At threshold 0.5 XGBoost row Recall is 2.482 points higher.
+3. HGB has 2.923 points higher Precision and 468 fewer false-alarm episodes at threshold 0.5.
+4. HGB detects 3 more events at threshold 0.5. XGBoost reaches 202/264 only by lowering its threshold to 0.34, with false alarms increasing to 6,437.
+5. XGBoost remains the frozen final Model 1 because AP is the project's primary ranking metric and its complete threshold/persistence operating pipeline is already fixed. This comparison does not show that XGBoost is uniformly better; HGB is stronger at the common 0.5 operating point on F1, specificity, false alarms, and event detection.

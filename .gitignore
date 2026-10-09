@@ -1,0 +1,24 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Large/raw data
+data/**/*.csv
+data/**/*.parquet
+data/**/*.tar
+data/**/*.zip
+
+# Model files
+*.pkl
+*.joblib
+*.h5
+*.keras
+
+# Temporary
+tmp/
+node_modules/
+
+.env
+flowcool.db

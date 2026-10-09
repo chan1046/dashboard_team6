@@ -1,0 +1,32 @@
+{
+  "model_training": false,
+  "unique_low_events": 741,
+  "samples": 4446,
+  "fault_relative_horizons_minutes": [
+    1440,
+    720,
+    360,
+    180,
+    60,
+    30
+  ],
+  "history_seconds": 1800,
+  "raw_sensors": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "history_rule_for_usable": ">=60 real rows, first-to-last span >=24m, latest sensor <=60s old, all nine sensors finite; phase and previous-any-fault boundaries respected",
+  "quality_sensitivity": "20m coverage, <=5m max gap, and minimum row count reported descriptively; not newly optimized",
+  "ttf_alignment": "provided TTF belongs to last actual sensor timestamp; subtract sensor age to align with nominal prediction timestamp",
+  "reserved_sensor_and_ttf_access": "yes, read-only descriptive audit explicitly covers all 741 original Train faults; reserved outcomes are no longer untouched",
+  "manual_selection": "preselected five Tools; event with most prior-rule usable horizons in each, tie earliest fault timestamp",
+  "sensor_summary_scope": "last actual sensor value at each usable horizon; one event-horizon observation",
+  "random_state": 42
+}

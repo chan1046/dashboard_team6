@@ -1,0 +1,122 @@
+{
+  "model_sha256": "a733a8a2227409a1c8f83a03e8d4aff808f880e606341325a9e124035f1a9402",
+  "model_retrained": false,
+  "class_weight_changed": false,
+  "threshold_changed": false,
+  "feature_added": false,
+  "threshold": 0.36,
+  "persistence": "2_of_5m",
+  "validation_rows": 1142112,
+  "false_alarm_events_10m": 6066,
+  "fault_events_total": 181,
+  "fault_events_evaluable": 163,
+  "fault_events_detected": 138,
+  "stage1": {
+    "stage": 1.0,
+    "observed_validation_minute_rows": 345135.0,
+    "false_alarm_events_10m": 4170.0,
+    "fp_alert_rows": 111274.0,
+    "tp_alert_rows": 11984.0,
+    "fault_events_assigned": 58.0,
+    "detected_fault_events": 53.0,
+    "share_of_observed_rows": 0.3021901529797428,
+    "share_of_false_alarm_events": 0.6874381800197824,
+    "false_alarm_per_observed_day": 17.39840931809292,
+    "event_recall_assigned_stage": 0.9137931034482759
+  },
+  "other_stages_false_alarm_per_observed_day": 3.4257450340474067,
+  "stage1_vs_other_rate_ratio": 5.078722772762007,
+  "top_tool_stage": {
+    "tool_id": "03_M02",
+    "stage": 1,
+    "observed_validation_minute_rows": 12758,
+    "false_alarm_events_10m": 840,
+    "fp_alert_rows": 10366,
+    "tp_alert_rows": 1446,
+    "fault_events_assigned": 0,
+    "detected_fault_events": 0,
+    "false_alarm_per_observed_day": 94.81109891832575,
+    "event_recall_assigned_stage": null
+  },
+  "sensor_representation_comparison": [
+    {
+      "sensor": "FLOWCOOLFLOWRATE",
+      "representation": "raw",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.1752990484237671,
+      "fp_median": 0.5241876244544983,
+      "tp_median": 0.5013221502304077
+    },
+    {
+      "sensor": "FLOWCOOLFLOWRATE",
+      "representation": "minus_tool_median",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.21228715777397156,
+      "fp_median": -0.002663254737854004,
+      "tp_median": -0.00943446159362793
+    },
+    {
+      "sensor": "FLOWCOOLFLOWRATE",
+      "representation": "tool_normal_z",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.16530132293701172,
+      "fp_median": 0.5720378756523132,
+      "tp_median": 0.5687398314476013
+    },
+    {
+      "sensor": "FLOWCOOLFLOWRATE",
+      "representation": "tool_normal_percentile",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.21433326601982117,
+      "fp_median": 0.41709235310554504,
+      "tp_median": 0.3696693181991577
+    },
+    {
+      "sensor": "FLOWCOOLPRESSURE",
+      "representation": "raw",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.09843689203262329,
+      "fp_median": 0.14685851335525513,
+      "tp_median": 0.14812791347503662
+    },
+    {
+      "sensor": "FLOWCOOLPRESSURE",
+      "representation": "minus_tool_median",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.09041392803192139,
+      "fp_median": -0.016591154038906097,
+      "tp_median": -0.020527392625808716
+    },
+    {
+      "sensor": "FLOWCOOLPRESSURE",
+      "representation": "tool_normal_z",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.21308892965316772,
+      "fp_median": 0.12045507878065109,
+      "tp_median": 0.11718927323818207
+    },
+    {
+      "sensor": "FLOWCOOLPRESSURE",
+      "representation": "tool_normal_percentile",
+      "fp_rows": 267460,
+      "tp_rows": 37311,
+      "pooled_fp_tp_ks": 0.13368254899978638,
+      "fp_median": 0.38472336530685425,
+      "tp_median": 0.3703697919845581
+    }
+  ],
+  "sensor_unit": "Current sensor columns are one-minute means of original approximately 4-second measurements; no additional scaling in recovered baseline.",
+  "normal_reference": "Per-tool train-split (split=0) label=0 rows only, earlier than validation. It is a retrospective known-normal reference for audit, never a model input.",
+  "fault_stage_definition": "Stage on final scored sensor row in [fault_time-24h, fault_time); 18 events lack such a row and have no assigned stage. Detection may have happened in another stage.",
+  "false_event_stage_definition": "Stage on first false-positive row of a per-tool 10-minute-merged episode; the episode can span stages.",
+  "denominator_caveat": "Observed-day = labeled validation one-minute rows/1440, not wall-clock running days.",
+  "interpretation_caveat": "Pooled FP/TP differences may reflect tool mix or stage mix. Per-tool median shifts and z/percentile transforms are monotonic within each tool, so within-tool KS cannot improve by construction; pooled KS is exploratory and not model performance.",
+  "raw_value_caveat": "A common numerical sensor value's normal percentile differs across tools, but physical meaning or causal fault risk cannot be established from this comparison alone."
+}

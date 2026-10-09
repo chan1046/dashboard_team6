@@ -1,0 +1,71 @@
+{
+  "population": "Actual first-stage forward validation only; 1-minute prepared sensor observations within true 0-6h before next same-type event",
+  "conditional_selection_caveat": "True TTF is used to select 0-6h rows for this research evaluation. An online system cannot know this membership; these results do not validate end-to-end predicted TTF.",
+  "ttf_feature_check": "No TTF, fault time, event ID, absolute time, run number, or lot in FEATURES",
+  "split": "Per fault type, global chronological event-time 70/30 with 6h purge each side; no event in both subsets",
+  "same_validation_reuse_caveat": "This population reuses the previously analyzed forward validation. It is exploratory, not independent final validation; reserved test remains unopened.",
+  "feature_causality": "ION 10-minute std and FlowCool 30-minute means are recomputed using elapsed seconds and only same-session current and preceding observations. Existing baseline mean_30m fields are row-count windows and are not used.",
+  "hgb_existing_parameters": {
+    "max_iter": 120,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "xgboost_existing_parameters": {
+    "objective": "reg:squarederror",
+    "n_estimators": 300,
+    "learning_rate": 0.04,
+    "max_depth": 3,
+    "min_child_weight": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "tree_method": "hist",
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "eda_report_sha256": "de7262cd5ce0131a691b53f2fa94677b6befbcb7406c58caf19e30684778c61d",
+  "split_summary": [
+    {
+      "fault_type": "pressure_high",
+      "candidate_events": 28,
+      "train_events": 18,
+      "validation_events": 8,
+      "train_rows": 2994,
+      "validation_rows": 1127,
+      "boundary_second": 31427350,
+      "purge_seconds_each_side": 21600,
+      "train_last_time": 30703616,
+      "validation_first_time": 34852676,
+      "feature_names": "IONGAUGEPRESSURE,IONGAUGEPRESSURE_std_10m"
+    },
+    {
+      "fault_type": "leak",
+      "candidate_events": 15,
+      "train_events": 10,
+      "validation_events": 2,
+      "train_rows": 1771,
+      "validation_rows": 518,
+      "boundary_second": 32336080,
+      "purge_seconds_each_side": 21600,
+      "train_last_time": 31685876,
+      "validation_first_time": 32350316,
+      "feature_names": "FLOWCOOLPRESSURE,FLOWCOOLPRESSURE_mean_30m"
+    },
+    {
+      "fault_type": "pressure_low",
+      "candidate_events": 165,
+      "train_events": 115,
+      "validation_events": 49,
+      "train_rows": 18077,
+      "validation_rows": 7135,
+      "boundary_second": 32730086,
+      "purge_seconds_each_side": 21600,
+      "train_last_time": 32636892,
+      "validation_first_time": 32757596,
+      "feature_names": "FLOWCOOLPRESSURE,FLOWCOOLFLOWRATE,FLOWCOOLPRESSURE_mean_30m,FLOWCOOLFLOWRATE_mean_30m"
+    }
+  ]
+}

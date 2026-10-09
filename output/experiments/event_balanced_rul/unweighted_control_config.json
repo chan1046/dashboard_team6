@@ -1,0 +1,7 @@
+{
+  "purpose": "isolate sample weighting while holding cap64 samples, validation, scaler, architecture and hyperparameters fixed",
+  "train_samples": 18580,
+  "train_events": 553,
+  "weights": "all 1.0",
+  "test_access": "none"
+}

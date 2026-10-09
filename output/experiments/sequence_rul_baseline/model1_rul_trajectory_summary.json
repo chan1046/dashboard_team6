@@ -1,0 +1,8 @@
+{
+  "model1_detected_events": 200,
+  "events_with_any_sequence": 168,
+  "events_with_two_or_more_sequence_scores": 166,
+  "estimated_rul_change_median_h": 0.3422999382019043,
+  "estimated_rul_change_fraction_decreasing": 0.40963855421686746,
+  "note": "First-to-last estimate can decrease merely because time passes; this is not proof of degradation sensitivity. Conditional GRU is applied outside its training population here."
+}

@@ -1,0 +1,9 @@
+{
+  "degradation_label": "24h pre-fault proxy, not measured onset",
+  "selection": "RUL validation rows are restricted to warned faults, so results do not measure all-fault RUL quality",
+  "ablation": "both training arms scored on identical post-warning validation rows; training populations differ by design",
+  "folds": "three chronological validation event slices of a single fitted model; not three refits",
+  "comparison_to_old": "old raw-sequence baseline used the whole Train partition and a different validation row population; numerical MAE is not directly comparable",
+  "horizon": "detector label is censored in last 24h of each partition",
+  "status": "development validation previously reused across project; no untouched final test claim"
+}

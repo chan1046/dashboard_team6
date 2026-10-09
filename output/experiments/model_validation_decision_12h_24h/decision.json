@@ -1,0 +1,23 @@
+{
+  "classification_model_family": "XGBoost 12h and 24h",
+  "reason": "On matched full-data chronological validation, XGBoost has higher AP and more detected fault events with fewer 10-minute false alarm events than HGB at threshold 0.5 for both horizons.",
+  "candidate_24h_alarm": {
+    "threshold": 0.36,
+    "rule": "2 of last 5 observed clock minutes",
+    "detected_fault_events": 138,
+    "logged_fault_events": 181,
+    "false_alarm_events_10m": 6066,
+    "average_false_alarm_events_per_observed_tool_12h": 3.824073295788855,
+    "tools_above_four_per_observed_12h": 9,
+    "worst_tool_per_observed_12h": 13.641129403108618
+  },
+  "hgb_same_budget_comparison": {
+    "threshold": 0.32,
+    "detected_fault_events": 127,
+    "false_alarm_events_10m": 6031
+  },
+  "regression_decision": "Neither HGB-log nor LSTM validated for TTF/type display: all type-specific R2 values are negative.",
+  "dashboard_status": "Not connected, at user request. XGBoost classification is a research candidate, not an approved live alarm policy.",
+  "validation_limit": "Threshold and persistence were selected on the same validation period. No untouched later time period was evaluated. The observed-minute denominator is not a full wall-clock shift.",
+  "next_experiment": "Fixed-rule forward validation on a later held-out time segment, reporting fault-event recall and per-tool 12h false-alarm distribution; test tool-specific calibration only after that."
+}

@@ -1,0 +1,29 @@
+{
+  "target": "1 if 0 < actual next-fault TTF <=6h, else 0 if 6h<TTF<=24h",
+  "selection_caveat": "This is conditional on actual TTF<=24h; true TTF cannot be used to gate Model 2 in operation. End-to-end Model 1+2 performance is not evaluated.",
+  "split": "Frozen Model A per-tool chronological train/validation; row and next fault are within the same split; reserved test untouched.",
+  "validation_folds": "Three globally chronological slices of the same validation, with 24h internal gaps and each event assigned to at most one slice. Models are not refitted per slice; folds are stability checks, not independent tests.",
+  "fold_boundaries_unix_seconds": [
+    29214058,
+    32082056
+  ],
+  "fold_excluded_rows": 832,
+  "event_weighting": "Each train event has equal total sample weight. For event-equal evaluation each validation event has total row weight 1. A single event can have both target classes; this is an equal-event-weight row metric, not one binary label per fault.",
+  "event_detection": "A fault is detected when any positive prediction occurs in its observed 0-6h window; distinct from event-equal-weight Balanced Accuracy.",
+  "features": "Exactly frozen 85 causal Model A features; no TTF, fault timestamp, future/post-fault sensors, or feature changes.",
+  "model": "HistGradientBoostingClassifier; identical parameters for A/B; only train sample_weight differs.",
+  "parameters": {
+    "max_iter": 120,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "threshold": 0.5,
+  "train_rows": 56546,
+  "validation_rows": 18294,
+  "train_events": 604,
+  "validation_events": 218,
+  "class_count_note": "A fault event may contribute rows to both 0-6h and 6-24h; per-class unique event counts therefore need not sum to total events."
+}

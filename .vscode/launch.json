@@ -1,0 +1,133 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "LS team6 - complete experiment",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\LS_team6\\pipeline.py",
+      "args": ["all"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "LS team6 - review results",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\LS_team6\\pipeline.py",
+      "args": ["evaluate"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "Build data - sensor+TTF 20 tools",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\build_sensor_ttf_dataset.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "XGBoost baseline - 02_M01",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_xgboost_baseline.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "RF multi-tool - 1. manifest",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_rf_multi_tool.py",
+      "args": ["manifest"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "RF multi-tool - 2. prepare all",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_rf_multi_tool.py",
+      "args": ["prepare"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "RF multi-tool - 3. train all",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_rf_multi_tool.py",
+      "args": ["train"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "RF multi-tool - 4. predict test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_rf_multi_tool.py",
+      "args": ["predict"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "RF multi-tool - all",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_rf_multi_tool.py",
+      "args": ["all"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "XGBoost 4-second benchmark - all",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_xgboost_4s_benchmark.py",
+      "args": ["all"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "XGBoost 4-second benchmark - 1. prepare",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_xgboost_4s_benchmark.py",
+      "args": ["prepare"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "XGBoost 4-second benchmark - 2. train",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_xgboost_4s_benchmark.py",
+      "args": ["train"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "name": "XGBoost 4-second benchmark - 3. evaluate",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\src\\train_xgboost_4s_benchmark.py",
+      "args": ["evaluate"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+    }
+  ]
+}

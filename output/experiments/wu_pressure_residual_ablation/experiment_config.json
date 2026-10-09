@@ -1,0 +1,27 @@
+{
+  "source": "real raw four-second sensor parquet",
+  "operating_segments": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\wu_pressure_residual_ablation\\operating_segments.csv.gz",
+  "sequence_windows": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\wu_pressure_residual_ablation\\strict_sequence_target_availability.csv",
+  "normal": "FSP=1; >24h from previous and next any-type fault; full 24h future within frozen Train",
+  "pressure_mlp_input": [
+    "FLOWCOOLFLOWRATE"
+  ],
+  "pressure_mlp_target": "FLOWCOOLPRESSURE",
+  "normal_fit_subsampling": "deterministic raw row index modulo 256 == 0; full eligible Train-normal population counted",
+  "residual": "MLP(flow)-actual pressure; computed for all finite Train/Validation operating observations without fault/TTF input",
+  "eda_subsampling": "deterministic raw row index modulo 64 == 0; quantiles and fault-distance distributions are sampled",
+  "pressure_validation_metric_population": "all finite Validation operating observations >24h from any fault, with full 24h horizon observed",
+  "split_plan": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "model1": "untouched",
+  "engineered_85": "unused",
+  "gru": "same architecture, Adam 0.001, five epochs, log1p target, head mask, and 2000/500 window rule as previous paper baseline; only channels differ",
+  "validation_reuse": "development validation, not independent final test",
+  "pressure_metrics": {
+    "normal_validation_rows": 8435147,
+    "mae": 0.12835953654041982,
+    "rmse": 0.5246485961525759,
+    "r2": -0.03837279363858426
+  },
+  "matched_windows": 46,
+  "rul_metric_rows": 8
+}

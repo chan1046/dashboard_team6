@@ -1,0 +1,29 @@
+{
+  "leakage_checks": {
+    "all_history_at_or_before_anchor": true,
+    "all_anchors_strictly_before_target_fault": true,
+    "ttf_exactly_fault_minus_anchor_hours": true,
+    "no_event_shared_train_validation": true,
+    "train_anchors_before_train_end": true,
+    "validation_anchors_at_after_validation_start": true,
+    "validation_faults_before_validation_end": true,
+    "all_history_within_requested_hour": true,
+    "all_history_spans_at_least_80pct_hour": true,
+    "no_train_event_above_64_samples": true
+  },
+  "observed_fault_events": 1211,
+  "train_events_in_fixed_split": 751,
+  "validation_events_in_fixed_split": 262,
+  "train_usable_events": 553,
+  "validation_usable_events": 201,
+  "train_ttf_median_hours": 41.42722222222222,
+  "validation_ttf_median_hours": 268.7058333333334,
+  "train_ttf_max_hours": 5496.611111111111,
+  "validation_ttf_max_hours": 1502.897222222222,
+  "validation_anchors_with_gap_over_30min_pct": 3.8768984812150276,
+  "validation_anchors_with_gap_over_5min_pct": 30.127009503508305,
+  "target_not_clipped": true,
+  "no_fake_downtime_rows": true,
+  "reserved_test_sensor_rows_read_for_model": 0,
+  "reserved_test_labels_read_for_model": 0
+}

@@ -1,0 +1,13 @@
+{
+  "selected_validation_residual_quantiles_h": {
+    "p05": -4.126745098431905,
+    "p10": -3.002440387407938,
+    "p25": -1.806111111111111,
+    "median": -0.1011111111111111,
+    "p75": 1.5878832541571724,
+    "p90": 2.712519425286187,
+    "p95": 3.145235635969374
+  },
+  "selected_absolute_error_p80_h": 2.8161147541469997,
+  "interpretation": "Empirical development-validation residuals on true 0-6h rows only. Not a calibrated prospective prediction interval; model selection reused the same validation."
+}

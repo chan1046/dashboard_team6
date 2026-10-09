@@ -1,0 +1,7 @@
+{
+  "chosen_for_reproducibility": "6h window, 30min sequence GRU; selection among GRUs only and shorter-window absolute MAE is not a fair cross-horizon score",
+  "matched_0_6h_comparison": "GRU 1.851h MAE versus Dummy 1.393h and Tree 1.545h on identical 901 validation rows; no performance improvement",
+  "model1_connection": "Only 23.98% of Model 1 trigger rows have a continuous 30-minute sequence; conditional trigger MAE 1.844h on 6095 rows with real fault within 6h",
+  "dashboard_decision": "Do not display point RUL or an empirical range as a reliable fault-time forecast. Model remains a research artifact, not final Model 2.",
+  "independent_validation": "The same development validation selected the configuration; no independent final test was used."
+}

@@ -1,0 +1,165 @@
+{
+  "signature": {
+    "pipeline_version": "2026-09-23-v2-exact-last-row",
+    "bytes": 201857000,
+    "mtime_ns": 1790130928237115300,
+    "horizons": [
+      10800,
+      21600,
+      43200,
+      86400
+    ],
+    "gap": 120,
+    "train_ratio": 0.8
+  },
+  "report": {
+    "tool": "07_M02",
+    "raw_rows": 5029138,
+    "minute_rows": 357638,
+    "duplicate_raw_time_rows": 9981,
+    "sessions": 25019,
+    "split_cutoff_time": 32875798,
+    "split_rows": {
+      "train": 285138,
+      "purge": 972,
+      "validation": 71528
+    },
+    "horizons": {
+      "10800": {
+        "train": {
+          "normal": 6239,
+          "fault": 1,
+          "censored": 278898
+        },
+        "validation": {
+          "normal": 282,
+          "fault": 0,
+          "censored": 71246
+        }
+      },
+      "21600": {
+        "train": {
+          "normal": 5105,
+          "fault": 1,
+          "censored": 280032
+        },
+        "validation": {
+          "normal": 0,
+          "fault": 0,
+          "censored": 71528
+        }
+      },
+      "43200": {
+        "train": {
+          "normal": 3695,
+          "fault": 1,
+          "censored": 281442
+        },
+        "validation": {
+          "normal": 0,
+          "fault": 0,
+          "censored": 71528
+        }
+      },
+      "86400": {
+        "train": {
+          "normal": 1902,
+          "fault": 1,
+          "censored": 283235
+        },
+        "validation": {
+          "normal": 0,
+          "fault": 0,
+          "censored": 71528
+        }
+      }
+    }
+  },
+  "features": [
+    "stage",
+    "recipe",
+    "recipe_step",
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK",
+    "FIXTURETILTANGLE",
+    "ROTATIONSPEED",
+    "ACTUALROTATIONANGLE",
+    "FIXTURESHUTTERPOSITION",
+    "ETCHSOURCEUSAGE",
+    "ETCHAUXSOURCETIMER",
+    "ETCHAUX2SOURCETIMER",
+    "ACTUALSTEPDURATION",
+    "FLOWCOOLPRESSURE_std_1m",
+    "FLOWCOOLPRESSURE_min_1m",
+    "FLOWCOOLPRESSURE_max_1m",
+    "FLOWCOOLFLOWRATE_std_1m",
+    "FLOWCOOLFLOWRATE_min_1m",
+    "FLOWCOOLFLOWRATE_max_1m",
+    "IONGAUGEPRESSURE_std_1m",
+    "IONGAUGEPRESSURE_min_1m",
+    "IONGAUGEPRESSURE_max_1m",
+    "ETCHGASCHANNEL1READBACK_std_1m",
+    "ETCHGASCHANNEL1READBACK_min_1m",
+    "ETCHGASCHANNEL1READBACK_max_1m",
+    "ETCHPBNGASREADBACK_std_1m",
+    "ETCHPBNGASREADBACK_min_1m",
+    "ETCHPBNGASREADBACK_max_1m",
+    "tool_number",
+    "time_diff_seconds",
+    "session_age_minutes",
+    "history_minutes",
+    "restart_after_stop",
+    "stage_changed",
+    "recipe_changed",
+    "recipe_step_changed",
+    "FLOWCOOLPRESSURE_diff",
+    "FLOWCOOLPRESSURE_per_hour",
+    "FLOWCOOLPRESSURE_mean_5m",
+    "FLOWCOOLPRESSURE_std_5m",
+    "FLOWCOOLPRESSURE_mean_30m",
+    "FLOWCOOLPRESSURE_std_30m",
+    "FLOWCOOLPRESSURE_slope_5m",
+    "FLOWCOOLPRESSURE_ewma_10m",
+    "FLOWCOOLFLOWRATE_diff",
+    "FLOWCOOLFLOWRATE_per_hour",
+    "FLOWCOOLFLOWRATE_mean_5m",
+    "FLOWCOOLFLOWRATE_std_5m",
+    "FLOWCOOLFLOWRATE_mean_30m",
+    "FLOWCOOLFLOWRATE_std_30m",
+    "FLOWCOOLFLOWRATE_slope_5m",
+    "FLOWCOOLFLOWRATE_ewma_10m",
+    "IONGAUGEPRESSURE_diff",
+    "IONGAUGEPRESSURE_per_hour",
+    "IONGAUGEPRESSURE_mean_5m",
+    "IONGAUGEPRESSURE_std_5m",
+    "IONGAUGEPRESSURE_mean_30m",
+    "IONGAUGEPRESSURE_std_30m",
+    "IONGAUGEPRESSURE_slope_5m",
+    "IONGAUGEPRESSURE_ewma_10m",
+    "ETCHGASCHANNEL1READBACK_diff",
+    "ETCHGASCHANNEL1READBACK_per_hour",
+    "ETCHGASCHANNEL1READBACK_mean_5m",
+    "ETCHGASCHANNEL1READBACK_std_5m",
+    "ETCHGASCHANNEL1READBACK_mean_30m",
+    "ETCHGASCHANNEL1READBACK_std_30m",
+    "ETCHGASCHANNEL1READBACK_slope_5m",
+    "ETCHGASCHANNEL1READBACK_ewma_10m",
+    "ETCHPBNGASREADBACK_diff",
+    "ETCHPBNGASREADBACK_per_hour",
+    "ETCHPBNGASREADBACK_mean_5m",
+    "ETCHPBNGASREADBACK_std_5m",
+    "ETCHPBNGASREADBACK_mean_30m",
+    "ETCHPBNGASREADBACK_std_30m",
+    "ETCHPBNGASREADBACK_slope_5m",
+    "ETCHPBNGASREADBACK_ewma_10m",
+    "pressure_minus_flow",
+    "pressure_div_flow"
+  ]
+}

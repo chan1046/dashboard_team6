@@ -1,0 +1,13 @@
+{
+  "candidate_event_horizons": 4446,
+  "prior_rule_usable": 1330,
+  "usable_with_causal_baseline": 1324,
+  "tool_baseline_count": 20,
+  "causal_reference_missing": 18,
+  "usable_without_reference": 6,
+  "near_zero_median_anchor_sensor": 0,
+  "near_zero_std_anchor_sensor": 0,
+  "negative_median_anchor_sensor": 4217,
+  "future_reference_violations": 0,
+  "future_sensor_violations": 0
+}

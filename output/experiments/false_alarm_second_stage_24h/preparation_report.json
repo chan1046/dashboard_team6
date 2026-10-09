@@ -1,0 +1,15 @@
+{
+  "primary_model_sha256": "66c5a0a8d1ead59869127e99d7015346005f7a92dd50f907b0666adb3dd76c38",
+  "primary_score_sha256": "4dea95a799c32ad9e7caa9c8e42b2fcfa17764beff441c3170399dd0a8e4e143",
+  "train_normal_reference_sha256": "3a9c018926f7f8804fe66a8801baa9a26b9cbf3a912ecc037c33b30440a46233",
+  "primary_policy": "threshold 0.34, one observed minute hit; frozen before this experiment",
+  "fault_events": 264,
+  "first_stage_row_alarm_detected": 202,
+  "candidate_definition": "First threshold-hit row of all-alarm per-tool episode, >10m gap starts a new episode. Episode-onset features use current and previous observed rows only.",
+  "false_only_count_caveat": "6437 is obtained by merging negative-label hit rows alone; operational all-alarm episode starts differ. These counts must not be interchanged.",
+  "label_definition": "Positive if next logged target fault is within (0,24h]; hard negative if >=72h away or absent with 72h known follow-up before test boundary; 24-72h ambiguous excluded from training; insufficient 72h follow-up censored.",
+  "second_stage_split": "Per tool, first half of primary validation scores for second-stage training, later half for second-stage validation; >=72h embargo before each second-stage cutoff for train hard negatives.",
+  "first_stage_tuning_caveat": "The primary threshold 0.34 was previously chosen on this whole primary validation. This split reduces second-stage fitting leakage but cannot make the reused interval a fresh independent test.",
+  "onset_duration_caveat": "Alarm duration at the episode start is zero by definition; it is retained in the audit but omitted from fitted predictors.",
+  "test_note": "Reserved test outcomes and scores are never evaluated here; shared historical exposure remains as documented in forward_validation_ab_24h."
+}

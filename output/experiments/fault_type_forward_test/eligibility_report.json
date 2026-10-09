@@ -1,0 +1,21 @@
+{
+  "status": "not_run_no_historically_untouched_forward_interval",
+  "requested_evaluation": "first manager notification, frozen Model 1 and Tree fault-type classifier",
+  "tools_audited": 20,
+  "old_baseline_split": "per-tool chronological first 80% train / last 20% validation",
+  "new_split": "approximately 60/20/20 per tool by chronological minute-row count; boundaries aligned down to 8192-row batches",
+  "all_new_reserved_test_starts_before_old_validation_starts": true,
+  "all_late_suffixes_previously_evaluated_in_old_baseline": true,
+  "test_sensor_rows_read": 0,
+  "test_fault_rows_read": 0,
+  "test_predictions_created": 0,
+  "models_loaded_or_fitted": 0,
+  "threshold_or_confidence_selection": "none",
+  "reason": "The final chronological suffix of all 20 tools was the old recovered-baseline validation set. Thus the current 60/20/20 reserved Test overlaps prior development/validation, and no later labeled suffix exists within this recorded dataset.",
+  "required_next_input": "New, later labeled sensor and fault observations beyond the previously evaluated end for each tool, with a frozen evaluation protocol before outcomes are opened.",
+  "source_files": [
+    "output\\baseline_recovery\\preparation_report.json",
+    "output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+    "output/baseline_recovery/reproduction_report.json"
+  ]
+}

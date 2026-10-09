@@ -1,0 +1,103 @@
+{
+  "model_retrained": false,
+  "source_scores": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\horizon_comparison_12h_24h\\validation_probabilities_12h.npz",
+  "validation_rows": 1142112,
+  "thresholds": [
+    0.34,
+    0.36,
+    0.38,
+    0.4,
+    0.42,
+    0.44,
+    0.46,
+    0.48,
+    0.5
+  ],
+  "conditions": [
+    [
+      "1_of_1m",
+      1,
+      1
+    ],
+    [
+      "2_of_3m",
+      3,
+      2
+    ],
+    [
+      "2_of_5m",
+      5,
+      2
+    ],
+    [
+      "3_of_5m",
+      5,
+      3
+    ],
+    [
+      "3_of_10m",
+      10,
+      3
+    ]
+  ],
+  "baseline": {
+    "threshold": 0.5,
+    "condition": "1_of_1m",
+    "window_minutes": 1,
+    "minimum_hits": 1,
+    "validation_rows": 1142112,
+    "positive_rows": 37019,
+    "negative_rows": 1105093,
+    "accuracy": 0.8370588873945812,
+    "precision": 0.09707341859735992,
+    "recall": 0.4851022447932143,
+    "f1": 0.1617743105133483,
+    "balanced_accuracy": 0.666975582600409,
+    "tn": 938057,
+    "fp": 167036,
+    "fn": 19061,
+    "tp": 17958,
+    "average_precision": 0.09949308179473107,
+    "logged_fault_events": 181,
+    "evaluable_fault_events": 154,
+    "detected_fault_events": 106,
+    "all_fault_event_recall": 0.585635359116022,
+    "evaluable_fault_event_recall": 0.6883116883116883,
+    "first_alert_lead_median_minutes": 615.6,
+    "first_alert_lead_min_minutes": 2.3333333333333335,
+    "first_alert_lead_max_minutes": 720.0,
+    "false_alarm_events_10m": 3576,
+    "false_alarm_events_per_observed_tool_day": 4.508699672186266
+  },
+  "qualifying_count": 1,
+  "lowest_false_alarm_qualifying": {
+    "threshold": 0.34,
+    "condition": "1_of_1m",
+    "window_minutes": 1,
+    "minimum_hits": 1,
+    "validation_rows": 1142112,
+    "positive_rows": 37019,
+    "negative_rows": 1105093,
+    "accuracy": 0.7482190888459276,
+    "precision": 0.07515354588402072,
+    "recall": 0.5986115238120965,
+    "f1": 0.13354143942726632,
+    "balanced_accuracy": 0.6759211236900791,
+    "tn": 832390,
+    "fp": 272703,
+    "fn": 14859,
+    "tp": 22160,
+    "average_precision": 0.09949308179473107,
+    "logged_fault_events": 181,
+    "evaluable_fault_events": 154,
+    "detected_fault_events": 131,
+    "all_fault_event_recall": 0.7237569060773481,
+    "evaluable_fault_event_recall": 0.8506493506493507,
+    "first_alert_lead_median_minutes": 616.0666666666667,
+    "first_alert_lead_min_minutes": 25.166666666666668,
+    "first_alert_lead_max_minutes": 720.0,
+    "false_alarm_events_10m": 8754,
+    "false_alarm_events_per_observed_tool_day": 11.03723627805329
+  },
+  "limitation": "Selection uses the existing validation segment and requires an untouched later time segment for final operational performance."
+}

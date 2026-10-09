@@ -1,0 +1,20 @@
+{
+  "source": "20 recovered-baseline prepared files, original 1-minute sensor values",
+  "normal_definition": "Train split=0 and label=0; full 24-hour future outcome observed with no target fault in that horizon; this does not ensure 72h separation from past/future faults.",
+  "alternative_not_applied": "For a later sensitivity check, use only training-period fault logs to exclude train rows within 72h of those faults, and keep candidate reference rows at least 72h before the validation cutoff. Recompute train-only references and compare with the same frozen validation. This is not mixed into the current ablation.",
+  "validation_use": "Only the stored train reference is applied; no validation mean/median/IQR/CDF estimation.",
+  "unknown_tool_policy": "Raise an error; never compute reference from validation.",
+  "robust_z_formula": "(pressure - tool train-normal median) / (tool train-normal IQR / 1.349)",
+  "percentile_formula": "empirical right-sided CDF of tool train-normal flow values",
+  "baseline_features": 85,
+  "B_added": [
+    "FLOWCOOLFLOWRATE_tool_percentile",
+    "FLOWCOOLPRESSURE_tool_robust_zscore"
+  ],
+  "C_added": [
+    "FLOWCOOLFLOWRATE_tool_percentile",
+    "FLOWCOOLPRESSURE_tool_robust_zscore",
+    "FLOWCOOLFLOWRATE_minus_tool_normal_median",
+    "FLOWCOOLPRESSURE_minus_tool_normal_median"
+  ]
+}

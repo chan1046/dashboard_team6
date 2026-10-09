@@ -1,0 +1,45 @@
+{
+  "model_training": false,
+  "reference_sampling_interval": "Train FSP=1 real adjacent rows >24h before/after any Train fault; median of positive intervals; no Validation statistics",
+  "expected_rows_formula": "1800 seconds / Tool Train median interval",
+  "history_window": "[fault-60m, fault-30m] actual raw sensor rows, after previous any-type fault and within existing phase",
+  "thresholds": {
+    "ratios": [
+      0.5,
+      0.67,
+      0.8,
+      0.9
+    ],
+    "coverage_seconds": [
+      900,
+      1200,
+      1440
+    ],
+    "freshness_seconds": [
+      60,
+      180,
+      300,
+      null
+    ],
+    "candidates": {
+      "A": [
+        0.5,
+        900,
+        300
+      ],
+      "B": [
+        0.67,
+        1200,
+        180
+      ],
+      "C": [
+        0.8,
+        1440,
+        60
+      ]
+    }
+  },
+  "slope_instability_descriptive_flag": ">90% of rows in either half of observed span OR max internal gap >600s; not an optimized eligibility cutoff",
+  "split": "output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "random_state": 42
+}

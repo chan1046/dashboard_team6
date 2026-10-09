@@ -1,0 +1,8 @@
+{
+  "model1_trigger": 332303,
+  "not_aligned_to_prepared_minute": 0,
+  "fewer_than_30_prior_observations": 0,
+  "session_or_gap_break_in_history": 252608,
+  "nonfinite_sensor_or_stage": 0,
+  "available": 79695
+}

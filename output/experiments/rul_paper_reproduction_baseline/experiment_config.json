@@ -1,0 +1,45 @@
+{
+  "input_data": "actual raw 4-second sensor parquet, shutter=1 observations",
+  "sensor_columns": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "fault_types": [
+    "pressure_low",
+    "pressure_high",
+    "leak"
+  ],
+  "sequence_observations": 2000,
+  "overlap_observations": 500,
+  "stride_observations": 1500,
+  "sequence_resampling": "every 20th of 2000 raw operating observations -> 100 GRU steps; all 2000 raw observations retained only for window eligibility and gap metadata",
+  "target": "three separate next-same-type-fault elapsed hours; censored when no same-type fault observed within same split",
+  "mask": "finite target only; masked squared error normalized by valid count per type, then mean of three type losses",
+  "target_transform": "log1p(hours) for fit; expm1 and clamp at zero for inference; no artificial far-horizon target",
+  "scaler": "Train-only global sensor median and IQR; scale=1 for IQR<1e-6",
+  "split": "Frozen per-tool chronological Model A Train/Validation with >=24h boundary purge; window start/end and target event inside same split; reserved Test unused",
+  "architecture": "shared one-layer GRU, 32 hidden units, three linear outputs, Adam .001, five fixed epochs, random_state 42",
+  "gap": "No >90s rejection; no synthetic observations. Actual max operating/raw gap, elapsed time, raw >90s session transition saved per window as metadata, not model feature.",
+  "model_file": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\rul_paper_multioutput_gru.pt",
+  "tree_model_file": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\rul_paper_tree_baseline.joblib",
+  "train_windows": 15400,
+  "validation_windows": 4036,
+  "train_valid_target_counts": {
+    "pressure_low": 11378,
+    "pressure_high": 10554,
+    "leak": 8957
+  },
+  "validation_valid_target_counts": {
+    "pressure_low": 3264,
+    "pressure_high": 1866,
+    "leak": 1127
+  },
+  "caveat": "Developmental paper-inspired baseline, not exact paper architecture or official challenge score; validation is reused development data."
+}

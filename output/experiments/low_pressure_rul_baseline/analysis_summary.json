@@ -1,0 +1,32 @@
+{
+  "train_samples": 9470,
+  "validation_samples": 20427,
+  "train_events": 425,
+  "validation_events": 166,
+  "train_event_cap": 32,
+  "validation_event_with_other_fault": 19,
+  "validation_rows_with_future_intermediate_fault": 6290,
+  "validation_event_without_other_fault": 147,
+  "bootstrap": [
+    {
+      "model": "Tree",
+      "comparison": "event MAE minus Dummy; negative is better",
+      "events": 166,
+      "difference_h": 17.933354032174993,
+      "bootstrap_p025_h": 2.5078092525236344,
+      "bootstrap_p975_h": 36.778986042222925,
+      "resamples": 5000,
+      "seed": 42
+    },
+    {
+      "model": "GRU",
+      "comparison": "event MAE minus Dummy; negative is better",
+      "events": 166,
+      "difference_h": -0.6187428978214254,
+      "bootstrap_p025_h": -1.0693615466514346,
+      "bootstrap_p975_h": -0.1762914585694273,
+      "resamples": 5000,
+      "seed": 42
+    }
+  ]
+}

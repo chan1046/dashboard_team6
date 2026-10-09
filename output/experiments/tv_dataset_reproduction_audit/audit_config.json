@@ -1,0 +1,34 @@
+{
+  "model_training": false,
+  "raw_data_only": true,
+  "length": 2000,
+  "variants": [
+    {
+      "name": "stride1500_fault",
+      "stride": 1500,
+      "fault_boundary": true
+    },
+    {
+      "name": "stride500_fault",
+      "stride": 500,
+      "fault_boundary": true
+    },
+    {
+      "name": "stride1500_no_fault",
+      "stride": 1500,
+      "fault_boundary": false
+    },
+    {
+      "name": "stride500_no_fault",
+      "stride": 500,
+      "fault_boundary": false
+    }
+  ],
+  "split": "frozen forward Train/Validation, reserved Test sensor rows unread",
+  "time_reversal": "split for all variants to preserve chronology",
+  "source_ttf": "original train_ttf columns merged into processed parquet, raw CSV parity checked",
+  "direct_ttf": "window count uses next strictly future same-type fault within same phase as prior baseline; raw TTF sample comparison uses next fault at or after timestamp across full logged Train to match provided zero at fault",
+  "source_comparison": "1000 random FSP=1 observations per Tool plus all supplied TTF<500 observations, pre-Test",
+  "fault_crossing": "counts any logged fault strictly after window start and no later than window end; those windows include post-earlier-fault observations, but not observations after their next target fault",
+  "paper_source": "https://papers.phmsociety.org/index.php/phmconf/article/download/589/phmc_18_589"
+}

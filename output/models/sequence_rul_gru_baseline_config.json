@@ -1,0 +1,20 @@
+{
+  "architecture": "GRU 16 hidden units, 3 epochs, smooth L1 loss, target TTF hours /24",
+  "feature_names": [
+    "FLOWCOOLPRESSURE",
+    "FLOWCOOLFLOWRATE",
+    "IONGAUGEPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK",
+    "stage"
+  ],
+  "sequence_minutes": 30,
+  "degradation_window_h": 6,
+  "max_gap_seconds": 90,
+  "same_session_only": true,
+  "anchor_interval_seconds": 600,
+  "random_state": 42,
+  "model_path": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\models\\sequence_rul_gru_baseline.pt",
+  "event_equal_validation_mae_h": 1.7422349022402146,
+  "conditional_selection_caveat": "Model trained only on true pre-fault windows; full-timeline scores are extrapolations."
+}

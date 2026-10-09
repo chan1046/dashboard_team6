@@ -1,0 +1,31 @@
+{
+  "model_training": false,
+  "model1_threshold": 0.34,
+  "raw_alarm_gap_seconds": 600,
+  "notification_cooldown_seconds": 1800,
+  "model1_score_file_sha256": "4dea95a799c32ad9e7caa9c8e42b2fcfa17764beff441c3170399dd0a8e4e143",
+  "model1_file_sha256": "66c5a0a8d1ead59869127e99d7015346005f7a92dd50f907b0666adb3dd76c38",
+  "model2_file_sha256": "1721648cfe12f74c151cb010d23e351d921ccbf824f81048124a7a3aac385482",
+  "model2_name": "random_forest_default",
+  "validation_only": true,
+  "raw_alarm_episode_count": 7317,
+  "suppressed_by_cooldown": 863,
+  "admin_alert_count": 6454,
+  "categories": {
+    "B_history_insufficient": 2697,
+    "A_evaluable": 2664,
+    "C_next_fault_unobserved": 1093
+  },
+  "evaluation_scope": "all frozen Model1 administrator notifications in Validation; next fault type only when that next fault occurs before that Tool's Validation end",
+  "next_fault_is_target_only": true,
+  "scores_calibrated": false,
+  "leakage_checks": {
+    "future_sensor_rows": 0,
+    "ttf_feature_columns": 0,
+    "fault_feature_columns": 0,
+    "tool_id_feature_columns": 0,
+    "model1_score_sha256_matches_saved": true,
+    "model2_file_sha256": "1721648cfe12f74c151cb010d23e351d921ccbf824f81048124a7a3aac385482"
+  },
+  "admin_alert_timestamps": "deterministically reconstructed from frozen validation scores using identical first_after_gap and notify functions; prior audit saved aggregate counts, not individual timestamps"
+}

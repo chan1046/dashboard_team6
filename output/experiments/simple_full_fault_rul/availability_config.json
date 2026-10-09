@@ -1,0 +1,10 @@
+{
+  "model_training": false,
+  "all_fault_events": 1211,
+  "data_read_for_availability": "time column of original Train parquet across all 20 Tools, including the reserved later time axis; no reserved sensor or TTF values read",
+  "model_candidate_scope": "only frozen Train/Validation fault events and sensor times; no reserved/purge event in fitting or evaluation",
+  "history_rule": "within previous-any-fault to current-fault cycle, >= 60 observed sensor timestamps and >= 80% of requested wall-clock span at anchor; no synthetic downtime rows",
+  "anchor_rule": "latest actual observation at/before each grid time, de-duplicated; no future sensor input",
+  "fault_label": "next any-type logged fault; unique fault_event_id",
+  "reserved_test": "time-only availability audit, no model use"
+}

@@ -1,0 +1,38 @@
+{
+  "history_minutes": 60,
+  "prediction_interval_minutes": 30,
+  "sequence_points": 60,
+  "train_event_cap": 64,
+  "train_events": 553,
+  "validation_events": 201,
+  "train_samples": 18580,
+  "validation_samples": 22518,
+  "ttf_unit": "hours; next any-type fault; unbounded; no target filtering",
+  "train_ttf_quantiles_hours": {
+    "0.5": 41.427223205566406,
+    "0.75": 123.9719467163086,
+    "0.9": 352.125,
+    "0.95": 648.9110717773438,
+    "1": 5496.611328125
+  },
+  "raw_sensors": [
+    "IONGAUGEPRESSURE",
+    "ETCHBEAMVOLTAGE",
+    "ETCHBEAMCURRENT",
+    "ETCHSUPPRESSORVOLTAGE",
+    "ETCHSUPPRESSORCURRENT",
+    "FLOWCOOLFLOWRATE",
+    "FLOWCOOLPRESSURE",
+    "ETCHGASCHANNEL1READBACK",
+    "ETCHPBNGASREADBACK"
+  ],
+  "random_state": 42,
+  "sequence_rule": "60 evenly spaced actual observed indices over prior 1h; >=60 observations and >=80% observed elapsed span; no fill; gaps recorded",
+  "anchor_rule": "latest observation at or before each 30min wall-clock grid, deduplicated",
+  "split": "frozen per-Tool forward plan; >=24h purge; fault event in exactly one phase; all history restricted to same phase and prior-fault cycle; reserved Test sensor/label never read",
+  "event_weight": "training event cap64 uniform seeded; weight per retained event = 1/its retained count; all Validation anchors retained",
+  "tree": "HistGradientBoostingRegressor, 6 summary statistics of 9 raw sensors, max_iter120/max_leaf_nodes31/lr0.05/l2=1",
+  "gru": "one layer 32 hidden, Adam lr0.001, 5 epochs, smooth L1 on target/Train median, no target clipping; prediction constrained >=0",
+  "train_last_fault_time": 27162974,
+  "validation_first_fault_time": 21690196
+}

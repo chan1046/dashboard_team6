@@ -1,0 +1,11 @@
+{
+  "operating": "FIXTURESHUTTERPOSITION == 1",
+  "new_segment_when": "previous raw row not operating; timestamp <= prior or >12 seconds after prior; frozen split phase changes; any fault event crossed",
+  "max_gap_seconds": 12,
+  "window_observations": 2000,
+  "overlap_observations": 500,
+  "stride_observations": 1500,
+  "no_fill": "downtime omitted; never concatenate segments",
+  "split_plan": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "reserved_test": "sensor rows at/after validation_end_exclusive_second not read"
+}

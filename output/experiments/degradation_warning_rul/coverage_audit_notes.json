@@ -1,0 +1,17 @@
+{
+  "validation_window_rows": 6424,
+  "detector_train_window_rows": 14086,
+  "rul_train_window_rows": 5205,
+  "large_gap_validation_windows_gt90s": 6391,
+  "fraction_large_gap_validation_windows": 0.9948630136986302,
+  "warning_stride_operating_observations": 1500,
+  "nominal_warning_stride_minutes_at_4s": 100,
+  "known_exclusions": [
+    "2000 operating observations required",
+    "1500-observation stride",
+    "24h split embargo and internal Train split",
+    "phase-end 24h detector-label censoring",
+    "RUL only after 0.5 warning"
+  ],
+  "leakage_status": "Static source-code audit finds no TTF/fault/time model input and no validation fit; full raw timestamp replay was not independently recomputed."
+}

@@ -1,0 +1,342 @@
+{
+  "provenance": "Archived Codex conversation command outputs; not recovered original XLSX bytes",
+  "archived_session": "C:\\Users\\USER\\.codex\\sessions\\2026\\09\\22\\rollout-2026-09-22T17-41-36-01a0c847-133e-7a52-8217-d512e5355fe0.jsonl",
+  "source_line_continuous": 5104,
+  "source_line_calendar": 5914,
+  "missing_original_filenames": [
+    "LS_team6/output_extended/LS_team6_3h_6h_12h_24h_검증보고서.xlsx",
+    "LS_team6/output_calendar_12_24/LS_team6_시계시간_12h_24h_검증보고서.xlsx"
+  ],
+  "continuous_operating_time_summary": [
+    {
+      "horizon_hours": 3,
+      "validation_rows": 38435,
+      "normal_rows": 34774,
+      "positive_rows": 3661,
+      "censored_rows": 1116980,
+      "positive_prevalence": 0.09525172368934565,
+      "average_precision": 0.21024880612364089,
+      "detected_fault_events": 50,
+      "fault_event_denominator": 80,
+      "fault_event_recall": 0.625,
+      "first_alert_lead_median_minutes": 14.783333333333333,
+      "detected_at_least_1h_before_fault": 11,
+      "detected_at_least_h_hours_before_fault": 0
+    },
+    {
+      "horizon_hours": 6,
+      "validation_rows": 17812,
+      "normal_rows": 14133,
+      "positive_rows": 3679,
+      "censored_rows": 1137603,
+      "positive_prevalence": 0.20654614866382215,
+      "average_precision": 0.4974422179244688,
+      "detected_fault_events": 74,
+      "fault_event_denominator": 80,
+      "fault_event_recall": 0.925,
+      "first_alert_lead_median_minutes": 28.833333333333332,
+      "detected_at_least_1h_before_fault": 25,
+      "detected_at_least_h_hours_before_fault": 0
+    },
+    {
+      "horizon_hours": 12,
+      "validation_rows": 10395,
+      "normal_rows": 6716,
+      "positive_rows": 3679,
+      "censored_rows": 1145020,
+      "positive_prevalence": 0.3539201539201539,
+      "average_precision": 0.7686077125433828,
+      "detected_fault_events": 79,
+      "fault_event_denominator": 80,
+      "fault_event_recall": 0.9875,
+      "first_alert_lead_median_minutes": 27.566666666666666,
+      "detected_at_least_1h_before_fault": 26,
+      "detected_at_least_h_hours_before_fault": 0
+    },
+    {
+      "horizon_hours": 24,
+      "validation_rows": 5981,
+      "normal_rows": 2302,
+      "positive_rows": 3679,
+      "censored_rows": 1149434,
+      "positive_prevalence": 0.6151145293429192,
+      "average_precision": 0.9175233757668764,
+      "detected_fault_events": 75,
+      "fault_event_denominator": 80,
+      "fault_event_recall": 0.9375,
+      "first_alert_lead_median_minutes": 27.566666666666666,
+      "detected_at_least_1h_before_fault": 24,
+      "detected_at_least_h_hours_before_fault": 0
+    }
+  ],
+  "calendar_time_classification": [
+    {
+      "horizon_hours": 12,
+      "model": "HGB",
+      "train_fraction": "1%",
+      "validation_rows": 1148612,
+      "positive_rows": 37019,
+      "precision": 0.09323797200775404,
+      "recall": 0.5314027931602691,
+      "f1_derived_from_precision_recall": 0.15864132319379368,
+      "average_precision": 0.08973499972306109,
+      "evaluable_fault_events": 154,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 114,
+      "event_recall_evaluable": 0.7402597402597403,
+      "events_without_prior_sensor": 27,
+      "first_alert_lead_median_minutes": 669.0833333333334,
+      "false_alerts_per_observed_hour": 0.2639533628414121
+    },
+    {
+      "horizon_hours": 12,
+      "model": "HGB",
+      "train_fraction": "100%",
+      "validation_rows": 1148612,
+      "positive_rows": 37019,
+      "precision": 0.09422216821748539,
+      "recall": 0.5446122261541371,
+      "f1_derived_from_precision_recall": 0.16065053866258686,
+      "average_precision": 0.08398953874309019,
+      "evaluable_fault_events": 154,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 129,
+      "event_recall_evaluable": 0.8376623376623377,
+      "events_without_prior_sensor": 27,
+      "first_alert_lead_median_minutes": 627.6333333333333,
+      "false_alerts_per_observed_hour": 0.2610280930375096
+    },
+    {
+      "horizon_hours": 12,
+      "model": "XGBoost",
+      "train_fraction": "100%",
+      "validation_rows": 1148612,
+      "positive_rows": 37019,
+      "precision": 0.08927438891257108,
+      "recall": 0.4638969177989681,
+      "f1_derived_from_precision_recall": 0.14973341296794415,
+      "average_precision": 0.09610241199428303,
+      "evaluable_fault_events": 154,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 105,
+      "event_recall_evaluable": 0.6818181818181818,
+      "events_without_prior_sensor": 27,
+      "first_alert_lead_median_minutes": 621.9333333333333,
+      "false_alerts_per_observed_hour": 0.21615654372407742
+    },
+    {
+      "horizon_hours": 24,
+      "model": "HGB",
+      "train_fraction": "1%",
+      "validation_rows": 1142112,
+      "positive_rows": 67338,
+      "precision": 0.154087560373033,
+      "recall": 0.5140485312899106,
+      "f1_derived_from_precision_recall": 0.23710284502864892,
+      "average_precision": 0.1447550241218522,
+      "evaluable_fault_events": 163,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 105,
+      "event_recall_evaluable": 0.6441717791411042,
+      "events_without_prior_sensor": 18,
+      "first_alert_lead_median_minutes": 1404.9333333333334,
+      "false_alerts_per_observed_hour": 0.28851811381020426
+    },
+    {
+      "horizon_hours": 24,
+      "model": "HGB",
+      "train_fraction": "100%",
+      "validation_rows": 1142112,
+      "positive_rows": 67338,
+      "precision": 0.16354675664701845,
+      "recall": 0.5204045264189611,
+      "f1_derived_from_precision_recall": 0.24887875656500014,
+      "average_precision": 0.15259465970538472,
+      "evaluable_fault_events": 163,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 111,
+      "event_recall_evaluable": 0.6809815950920245,
+      "events_without_prior_sensor": 18,
+      "first_alert_lead_median_minutes": 1349.3,
+      "false_alerts_per_observed_hour": 0.22894427166512565
+    },
+    {
+      "horizon_hours": 24,
+      "model": "XGBoost",
+      "train_fraction": "100%",
+      "validation_rows": 1142112,
+      "positive_rows": 67338,
+      "precision": 0.16707332608205702,
+      "recall": 0.5064005464967775,
+      "f1_derived_from_precision_recall": 0.25125257883878577,
+      "average_precision": 0.17222147390893028,
+      "evaluable_fault_events": 163,
+      "all_logged_fault_events": 181,
+      "detected_fault_events": 111,
+      "event_recall_evaluable": 0.6809815950920245,
+      "events_without_prior_sensor": 18,
+      "first_alert_lead_median_minutes": 1335.7,
+      "false_alerts_per_observed_hour": 0.2128687904513743
+    }
+  ],
+  "calendar_time_regression_partial": [
+    {
+      "model_fault_key": "ttf_hgb_log_1pct_pressure_low",
+      "rows": 362570,
+      "events": 85,
+      "mae_seconds": 2200538.0,
+      "r2": -6.432342529296875,
+      "event_mean_mae_seconds": 1824681.0
+    },
+    {
+      "model_fault_key": "ttf_hgb_log_100pct_pressure_low",
+      "rows": 362570,
+      "events": 85,
+      "mae_seconds": 2141117.25,
+      "r2": -6.392375946044922,
+      "event_mean_mae_seconds": 1778740.875
+    },
+    {
+      "model_fault_key": "lstm_100_pressure_low",
+      "rows": 362570,
+      "events": 85,
+      "mae_seconds": 4506606.0,
+      "r2": -38.25582504272461,
+      "event_mean_mae_seconds": 3537482.25
+    },
+    {
+      "model_fault_key": "ttf_hgb_log_1pct_pressure_high",
+      "rows": 518743,
+      "events": 63,
+      "mae_seconds": 1691330.125,
+      "r2": -0.37699151039123535,
+      "event_mean_mae_seconds": 1860194.25
+    },
+    {
+      "model_fault_key": "ttf_hgb_log_100pct_pressure_high",
+      "rows": 518743,
+      "events": 63,
+      "mae_seconds": 1735254.75,
+      "r2": -0.47155022621154785,
+      "event_mean_mae_seconds": 1949358.375
+    },
+    {
+      "model_fault_key": "lstm_100_pressure_high",
+      "rows": 518743,
+      "events": 63,
+      "mae_seconds": 2051131.5,
+      "r2": -1.2466132640838623,
+      "event_mean_mae_seconds": 1503500.875
+    },
+    {
+      "model_fault_key": "ttf_hgb_log_1pct_leak",
+      "rows": 206668,
+      "events": 23,
+      "mae_seconds": 1657665.125,
+      "r2": -1.3720781803131104,
+      "event_mean_mae_seconds": 2479912.25
+    },
+    {
+      "model_fault_key": "ttf_hgb_log_100pct_leak",
+      "rows": 206668,
+      "events": 23,
+      "mae_seconds": 1609257.375,
+      "r2": -1.0256083011627197,
+      "event_mean_mae_seconds": 2006857.75
+    },
+    {
+      "model_fault_key": "lstm_100_leak",
+      "rows": 206668,
+      "events": 23,
+      "mae_seconds": 2298992.5,
+      "r2": -5.802172660827637,
+      "event_mean_mae_seconds": 2053770.125
+    }
+  ],
+  "calendar_time_joint_partial": [
+    {
+      "system_key": "xgb_100pct_h43200_plus_hgb_log_1pct",
+      "events": 154,
+      "detected_events": 105,
+      "type_correct_events": 50,
+      "type_correct_event_recall": 0.3246753246753247,
+      "rul_mae_seconds_when_gate_and_type_correct": 294018.03125,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 165835,
+        "pressure_high": 18909,
+        "leak": 7618
+      }
+    },
+    {
+      "system_key": "xgb_100pct_h43200_plus_hgb_log_100pct",
+      "events": 154,
+      "detected_events": 105,
+      "type_correct_events": 52,
+      "type_correct_event_recall": 0.33766233766233766,
+      "rul_mae_seconds_when_gate_and_type_correct": 292656.59375,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 151505,
+        "pressure_high": 35355,
+        "leak": 5502
+      }
+    },
+    {
+      "system_key": "xgb_100pct_h43200_plus_lstm_100pct",
+      "events": 154,
+      "detected_events": 105,
+      "type_correct_events": 92,
+      "type_correct_event_recall": 0.5974025974025974,
+      "rul_mae_seconds_when_gate_and_type_correct": 193191.28125,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 143727,
+        "pressure_high": 32301,
+        "leak": 16334
+      }
+    },
+    {
+      "system_key": "xgb_100pct_h86400_plus_hgb_log_1pct",
+      "events": 163,
+      "detected_events": 111,
+      "type_correct_events": 57,
+      "type_correct_event_recall": 0.3496932515337423,
+      "rul_mae_seconds_when_gate_and_type_correct": 292057.15625,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 176711,
+        "pressure_high": 18665,
+        "leak": 8726
+      }
+    },
+    {
+      "system_key": "xgb_100pct_h86400_plus_hgb_log_100pct",
+      "events": 163,
+      "detected_events": 111,
+      "type_correct_events": 63,
+      "type_correct_event_recall": 0.38650306748466257,
+      "rul_mae_seconds_when_gate_and_type_correct": 273097.65625,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 159493,
+        "pressure_high": 37841,
+        "leak": 6768
+      }
+    },
+    {
+      "system_key": "xgb_100pct_h86400_plus_lstm_100pct",
+      "events": 163,
+      "detected_events": 111,
+      "type_correct_events": 105,
+      "type_correct_event_recall": 0.6441717791411042,
+      "rul_mae_seconds_when_gate_and_type_correct": 201664.140625,
+      "selected_type_counts_on_alerts": {
+        "pressure_low": 150893,
+        "pressure_high": 36846,
+        "leak": 16363
+      }
+    }
+  ],
+  "limits": [
+    "These are values preserved in command output, not the deleted workbook itself.",
+    "Continuous-operating-time and calendar-time horizons have different definitions and evaluated populations.",
+    "The original 2172-row fault event ledger and some workbook metrics were not preserved in these outputs.",
+    "F1 in the calendar classification table is derived from archived precision and recall, not copied from the workbook."
+  ]
+}

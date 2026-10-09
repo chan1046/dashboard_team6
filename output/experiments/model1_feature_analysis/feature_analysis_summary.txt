@@ -1,0 +1,44 @@
+Model 1 feature analysis (actual frozen artifacts)
+
+Train rows=3,376,576; positives=283,187; ratio=8.386810%
+Validation rows=1,114,137; positives=91,664; ratio=8.227354%
+Direction rule: abs(Validation correlation) < 0.05 => near-zero; otherwise sign determines positive/negative.
+Point-biserial/Pearson maximum absolute difference on the fixed sample=0
+Permutation importance: uniform Validation sample without replacement, rows=100,000, random_state=42, repeats=3, scoring=average_precision.
+Interaction gains are not double-counted in either single-sensor total.
+
+Top 5 raw sensors by absolute Validation target correlation:
+1. ETCHSOURCEUSAGE: train=-0.00076227, validation=-0.08218256
+2. FLOWCOOLFLOWRATE: train=-0.02497948, validation=-0.05356036
+3. ETCHPBNGASREADBACK: train=-0.02305091, validation=-0.05273027
+4. FLOWCOOLPRESSURE: train=-0.01820060, validation=0.05174693
+5. ACTUALROTATIONANGLE: train=0.05148340, validation=0.05142965
+
+Top 20 integrated features by XGBoost gain share:
+1. tool_number | process/session | process/session | train_corr=-0.08362880 | validation_corr=-0.03264849 | gain_share=12.419777% | permutation=0.24157011
+2. ROTATIONSPEED | ROTATIONSPEED | current/raw | train_corr=0.00336377 | validation_corr=-0.00969640 | gain_share=7.496821% | permutation=0.06032136
+3. ETCHBEAMCURRENT | ETCHBEAMCURRENT | current/raw | train_corr=-0.01009170 | validation_corr=-0.03587167 | gain_share=6.489526% | permutation=0.00086214
+4. ETCHPBNGASREADBACK_std_1m | ETCHPBNGASREADBACK | 1m_statistics | train_corr=-0.00166207 | validation_corr=-0.00443917 | gain_share=5.248211% | permutation=-0.00031648
+5. FLOWCOOLPRESSURE_max_1m | FLOWCOOLPRESSURE | 1m_statistics | train_corr=-0.02415491 | validation_corr=0.04829413 | gain_share=4.442681% | permutation=0.02322062
+6. FLOWCOOLFLOWRATE | FLOWCOOLFLOWRATE | current/raw | train_corr=-0.02497948 | validation_corr=-0.05356036 | gain_share=4.378611% | permutation=0.00032182
+7. ACTUALROTATIONANGLE | ACTUALROTATIONANGLE | current/raw | train_corr=0.05148340 | validation_corr=0.05142965 | gain_share=3.675382% | permutation=0.05185488
+8. recipe | process/session | process/session | train_corr=0.06857877 | validation_corr=0.08922920 | gain_share=3.423427% | permutation=0.00215144
+9. IONGAUGEPRESSURE_std_30m | IONGAUGEPRESSURE | rolling | train_corr=-0.00969809 | validation_corr=-0.00721091 | gain_share=2.726291% | permutation=-0.00114374
+10. pressure_div_flow | FLOWCOOLPRESSURE+FLOWCOOLFLOWRATE | interaction | train_corr=-0.00043713 | validation_corr=-0.01070877 | gain_share=2.582375% | permutation=0.00228698
+11. pressure_minus_flow | FLOWCOOLPRESSURE+FLOWCOOLFLOWRATE | interaction | train_corr=0.00499704 | validation_corr=0.11045186 | gain_share=2.489053% | permutation=0.00209086
+12. FLOWCOOLPRESSURE | FLOWCOOLPRESSURE | current/raw | train_corr=-0.01820060 | validation_corr=0.05174693 | gain_share=2.277855% | permutation=0.00219020
+13. ETCHSOURCEUSAGE | ETCHSOURCEUSAGE | current/raw | train_corr=-0.00076227 | validation_corr=-0.08218256 | gain_share=2.210503% | permutation=0.03091345
+14. IONGAUGEPRESSURE | IONGAUGEPRESSURE | current/raw | train_corr=-0.01490671 | validation_corr=-0.03311442 | gain_share=2.100340% | permutation=-0.00030818
+15. FLOWCOOLFLOWRATE_max_1m | FLOWCOOLFLOWRATE | 1m_statistics | train_corr=-0.02377622 | validation_corr=-0.05163219 | gain_share=2.072478% | permutation=0.00461888
+16. ETCHAUX2SOURCETIMER | ETCHAUX2SOURCETIMER | current/raw | train_corr=-0.01575864 | validation_corr=-0.04138967 | gain_share=2.057208% | permutation=-0.00199696
+17. ETCHAUXSOURCETIMER | ETCHAUXSOURCETIMER | current/raw | train_corr=0.02094172 | validation_corr=-0.01502638 | gain_share=2.047335% | permutation=-0.04123562
+18. ETCHPBNGASREADBACK_min_1m | ETCHPBNGASREADBACK | 1m_statistics | train_corr=-0.02037472 | validation_corr=-0.04640164 | gain_share=1.857789% | permutation=0.00098715
+19. FLOWCOOLPRESSURE_std_5m | FLOWCOOLPRESSURE | rolling | train_corr=-0.03542307 | validation_corr=-0.04516682 | gain_share=1.730730% | permutation=-0.00007097
+20. FLOWCOOLPRESSURE_min_1m | FLOWCOOLPRESSURE | 1m_statistics | train_corr=-0.01207808 | validation_corr=0.05344962 | gain_share=1.646606% | permutation=0.00242148
+
+Top 5 sensors by summed single-sensor feature gain share:
+1. ETCHPBNGASREADBACK: total=14.597412%, best=ETCHPBNGASREADBACK_std_1m (5.248211%)
+2. FLOWCOOLPRESSURE: total=12.762054%, best=FLOWCOOLPRESSURE_max_1m (4.442681%)
+3. FLOWCOOLFLOWRATE: total=11.082362%, best=FLOWCOOLFLOWRATE (4.378611%)
+4. IONGAUGEPRESSURE: total=7.988836%, best=IONGAUGEPRESSURE_std_30m (2.726291%)
+5. ROTATIONSPEED: total=7.496821%, best=ROTATIONSPEED (7.496821%)

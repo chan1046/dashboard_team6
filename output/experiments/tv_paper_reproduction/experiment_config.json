@@ -1,0 +1,65 @@
+{
+  "paper_source": "https://papers.phmsociety.org/index.php/phmconf/article/download/589/phmc_18_589",
+  "window": "Rule B audited 2000 observations, 500 overlap, Tool/fault/split boundaries",
+  "shape": {
+    "raw": [
+      2000,
+      9
+    ],
+    "downsample_d1_2": [
+      1000,
+      9
+    ],
+    "t2v_d2_10": [
+      100,
+      90
+    ],
+    "comparison_subsample": [
+      100,
+      9
+    ]
+  },
+  "clipping": {
+    "r_u_seconds": 500,
+    "normalized_target": "min(raw_RUL_seconds,500)/500"
+  },
+  "unclipped_ablation": "raw_RUL_seconds/500 (no clipping); same sampling and LSTM structure",
+  "sampling": {
+    "all_rule_b_usable_windows": 19053,
+    "train_all": 15076,
+    "train_near_any_type": 6,
+    "train_distant_all": 15070,
+    "train_distant_sampled": 60,
+    "train_sampled_total": 66,
+    "validation_all_unsampled": 3977,
+    "validation_near_any_type": 3,
+    "sampling": "all near (<500 seconds in any observed head) plus 10x as many randomly selected distant Train windows; paper does not give exact distant ratio",
+    "seed": 42,
+    "train_near_per_type": {
+      "pressure_low": 5,
+      "pressure_high": 0,
+      "leak": 1
+    },
+    "validation_near_per_type": {
+      "pressure_low": 3,
+      "pressure_high": 0,
+      "leak": 0
+    }
+  },
+  "split": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\forward_validation_ab_24h\\split_plan.json",
+  "test": "reserved, unread",
+  "scaling": "Train-only sensor median/IQR reused from Rule B baseline",
+  "mask": "only observed next same-type fault targets within frozen split; three-head masked MSE",
+  "architecture": {
+    "layers": 2,
+    "hidden": 50,
+    "dropout": 0.4,
+    "adam_lr": 0.005,
+    "batch": 32,
+    "epochs": 5,
+    "hidden_selection": "smallest paper candidate prespecified; no Validation tuning"
+  },
+  "seed": 42,
+  "metadata": "elapsed and max gap retained only; not model features",
+  "model1": "unchanged"
+}

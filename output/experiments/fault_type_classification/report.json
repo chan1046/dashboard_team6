@@ -1,0 +1,84 @@
+{
+  "coverage": {
+    "total_unique_fault_events": 1211,
+    "original_fault_rows": 1236,
+    "duplicates_removed": 25,
+    "type_counts": {
+      "leak": 137,
+      "pressure_high": 333,
+      "pressure_low": 741
+    },
+    "events_in_sensor_range": 1207,
+    "any_sensor_history_since_previous_fault": 1047,
+    "any_sensor_within_1h": 717,
+    "any_sensor_within_6h": 914,
+    "any_sensor_within_12h": 959,
+    "any_sensor_within_24h": 989,
+    "conditional_6h_snapshot_events": 485,
+    "snapshot_train_events": 364,
+    "snapshot_validation_events": 121,
+    "snapshot_type_by_split": {
+      "train": {
+        "leak": 26,
+        "pressure_high": 50,
+        "pressure_low": 288
+      },
+      "validation": {
+        "leak": 5,
+        "pressure_high": 13,
+        "pressure_low": 103
+      }
+    }
+  },
+  "snapshot": "One actual minute observation closest to exactly 6h before each event within ±1h, after prior same-tool fault; only current and earlier same-session sensors",
+  "conditional_caveat": "True future fault time selects the research snapshot. Online Model 2 cannot select that time; this is not gated end-to-end Model 1+2 performance.",
+  "split": "Existing Model A per-tool chronological Train/Validation, with >=24h boundary purge; no event is shared. Reserved test not deserialized.",
+  "features": [
+    "FLOWCOOLPRESSURE",
+    "FLOWCOOLFLOWRATE",
+    "IONGAUGEPRESSURE",
+    "FLOWCOOLPRESSURE_mean_past_30m",
+    "FLOWCOOLFLOWRATE_mean_past_30m",
+    "IONGAUGEPRESSURE_std_past_10m"
+  ],
+  "model_parameters": {
+    "max_iter": 120,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "forbidden_as_feature": [
+    "fault_name",
+    "fault_type",
+    "TTF",
+    "fault_time",
+    "post_fault_sensor",
+    "future_sensor",
+    "absolute_time",
+    "tool_id"
+  ],
+  "gating": "Only display Model 2 probabilities after Model 1 actually raises risk; no forced diagnosis on Model 1-negative rows. Gated performance is not assessed in this experiment.",
+  "fault_log_sha256": "26e3183c9a7017d9d354fa3623c65fec20170084194f422998dfcf2d8080d9fd",
+  "split_plan_sha256": "c601f1aa9925c4c1506f102506093afdabcc2eff98d6fa9a06b9453846e58d31",
+  "model_1_unchanged": true,
+  "metrics": [
+    {
+      "model": "Dummy_most_frequent",
+      "train_events": 364,
+      "validation_events": 121,
+      "accuracy": 0.8512396694214877,
+      "macro_f1": 0.306547619047619,
+      "balanced_accuracy": 0.3333333333333333
+    },
+    {
+      "model": "HGB_balanced",
+      "train_events": 364,
+      "validation_events": 121,
+      "accuracy": 0.8099173553719008,
+      "macro_f1": 0.4852689793866265,
+      "balanced_accuracy": 0.4926064227035101
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "model1_threshold": 0.34,
+  "raw_alarm_gap_seconds": 600,
+  "manager_cooldown_seconds": 1800,
+  "threshold_hits": 332303,
+  "raw_alarm_episode_starts": 7317,
+  "manager_notifications": 6454,
+  "status_counts": {
+    "A_evaluable": 3114,
+    "B_history_insufficient": 2247,
+    "C_no_validation_next_fault": 1093
+  },
+  "all_validation_faults_within_validation_end": 262,
+  "original_model1_report_faults_until_test_start": 264,
+  "all_alerts_with_evaluable_rul": 3114,
+  "all_next_fault_events_with_evaluable_rul": 144,
+  "first_actual_notification_events": 188,
+  "first_actual_notification_rul_history_available": 25,
+  "last_actual_notification_rul_history_available": 82,
+  "first_last_two_evaluable_alert_events": 120,
+  "negative_log_inverse_predictions_clipped": 0,
+  "model1_score_sha256": "4dea95a799c32ad9e7caa9c8e42b2fcfa17764beff441c3170399dd0a8e4e143",
+  "rul_source_models_sha256": {
+    "raw_gru": "b3fc2288b9600eee14d8902a4c8407ab547e5d6cdc5d6d247285b108995d2ee6",
+    "log_gru": "17d65654e547a584d65701c031034f2245ac350e3dc127cb6f9c98a3e5ed4c9c"
+  },
+  "source_policy": "Frozen Model A, 85 features, threshold .34, 1/1 minute; raw 10m gap alarm starts; per-tool 30m manager notification cooldown from last sent notification; predictions preserved",
+  "history_rule": "at alert time, only earlier raw observations within 1h and same validation interval/next-fault cycle; >=60 observations spanning >=48m; select 60 evenly spaced observed indices; no fill",
+  "label_scope": "next logged fault strictly before per-Tool validation_end_exclusive_second; no reserved test outcome or sensor used",
+  "rul_model_fitting": false,
+  "model1_fitting": false,
+  "caveat": "RUL models trained on 30-minute grid anchors; manager notification timestamps are different and involve nearest prior sensor observation. This is deployment-time sampling shift. Validation is development data, not final independent test."
+}

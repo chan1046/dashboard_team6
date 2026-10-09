@@ -1,0 +1,18 @@
+{
+  "raw_timestamp_unit": "seconds on challenge operating time axis",
+  "evidence": {
+    "tool": "01_M01",
+    "time_0": 3283106,
+    "time_1": 3283110,
+    "ttf_0": 3250078.0,
+    "ttf_1": 3250074.0,
+    "first_low_fault_time": 6533184,
+    "fault_minus_observation": 3250078
+  },
+  "project_prior_target_unit": "hours = (fault_time - sequence_end_time)/3600",
+  "paper_rul_unit": "same challenge timestamp/TTF unit (seconds); paper does not explicitly name SI seconds, but uses the provided challenge TTF values",
+  "paper_ru_raw_units": 500,
+  "paper_ru_hours": 0.1388888888888889,
+  "source": "https://papers.phmsociety.org/index.php/phmconf/article/download/589/phmc_18_589",
+  "caveat": "The fault timestamp is the reported operator shutdown, not necessarily the physical onset of failure."
+}

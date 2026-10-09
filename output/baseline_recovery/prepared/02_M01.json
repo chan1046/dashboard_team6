@@ -1,0 +1,23 @@
+{
+  "signature": {
+    "source_bytes": 122824725,
+    "source_mtime_ns": 1790130687364502800,
+    "fault_bytes": 129931,
+    "fault_mtime_ns": 1790090854977467200,
+    "version": 1
+  },
+  "report": {
+    "tool": "02_M01",
+    "raw_rows": 2865625,
+    "minute_rows": 200758,
+    "split_cutoff_time": 25640878,
+    "train_rows": 159948,
+    "purge_rows": 658,
+    "validation_rows": 40152,
+    "train_positive": 7140,
+    "validation_positive": 1928,
+    "validation_negative": 37897,
+    "validation_censored": 327,
+    "seconds": 11.5
+  }
+}

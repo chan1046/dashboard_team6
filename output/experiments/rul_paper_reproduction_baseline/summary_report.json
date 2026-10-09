@@ -1,0 +1,64 @@
+{
+  "raw_unique_fault_events": 1211,
+  "events_with_2000_shutter1_observations_in_type_cycle_upper": 644,
+  "candidate_events_by_type": {
+    "leak": 61,
+    "pressure_high": 140,
+    "pressure_low": 443
+  },
+  "actual_used_events": {
+    "train": {
+      "by_type": {
+        "pressure_low": 309,
+        "pressure_high": 105,
+        "leak": 41
+      },
+      "total_distinct_typed_fault_events": 455,
+      "windows": 15400
+    },
+    "validation": {
+      "by_type": {
+        "pressure_low": 108,
+        "pressure_high": 30,
+        "leak": 10
+      },
+      "total_distinct_typed_fault_events": 148,
+      "windows": 4036
+    }
+  },
+  "macro_metrics_all_known_rul": {
+    "Dummy": {
+      "macro_mae_h": 508.6272481282552,
+      "macro_event_equal_mae_h": 664.1337890625,
+      "macro_rmse_h": 584.4648992448411
+    },
+    "Sequence_GRU": {
+      "macro_mae_h": 407.6559549967448,
+      "macro_event_equal_mae_h": 478.7423909505208,
+      "macro_rmse_h": 478.85913517696605
+    },
+    "Tree_HGB": {
+      "macro_mae_h": 443.74988810221356,
+      "macro_event_equal_mae_h": 340.35959879557294,
+      "macro_rmse_h": 588.6060749799805
+    }
+  },
+  "within_24h_diagnostic_macro": {
+    "Dummy": {
+      "macro_mae_h": 829.8163353271617,
+      "macro_event_equal_mae_h": 831.0461851475983
+    },
+    "Sequence_GRU": {
+      "macro_mae_h": 551.6146769183811,
+      "macro_event_equal_mae_h": 596.2664004052458
+    },
+    "Tree_HGB": {
+      "macro_mae_h": 311.14329631049117,
+      "macro_event_equal_mae_h": 313.95305113241255
+    }
+  },
+  "within_24h_scope": "Diagnostic subset selected only after all validation predictions. Not the primary metric or training selection; exact 24h event counts are small and no Model 1 scores used.",
+  "old_conditional_population": "Previous 304 train/116 validation events were next-any-fault in true 0-6h, sampled every 10 minutes from 1-minute data. The new counts are multi-type, all-known-RUL 4-second operating-window events; descriptive population change only, not matched improvement.",
+  "model1_connection_performed": false,
+  "model1_connection_reason": "Despite lower MAE than Dummy for some types, all full-range R² remain negative and 24h diagnostic errors are not reliable. The predeclared gate requires Model 2 to be meaningfully better for 24h risk triage."
+}

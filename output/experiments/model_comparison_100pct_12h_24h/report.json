@@ -1,0 +1,131 @@
+{
+  "status": "Partial model comparison: real-data XGBoost and LSTM runs; HGB families could not execute on this host",
+  "data": "All observed 4-second train rows from 20 tools represented by 1-minute current/past aggregates",
+  "split": "Per-tool chronological first 80% train / last 20% validation; 24h purge before validation cutoff",
+  "fixed_validation": "The same 1,142,112 fully-labeled minute rows are used for 12h and 24h classification",
+  "labels": "Any next logged pressure_low, pressure_high, or leak event within 12h/24h wall-clock time; incomplete follow-up censored",
+  "features": "85 current/past process, sensor, rolling, gap, and tool features; no raw TTF, fault time, Lot, runnum, or absolute time",
+  "threshold": 0.5,
+  "random_state": 42,
+  "classification_source": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\horizon_comparison_12h_24h\\validation_probabilities_12h.npz and C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\threshold_sweep_24h\\validation_probabilities.npz",
+  "regression_source": "C:\\Users\\USER\\Documents\\ChatGPT\\LS Project 1\\output\\experiments\\ttf_lstm_100pct_12h_24h\\metrics.csv",
+  "classification": [
+    {
+      "horizon_hours": 12,
+      "model": "XGBoost",
+      "train_fraction": "100%",
+      "train_rows": 4606868,
+      "threshold": 0.5,
+      "validation_rows": 1142112,
+      "positive_rows": 37019,
+      "negative_rows": 1105093,
+      "accuracy": 0.8370588873945812,
+      "precision": 0.09707341859735992,
+      "recall": 0.4851022447932143,
+      "f1": 0.1617743105133483,
+      "balanced_accuracy": 0.666975582600409,
+      "average_precision": 0.09949308179473107,
+      "tn": 938057,
+      "fp": 167036,
+      "fn": 19061,
+      "tp": 17958,
+      "logged_fault_events": 181,
+      "evaluable_fault_events": 154,
+      "detected_fault_events": 106,
+      "all_fault_event_recall": 0.585635359116022,
+      "evaluable_fault_event_recall": 0.6883116883116883,
+      "false_alarm_events_10m": 3576,
+      "first_alert_lead_median_minutes": 615.6
+    },
+    {
+      "horizon_hours": 24,
+      "model": "XGBoost",
+      "train_fraction": "100%",
+      "train_rows": 4606868,
+      "threshold": 0.5,
+      "validation_rows": 1142112,
+      "positive_rows": 67338,
+      "negative_rows": 1074774,
+      "accuracy": 0.8325488218318343,
+      "precision": 0.17444878828005128,
+      "recall": 0.4930202857227717,
+      "f1": 0.2577101915030701,
+      "balanced_accuracy": 0.6734208236184567,
+      "average_precision": 0.16681820405182696,
+      "tn": 917665,
+      "fp": 157109,
+      "fn": 34139,
+      "tp": 33199,
+      "logged_fault_events": 181,
+      "evaluable_fault_events": 163,
+      "detected_fault_events": 112,
+      "all_fault_event_recall": 0.6187845303867403,
+      "evaluable_fault_event_recall": 0.6871165644171779,
+      "false_alarm_events_10m": 3414,
+      "first_alert_lead_median_minutes": 1259.8166666666666
+    }
+  ],
+  "regression": [
+    {
+      "model": "LSTM",
+      "fault_type": "pressure_low",
+      "train_rows": "3567949",
+      "validation_rows": "362570",
+      "epochs": "3",
+      "sequence_minutes": "5",
+      "rows": "362570",
+      "mae_seconds": "10315600.0",
+      "mae_hours": "2865.4443359375",
+      "rmse_seconds": "10834649.7841742",
+      "r2": "-86.01171399573383"
+    },
+    {
+      "model": "LSTM",
+      "fault_type": "pressure_high",
+      "train_rows": "2497574",
+      "validation_rows": "518743",
+      "epochs": "3",
+      "sequence_minutes": "5",
+      "rows": "518743",
+      "mae_seconds": "2766340.75",
+      "mae_hours": "768.427978515625",
+      "rmse_seconds": "3075608.552125656",
+      "r2": "-1.6635250960997667"
+    },
+    {
+      "model": "LSTM",
+      "fault_type": "leak",
+      "train_rows": "1967649",
+      "validation_rows": "206668",
+      "epochs": "3",
+      "sequence_minutes": "5",
+      "rows": "206668",
+      "mae_seconds": "2391313.75",
+      "mae_hours": "664.2538452148438",
+      "rmse_seconds": "2879113.7878265805",
+      "r2": "-2.623097790729331"
+    }
+  ],
+  "unavailable_models": [
+    {
+      "model": "HistGradientBoostingClassifier",
+      "task": "12h/24h classification",
+      "status": "NOT_RUN",
+      "reason": "Windows application control blocked scikit-learn histogram.cp312-win_amd64.pyd (WinError 4551)"
+    },
+    {
+      "model": "HistGradientBoostingRegressor-log",
+      "task": "three independent TTF regressions",
+      "status": "NOT_RUN",
+      "reason": "Same blocked scikit-learn histogram module"
+    }
+  ],
+  "baseline_24h": "output/baseline_recovery/reproduction_report.json",
+  "limitations": [
+    "No HGB comparison metric is fabricated or copied from the different historical experiment.",
+    "No independent future test interval exists after this tuned validation; dashboard replay is not a final unseen test.",
+    "Regression samples are the full eligible rows with a known future same-type fault before train cutoff or within observed validation. Counts differ by fault type.",
+    "LSTM TTF error is evaluated independently of classification; no gate restricts training.",
+    "TTF model bias can make minimum-prediction fault selection unreliable; connected-system performance has not been established."
+  ]
+}

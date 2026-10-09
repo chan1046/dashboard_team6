@@ -1,0 +1,22 @@
+{
+  "model_retrained": false,
+  "threshold_sweep_from_saved_probabilities": true,
+  "target_event_recall": 0.75,
+  "average_false_alarm_cap_per_tool_12h": 4,
+  "best_under_average_cap": {
+    "HGB": null,
+    "XGBoost": {
+      "model": "XGBoost",
+      "threshold": "0.36",
+      "condition": "2_of_5m",
+      "detected_fault_events": "138",
+      "all_fault_event_recall": "0.7624309392265194",
+      "evaluable_fault_event_recall": "0.8466257668711656",
+      "false_alarm_events_10m": "6066",
+      "false_alarm_events_per_observed_tool_12h": "3.8240732957888546",
+      "tools_over_4_false_alarms_per_observed_12h": "9",
+      "worst_tool_false_alarms_per_observed_12h": "13.641129403108618"
+    }
+  },
+  "limitation": "An average under four does not imply every tool meets four; thresholds selected on validation."
+}

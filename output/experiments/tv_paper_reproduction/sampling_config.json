@@ -1,0 +1,22 @@
+{
+  "all_rule_b_usable_windows": 19053,
+  "train_all": 15076,
+  "train_near_any_type": 6,
+  "train_distant_all": 15070,
+  "train_distant_sampled": 60,
+  "train_sampled_total": 66,
+  "validation_all_unsampled": 3977,
+  "validation_near_any_type": 3,
+  "sampling": "all near (<500 seconds in any observed head) plus 10x as many randomly selected distant Train windows; paper does not give exact distant ratio",
+  "seed": 42,
+  "train_near_per_type": {
+    "pressure_low": 5,
+    "pressure_high": 0,
+    "leak": 1
+  },
+  "validation_near_per_type": {
+    "pressure_low": 3,
+    "pressure_high": 0,
+    "leak": 0
+  }
+}
